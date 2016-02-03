@@ -18,7 +18,7 @@
     <hr>
   <div class="row">
     <% @positions.each do |position| %>
-      <% if position.business.email.include?("colinbf") || position.business.email == nil %>
+      <% if position.business.email == nil %>
       <% elsif position.business.name.present? %>
         <div class="col-xs-offset-1 col-sm-offset-0 col-md-offset-0 col-lg-offset-0 col-lg-3 col-md-4 col-sm-6 col-xs-10">
           <%= render partial: 'positions/position', locals: {position: position} %>
