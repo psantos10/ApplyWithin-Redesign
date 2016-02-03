@@ -82,11 +82,11 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
       address:              'smtp.gmail.com',
       port:                 587,
-      domain:               'thefreejobnetwork.com',
+      domain:               'gmail.com',
       user_name:            ENV["EMAIL"],
       password:             ENV["PASSWORD"],
       authentication:       'plain',
-      ssl:                   true,
+      enable_starttls_auto: true,
     }
 
   config.action_mailer.perform_deliveries = true
