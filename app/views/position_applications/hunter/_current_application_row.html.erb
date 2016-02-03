@@ -1,0 +1,11 @@
+<tr class="clickable" data-toggle="collapse" data-target=".<%= current_application_row.id %>">
+  <td><%= current_application_row.title %></td>
+  <td class="hidden-xs"><%= current_application_row.position.type %></td>
+  <td><%= link_to current_application_row.name, business_path(current_application_row.business)%></td>
+  <td class="hidden-xs"><%= BusinessType.find(current_application_row.business_type).name %></td>
+  <td class="hidden-xs"><%= remove_unwanted_words distance_of_time_in_words_to_now (current_application_row.created_at) %> ago</td>
+  <td><%= position_application_status(current_application_row) %></td>
+  <td style="text-align:center"><%= link_to 'view', position_path(current_application_row.position), class:'btn btn-primary btn-xs', style:'border-radius:4px;color:white;font-size:.8em;font-weight:600' %></td>
+  <td style="text-align:center"><%= link_to 'cancel', cancel_application_position_application_path(current_application_row), data: { confirm: 'Are you sure?' } , class:'btn btn-danger btn-xs', style:'border-radius:4px;color:white;font-size:.8em;font-weight:600', method: :put %></td>
+</tr>
+

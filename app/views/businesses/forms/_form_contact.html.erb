@@ -1,0 +1,15 @@
+<div class="panel-body">
+  <%= f.input :form, :input_html => {:value => 'contact'}, as: :hidden %>
+    <div class="form-inputs">
+      <%= f.input :address, required: true, placeholder: "Address" %>
+      <%= f.input :city, required: true, prompt: "City", placeholder: "City" %>
+      <%= f.input :phone, required: true, placeholder: "Phone" %>
+      <%= f.input :website, required: true, placeholder: "Website" %>
+      <%= f.input :facebook, required: true, placeholder: "Website" %>
+      <%= f.input :twitter, required: true, placeholder: "Website" %>
+    </div>
+    <hr>
+    <div class="form-actions">
+      <%= f.button :submit, class: 'btn btn-default' %>
+    </div>
+</div>

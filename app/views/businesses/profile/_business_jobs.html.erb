@@ -1,0 +1,27 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <% if @business.owner?(current_user)  %>
+      <%= link_to new_business_position_path(current_user.group), class:'btn btn-default pull-right edit' do %>
+      <span class="has-tooltip" data-toggle="tooltip" data-placement="bottom" title="Add Job">
+        <i class="fa fa-plus-circle"></i>
+      </span>
+      <% end %>
+    <% end %>
+    <h4 class="bluey">Jobs</h4>
+    <p class="pinky"><%= @business.name %></p>
+  </div>
+  <div class="panel-body">
+    <div class="table-responsive" style="border-radius:4px;font-size:.9em;border:0px">
+      <%= render partial: '/positions/tables/positions_table', object: @business.positions %>
+    </div>
+  </div>
+</div><!--/business jobs-->
+
+<script type="text/javascript">
+$(document).ready(function() {
+  $('.has-tooltip').tooltip();
+  $('.has-popover').popover({
+    trigger: 'hover'
+  });
+});
+</script>

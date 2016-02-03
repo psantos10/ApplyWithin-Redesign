@@ -1,0 +1,26 @@
+<div class="col-lg-6 col-md-6 col-sm-12 col-sm-12">
+  <div class="panel panel-default bd-pos">
+    <div class="panel-heading">
+      <div class="pull-right" style="margin:10px">
+        <div class="btn-group">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border-radius:4px">
+            <span><i class="fa fa-arrow-circle-down"></i></span>
+            <span class="sr-only">Toggle Dropdown</span>
+          </button>
+          <ul class="dropdown-menu" style="text-align:left;min-width:70px">
+            <li><%= link_to 'view', position_path(position) %></li>
+            <li><%= link_to 'edit', edit_all_position_path(position) %></li>
+            <li role="separator" class="divider"></li>
+            <li><%= link_to 'delete', position, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+          </ul>
+        </div>
+      </div>
+      <h4><%= position.title %></h4>
+      <p><%= position.type %>&nbsp;&nbsp;|&nbsp;&nbsp;<%= JobCategory.find(position.category).name %></p>
+    </div>
+    <div class="panel-body" style="text-align:center">
+        <%= link_to("applications - #{position.current_applicants.count} (#{position.current_advertisement.new_applications})", position_advertisement_position_applications_path(position.current_advertisement), class:'btn btn-primary btn-sm btn-block', style:'border-radius:4px;color:white;font-weight:600;margin-bottom:10px', disabled: position.applicants.count == 0) if position.advertisements.open.any? %>
+        <%= render 'position_advertisements/buttons', position: position %>
+    </div>
+  </div>
+</div>

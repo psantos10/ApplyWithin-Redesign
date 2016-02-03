@@ -1,0 +1,27 @@
+<div class="panel-body">
+  <%= f.input :form, :input_html => {:value => 'info'}, as: :hidden %>
+  <div class="form-inputs">
+    <%= f.input :name, required: true, placeholder: "Business Name" %>
+    <%= f.input :business_type, collection: BusinessType.all, required: true, prompt: "Business Type" %>
+    <%= f.input :postcode, required: true, placeholder: "Business Name" %>
+    <div class="pull-right"><span id="body-count">0</span> characters</div>
+    <%= f.input :tagline, required: true, placeholder: "Business Tagline", hint: 'Up to 200 characters', input_html: { :id => "body-field", :cols => 5, :rows => 3 } %>
+    <%= f.input :cover_image, as: :file, :input_html => {:onchange => "previewFile()"} %>
+    <div style="text-align:center;margin:5px">
+      <img height="250" width="80%" style="margin-top:10px;text-align:center;border:1px solid grey;border-radius:2px" alt="Image preview...">
+    </div>
+  </div>
+  <hr>
+  <div class="form-actions">
+    <%= f.button :submit, class: 'btn btn-default' %>
+  </div>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  $("#body-field").on("keyup", function(){
+    var length = $(this).val().length;
+    $("#body-count").html(length);
+  });
+});
+</script>

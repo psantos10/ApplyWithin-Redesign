@@ -1,0 +1,31 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <% if @business.owner?(current_user)  %>
+      <%= link_to edit_hours_business_path(current_user.group), class:'btn btn-default pull-right edit' do %>
+      <span class="has-tooltip" data-toggle="tooltip" data-placement="bottom" title="Edit Opening Hours">
+        <i class="fa fa-pencil-square-o"></i>
+      </span>
+      <% end %>
+    <% end %>
+    <h4 class="bluey">Hours</h4>
+    <p class="pinky"><%= @business.name %></p>
+  </div>
+  <div class="panel-body" style="height:280px">
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+          <%= render @business.hours %>
+        </thead>
+      </table>
+    </div>
+  </div>
+</div><!--/business hours-->
+
+<script type="text/javascript">
+$(document).ready(function() {
+  $('.has-tooltip').tooltip();
+  $('.has-popover').popover({
+    trigger: 'hover'
+  });
+});
+</script>

@@ -1,0 +1,5 @@
+<% if current_user.group.is_a?(Hunter) && current_user.has_applied?(position_advertisement) %>
+  <%= link_to "applied", nil, class:"label label-warning", style:'border-radius:4px;color:white;font-size:1em;font-weight:600;margin-top:10px' %>
+<% else %>
+  <%= link_to "apply", position_advertisement_position_applications_path(position_advertisement), method: :post, class:"label label-success", disabled: !current_user.hunter?, style:'border-radius:4px;color:white;font-size:1em;font-weight:600;margin-top:10px' %>
+<% end %>

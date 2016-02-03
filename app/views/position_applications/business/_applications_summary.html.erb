@@ -1,0 +1,12 @@
+<table class="table table-condensed table-responsive" style="text-align:left;border:0px;font-size:.8em;color:#999999">
+  <thead>
+    <tr>
+      <th style="text-align:center">job title</th>
+      <th style="text-align:center">applicants</th>
+      <th style="text-align:center">new</th>
+    </tr>
+  </thead>
+  <tbody style="font-size:1em">
+    <%= render partial: 'position_applications/business/summary_row', collection: applications_summary %>
+  </tbody>
+</table>

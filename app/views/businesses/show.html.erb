@@ -1,0 +1,46 @@
+  <div class="cover_image" style="background-image: url(<%= @business.cover_image_profile %>);">
+
+    <div class="container" id="main">
+        <div class="row">
+          <%= render partial: "businesses/profile/business_info", locals: { business: @business } %>
+        </div>
+    </div>
+
+  </div>
+
+
+<div class="container" id="main">
+
+  <div class="row" style="margin-top:20px">
+    <div class="col-lg-8">
+      <%= render partial: "businesses/profile/business_jobs", locals: { business: @business } %>
+      <%= render partial: "businesses/profile/business_about", locals: { business: @business } %>
+      <div class="row">
+        <div class="col-lg-6">
+          <%= render partial: "businesses/profile/business_contact", locals: { business: @business } %>
+        </div>
+        <div class="col-lg-6">
+          <%= render partial: "businesses/profile/business_hours", locals: { business: @business } %>
+        </div>
+      </div>
+      <%= render partial: "businesses/profile/business_map", locals: { business: @business } %>
+    </div>
+
+    <div class="col-lg-4">
+      <%= render partial: "businesses/profile/business_gallery", locals: { business: @business } %>
+    </div>
+  </div>
+
+  
+  <% if @business.email.include?("@applywithin.co.uk") %>
+    <div class="col-lg-10 col-lg-offset-1">
+      <%= render partial: "business_claim_btn" %>
+    </div>
+  <% end %>
+  
+</div><!--/main-->
+
+<!-- Modal -->
+<% if @business.email.include?("@applywithin.co.uk") %>
+<%= render partial: "businesses/profile/business_modal" %>
+<% end %>

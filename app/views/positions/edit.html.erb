@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col-lg-offset-3 col-lg-6">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">position/edit.html.erb</h3>
+      </div>
+      <%= simple_form_for([@business, @position]) do |f| %>
+        <%= render partial: 'positions/forms/form', locals: {f: f} %>
+      <% end %>
+      <%= link_to 'Back', position_path(@position), class: "btn btn-default center-block" %>
+    </div>
+  </div>
+</div>

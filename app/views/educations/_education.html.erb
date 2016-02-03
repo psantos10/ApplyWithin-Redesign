@@ -1,0 +1,37 @@
+<div class="panel panel-warning">
+  <div class="panel-heading">
+    <h3 class="panel-title">Education: <%= @education.qualification %></h3>
+  </div>
+  <div class="panel-body">
+    <p>
+    <strong>institution:</strong>
+    <%= @education.institution %>
+    </p>
+
+    <p>
+    <strong>qualification:</strong>
+    <%= @education.qualification %>
+    </p>
+
+    <p>
+    <strong>subject:</strong>
+    <%= @education.subject %>
+    </p>
+
+    <p>
+    <strong>result:</strong>
+    <%= @education.result %>
+    </p>
+
+    <p>
+    <strong>start-date:</strong>
+    <%= (@education.start_date).strftime("%b %Y") %>
+    </p>
+
+    <p>
+    <strong>end-date:</strong>
+    <%= (@education.end_date).strftime("%b %Y") %>
+    </p>
+
+  </div>
+</div>

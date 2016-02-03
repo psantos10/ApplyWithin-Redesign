@@ -1,0 +1,29 @@
+<div class="panel-body">
+<%= f.hidden_field :form, value: 'hours' %>
+  <div class="table-responsive" style="border:0px">
+    <table class="table table-condensed">
+      <thead>
+        <tr style="text-align:center">
+          <td></td>
+          <td>morning</td>
+          <td>afternoon</td>
+          <td>evening</td>
+          <td>late</td>
+        </tr>
+        <%= f.fields_for :available_times do |atf| %>
+        <tr style="text-align:center;font-size:1.7em">
+          <td><%= atf.text_field :day, { disabled: true, class: "form-control day", style:"outline: none;border: none !important; -webkit-box-shadow: none !important;-moz-box-shadow: none !important;box-shadow: none !important;background: white;width: 60px;font-weight: 600;" }%></td>
+          <td><%= atf.check_box(:morning, options = { default: true }) %></td>
+          <td><%= atf.check_box(:afternoon, options = { default: true }) %></td>
+          <td><%= atf.check_box(:evening, options = { default: true }) %></td>
+          <td><%= atf.check_box(:late, options = { default: false }) %></td>
+        </tr>
+        <% end %>
+      </thead>
+    </table>
+  </div>
+  <hr>
+  <div class="form-actions">
+    <%= f.button :submit, class: 'btn btn-default' %>
+  </div>
+</div>

@@ -1,0 +1,41 @@
+<div class="panel-body">
+  <%= f.input :form, :input_html => {:value => "info" }, as: :hidden %>  
+  <%= f.input :longitude, :input_html => {:value => @position.business.longitude }, as: :hidden %>
+  <%= f.input :latitude, :input_html => {:value => @position.business.latitude }, as: :hidden %>
+  <%= f.input :business_type, :input_html => {:value => @position.business.business_type }, as: :hidden %>
+
+  <%= f.input :title, required: true, placeholder: "Job Title", label: "Job Title " %>
+  <div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-6">
+      <%= f.input :bracket, collection: JobBracket.all, required: true, prompt: "Job Type"%>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-6">
+      <%= f.input :category, collection: JobCategory.all, required: true, prompt: "Job Category" %>
+    </div>
+  </div>
+  <div class="pull-right"><span id="tagline-count">0</span> characters</div>
+  <%= f.input :tagline, required: true, placeholder: "Job Tagline", hint: 'Up to 200 characters', input_html: { :id => "tagline-field", :cols => 5, :rows => 2 } %>
+  <div class="pull-right"><span id="body-count">0</span> characters</div>
+  <%= f.input :description, required: true, placeholder: "Job Description", hint: 'Between 150 and 500 characters', input_html: { :id => "body-field", :cols => 5, :rows => 4 } %>
+  <hr>
+  <div class="form-actions">
+    <%= f.button :submit, class: 'btn btn-default' %>
+  </div>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  $("#tagline-field").on("keyup", function(){
+    var length = $(this).val().length;
+    $("#tagline-count").html(length);
+  });
+});
+
+$(document).ready(function() {
+  $("#body-field").on("keyup", function(){
+    var length = $(this).val().length;
+    $("#body-count").html(length);
+  });
+});
+
+</script>

@@ -1,0 +1,27 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <% if @business.owner?(current_user) %>
+      <% if @business.default_gallery.photos.length < 6 %>
+        <%= link_to new_photo_path, class:'btn btn-default pull-right edit' do %>
+        <span class="has-tooltip" data-toggle="tooltip" data-placement="bottom" title="Add Picture">
+          <i class="fa fa-plus-circle"></i>
+        </span>
+        <% end %>
+      <% end %>
+    <% end %>
+    <h4 class="bluey">Gallery</h4>
+    <p class="pinky"><%= @business.name %></p>
+  </div>
+  <div class="panel-body" style="padding:10px;text-align:center">
+    <%= render @business.default_gallery.photos %>
+  </div>
+</div><!--/business gallery-->
+
+<script type="text/javascript">
+$(document).ready(function() {
+  $('.has-tooltip').tooltip();
+  $('.has-popover').popover({
+    trigger: 'hover'
+  });
+});
+</script>

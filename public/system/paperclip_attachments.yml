@@ -1,0 +1,17 @@
+---
+:Business:
+  :avatar:
+  - :large
+  - :medium
+  - :profile
+  - :thumb
+:Hunter:
+  :avatar:
+  - :medium
+  - :profile
+  - :thumb
+:Photo:
+  :file:
+  - :medium
+  - :small
+  - :thumb

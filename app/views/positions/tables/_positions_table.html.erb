@@ -1,0 +1,17 @@
+<table class="table table-condensed table-hover">
+  <thead>
+    <tr>
+      <th>title</th>
+      <th>type</th>
+      <th>start date</th>
+      <th>hours</th>
+      <th>jobs</th>
+      <!-- <th>posted</th> -->
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render partial: 'positions/tables/position_row', collection: positions_table %>
+  </tbody>
+</table>

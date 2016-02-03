@@ -1,0 +1,110 @@
+<% @position = Position.first %>
+
+<div class="container" id="main">
+
+  <div class="row">
+  </div>
+
+
+
+  <div class="row">
+    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+
+      <div class="panel panel-default">
+        <div class="panel-heading"><p class="pull-right"style="color:#FF8D00"><%= advertisement_or_position_date(@position) %> ago</p>
+          <h3 style="color:#428bca;font-weight:600"><%= @position.title %><p style="font-size:.6em"><%= @position.category %></p></h3>
+          <p><%= @position.tagline %></p>
+        </div>
+
+        <div class="panel-body" style="padding-top:5px">
+
+          <div>
+            <table class="table table-condensed" style="margin-bottom:5px">
+              <tbody style="color:grey">
+                <tr>
+                  <td style="border:0px"><p style="font-size:.9em;font-weight:600">&#8470; of vacancies&nbsp;&nbsp;&nbsp;<span style="color:#428bca;font-size:1.2em"><%= @position.openings %></span></p></td> 
+                  <td style="border:0px"><p style="font-size:.9em;font-weight:600">type &nbsp;&nbsp;&nbsp;<span style="color:#428bca;font-size:1.2em"><%= @position.category %></span></p></td>
+                  <td style="border:0px"><p style="font-size:.9em;font-weight:600">wage p/h &nbsp;&nbsp;&nbsp;<span style="color:#428bca;font-size:1.2em"><%= @position.wage %></span></p></td>
+                </tr>
+                <tr>
+                  <td style="border:0px"><p style="font-size:.9em;font-weight:600">start date &nbsp;&nbsp;&nbsp;<span style="color:#428bca;font-size:1.2em"><%= @position.start_date %></span></p></td>
+                  <td style="border:0px"><p style="font-size:.9em;font-weight:600">hours p/w &nbsp;&nbsp;&nbsp;<span style="color:#428bca;font-size:1.2em"><%= @position.weekly_hours %></span></p></td>
+                  <td style="border:0px;text-align:center"><p style="font-size:.9em;font-weight:600">18 + &nbsp;&nbsp;<%= ticks_or_crosses(@position.age_restricted) %></p></td>
+                </tr>
+                <tr>
+                  <td style="border:0px"><p style="font-size:.9em;font-weight:600">dress code &nbsp;&nbsp;&nbsp;<span style="color:#428bca;font-size:1.2em"><%= @position.dress_code %></span></p></td>
+                  <td style="border:0px"><p style="font-size:.9em;font-weight:600">customer facing &nbsp;&nbsp;<%= ticks_or_crosses(@position.customer_facing) %></p></td>
+                  <td style="border:0px;text-align:center"><p style="font-size:.9em;font-weight:600">tips &nbsp;&nbsp;<%= ticks_or_crosses(@position.tips) %></p></td>
+                </tr>
+              </tbody>
+            </table>
+          <hr style="margin-top:5px">
+          </div>
+
+          <div style="padding-top:5px">
+            <p style="font-size:1.2em;font-weight:600">Job Description</p>
+            <p style="font-size:.9em"><%= simple_format(@position.description) %></p>
+            <hr>
+            <p style="font-size:1.2em;font-weight:600">Roles and Responsibilities</p>
+            <p style="font-size:.9em"><%= simple_format(@position.roles_and_responsibilities) %></p>
+            <hr>
+            <p style="font-size:1.2em;font-weight:600">Desired Skills, Qualifications and Attributes</p>
+            <p style="font-size:.9em"><%= simple_format(@position.desired_sqa) %></p>
+            <hr>
+
+          </div>
+
+          <div class="pull-right">
+            <% if @position.current_advertisement %>
+            <td style="text-align:center"><%= render partial: 'position_advertisements/apply', locals: { position_advertisement: @position.current_advertisement } %></td>
+            <% else %>
+            <td style="text-align:center"><%= link_to "unavailable", nil,  class:"label label-warning", disabled: !current_user.hunter?, style:'border-radius:4px;color:white;font-size:1em;font-weight:600;margin-top:10px', :disabled => true %></td>
+            <% end %>
+          </div>
+        </div>
+      </div><!--/job panel-->
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 style='font-size:1em;color:#FF8D00;text-align:left;font-weight:600'>jobs<p style="font-size:.7em"> with <%= @position.business.name %></p></h4>
+        </div>
+        <div class="panel-body" style="padding-top:10px">
+          <div class="table-responsive" style="border:0px;border-radius:4px">
+            <%= render partial: '/positions/positions_table', object: @position.business.positions %>
+          </div>
+        </div>
+      </div><!--/other jobs panel-->
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 style='font-size:1em;color:#FF8D00;text-align:left;font-weight:600'>similar jobs<p style="font-size:.7em">near you</p></h4>
+          <p style="font-size:.9em;text-align:center">coming soon to a website near you</p>
+          <hr style="margin-top:10px">
+        </div>
+      </div><!--/similar jobs panel-->
+
+    </div><!--/col-lg-8 col-md-8 col-sm-12 col-xs-12-->
+
+    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+
+      <%= render partial: "businesses/business", locals: { business: @position.business } %><!--/business info panel-->
+
+    </div><!--/col-lg-4 col-md-4 col-sm-12 col-xs-12-->
+
+    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 style='font-size:1em;color:#FF8D00;text-align:left;font-weight:600'> Share this job <p style="font-size:.7em"></p></h4>
+        </div>
+        <div class="panel-body" style="padding-top:5px">
+          <!-- Go to www.addthis.com/dashboard to customize your tools -->
+          <div class="addthis_sharing_toolbox" ></div>
+        </div>
+      </div><!--/share this panel-->
+
+    </div><!--/col-lg-4 col-md-4 col-sm-12 col-xs-12-->
+
+
+  </div><!--/row-->
+</div><!--/main-->

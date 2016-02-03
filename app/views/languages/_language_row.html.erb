@@ -1,0 +1,27 @@
+<tr class="clickable" data-toggle="collapse" data-target=".<%= language_row.object_id %>" onclick="">
+  <td style="border:0;text-align:right"><%= LanguageName.find(language_row.name).name %></td>
+  <td style="border:0"><%= how_many_stars(LanguageLevel.find(language_row.level)) %></td>
+  <%- if current_user.admin_for?(language_row) %> 
+  <td style="border:0;">
+    <div class="btn-group">
+      <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border-radius:4px;height:60%;line-height:1">
+        <span><i class="fa fa-chevron-down"></i></span>
+        <span class="sr-only">Toggle Dropdown</span>
+      </button>
+      <ul class="dropdown-menu" style="text-align:left;min-width:70px">
+        <li><%= link_to 'edit', edit_language_path(language_row) %></li>
+        <li><%= link_to 'delete', language_path(language_row), method: :delete, data: { confirm: 'Are you sure?' } %></li>
+      </ul>
+    </div>
+  </td>
+  <% end %>
+</tr>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  $('.has-tooltip').tooltip();
+  $('.has-popover').popover({
+    trigger: 'hover'
+  });
+});
+</script>

@@ -1,0 +1,129 @@
+<div class="container-fluid">
+  <div class="row">  
+    <div class="col-lg-offset-1 col-lg-10 col-md-12 col-sm-12 col-xs-12">
+      <div class="panel panel-default applicant">
+
+        <div class="panel-heading applicant-head" style="background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('<%= @hunter.cover_photo %>');">
+          <%= link_to edit_profile_hunter_path(@hunter), class:'btn btn-default btn-xs pull-right' do %>
+          <span class="has-tooltip" data-toggle="tooltip" data-placement="bottom" title="Edit Profile Info">
+            Edit Profile
+          </span>
+          <% end %>
+
+          <div class="row">
+
+            <div class="col-xs-offset-3 col-sm-offset-4 col-lg-offset-0 col-md-offset-0 col-lg-3 col-md-3 col-sm-2 col-xs-2">
+              <%= image_tag @hunter.avatar.url(:medium), class: "img-circle" %>
+            </div>
+
+            <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+              <h1><%= @hunter.display_name %></h1>
+              <p><%= @hunter.tagline %></p>
+              <hr style="border: 1px solid #FF534B">
+              <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                <p><i class="fa fa-phone-square"></i>&nbsp;&nbsp;<%= @hunter.phone %></p>
+                <p><i class="fa fa-envelope"></i>&nbsp;&nbsp;<%= @hunter.email %></p>
+              </div>
+              <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <p><i class="fa fa-binoculars"></i>&nbsp;&nbsp;<%= JobCategory.find_by(id: @hunter.seeking).name %></p>
+                <p><i class="fa fa-home"></i>&nbsp;&nbsp;<%= @hunter.location[/(\S+)/, 1] %></p>
+              </div>
+              <div class="col-lg-4 col-md-3 col-sm-3 col-xs-12 hidden-xs">
+                <p><i class="fa fa-calendar"></i>&nbsp;&nbsp;<%= @hunter.dob.strftime("%b %Y") %></p>
+                <p><i class="fa fa-globe"></i>&nbsp;&nbsp;<%= Nationality.find_by(id: @hunter.nationality).name %></p>
+              </div>
+              <!-- <div class="col-lg-3">
+                <p><i class="fa fa-car"></i>&nbsp;&nbsp;<%= ticks_or_crosses(@hunter.driving_licence) %></p>
+              </div> -->
+            </div>
+          <%= link_to edit_cover_photo_hunter_path(@hunter), class:'btn btn-default btn-xs pull-right' do %>
+            <span class="has-tooltip" data-toggle="tooltip" data-placement="bottom" title="Edit Cover Photo">
+              Edit Cover Photo
+            </span>
+          <% end %>
+
+          </div>
+        </div>
+
+        <div class="panel-body">
+
+          <div class="row">
+            <div class="col-lg-8 col-md-7 col-sm-12 col-xs-12">
+
+              <!-- <%= render partial: '/hunters/applicant', locals: { hunter: @hunter } %> -->
+
+              <h5>Experience
+              <%= link_to new_hunter_experience_path(current_user.group), class:"btn btn-default  btn-xs pull-right" do %>
+                <span class="has-tooltip" data-toggle="tooltip" data-placement="bottom" title="Add Your Job History">Add Job</span>
+              <% end %>
+              </h5>
+              <% if @hunter.experiences.present? %>
+                <%= render partial: '/experiences/experiences_table', object: @hunter.experiences %>
+              <% else %>
+                <h4>This is my first job.</h4>
+              <% end %>
+
+              <hr>
+
+              <h5>Education
+                <%= link_to new_hunter_education_path(current_user.group), class:"btn btn-default  btn-xs pull-right" do %>
+                  <span class="has-tooltip" data-toggle="tooltip" data-placement="bottom" title="Add Your Education History">Add Education</span>
+                <% end %>
+              </h5>
+              <% if @hunter.educations.present? %>
+                <%= render partial: '/educations/educations_table', object: @hunter.educations %>
+              <% else %>
+                <h4><%= link_to "We don't need no education.", "https://www.youtube.com/watch?v=34ZmKbe5oG4", target:"_blank", style:"color:#021542"%></h4>
+              <% end %>
+
+            </div>
+
+            <div class="col-lg-4 col-md-4">
+
+              <h5>Languages
+                <%= link_to new_hunter_language_path(current_user.group), class:"btn btn-default btn-xs pull-right" do %>
+                  <span class="has-tooltip" data-toggle="tooltip" data-placement="bottom" title="Add Language">Add Language</span>
+                <% end %>
+              </h5>
+              <% if @hunter.languages.present? %>
+                <%= render partial: '/languages/languages_table', object: @hunter.languages %>
+              <% else %>
+                <h4>I don't speak any languages.</h4>
+              <% end %>
+
+              <hr>
+
+              <h5>Availability
+              <%= link_to edit_times_hunter_path(current_user.group), class:'btn btn-default btn-xs pull-right' do %>
+              <span class="has-tooltip" data-toggle="tooltip" data-placement="bottom" title="Edit Availability">Edit Available Times</span>
+              <% end %>
+              </h5>
+              <%= render partial: '/available_times/available_time_table', object: @hunter %>
+
+            </div>
+
+            <div class="col-lg-12 col-md-12">
+              <hr>
+                <%= link_to edit_about_hunter_path(current_user.group), class:"btn btn-default  btn-xs pull-right" do %>
+                <span class="has-tooltip" data-toggle="tooltip" data-placement="bottom" title="Edit About Me Section">Edit About Me</span>
+                <% end %>
+              <%= render partial: '/hunters/about', object: @hunter %>
+            <%= link_to positions_path, class:"btn btn-default btn-sm pull-right", style:"background-color:#FF534B;color:white" do %> <i class="fa fa-search"></i> search jobs<% end %>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+  $('.has-tooltip').tooltip();
+  $('.has-popover').popover({
+    trigger: 'hover'
+  });
+});
+</script>

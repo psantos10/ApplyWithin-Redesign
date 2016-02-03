@@ -1,0 +1,34 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <% if @business.owner?(current_user)  %>
+      <%= link_to edit_contact_business_path(current_user.group), class:'btn btn-default pull-right edit' do %>
+      <span class="has-tooltip" data-toggle="tooltip" data-placement="bottom" title="Edit Business Contact">
+        <i class="fa fa-pencil-square-o"></i>
+      </span>
+      <% end %>
+    <% end %>
+    <h4 class="bluey">Contact</h4>
+    <p class="pinky"><%= @business.name %></p>
+  </div>
+  <div class="panel-body" style="text-align:center;height:280px">
+    <p><%= @business.address %></p>
+    <p><%= @business.postcode %></p>
+    <p><%= LondonArea.find_by(postcode: @business.postcode[/(\S+)/, 1]).name %></p>
+    <p><%= @business.city %></p>
+    <p><%= @business.phone %></p>
+    <p><%= link_to @business.website, "http://#{@business.website}", style:"font-weight:500", target:"_blank"%></p>
+    <p>
+      <%= link_to "http://#{@business.facebook}", class:"btn btn-default", target:"_blank", style:"margin:5px" do %><i class="fa fa-facebook"></i><% end %>
+      <%= link_to "http://#{@business.twitter}", class:"btn btn-default", target:"_blank", style:"margin:5px" do %><i class="fa fa-twitter"></i><% end %>
+    </p>
+  </div>
+</div><!--/business contact-->
+
+<script type="text/javascript">
+$(document).ready(function() {
+  $('.has-tooltip').tooltip();
+  $('.has-popover').popover({
+    trigger: 'hover'
+  });
+});
+</script>

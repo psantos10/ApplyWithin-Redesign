@@ -1,0 +1,17 @@
+  <table class="table table-condensed table-hover table-responsive">
+    <thead>
+      <tr>
+        <th>position</th>
+        <th class="hidden-xs">job type</th>
+        <th>employer</th>
+        <th class="hidden-xs">type</th>
+        <th class="hidden-xs">applied</th>
+        <th>status</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render partial: 'position_applications/hunter/current_application_row', collection: current_applications_table %>
+    </tbody>
+  </table>

@@ -1,0 +1,43 @@
+<div class="row b-dashboard">
+  <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+    <h3>&nbsp;Applications</h3>
+    <hr>
+    <%= render partial: 'position_applications/business/applications_summary', object: current_user.group.current_advertisements_with_applications %>
+  </div>
+  <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+    <h3>
+      &nbsp;Jobs
+      <%= link_to 'add job', new_business_position_path(current_user.group), class:"btn btn-default pull-right" %>
+    </h3>
+    <hr>
+    <%= render partial: 'positions/business/position', collection: current_user.group.positions %>
+  </div>
+</div>
+
+
+<!-- <div class="col-lg-12">
+  <%= link_to 'add job', new_business_position_path(current_user.group), class:"btn btn-default pull-right" %>
+  <h1>Jobs</h1>
+  <p>add your jobs here</p>
+  <% if current_user.group.positions.any? %>
+  <%= render partial: 'positions/business/position', collection: current_user.group.positions %>
+  <% else %>
+  <p>This is where you can add jobs .</p>
+  <p>There's no limit to how many you can add or how often you make them available.</p>
+  <p>Simply click the 'add job' button in the top right.</p>
+  <p>A great way to promote your jobs is to use the social media sharing buttons, why not ask your staff to share it as well.</p>
+  <% end %>
+</div>
+
+<div class="col-lg-12">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4>Applications<p>check out what you've received</p></h4>
+    </div>
+    <div class="panel-body">
+      <%= render partial: 'position_applications/business/applications_summary', object: current_user.group.current_advertisements_with_applications %>
+    </div>
+  </div>
+</div>
+
+ -->

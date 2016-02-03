@@ -1,0 +1,24 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h4 style="color:#FF8D00;text-align:left;font-weight:600;margin-bottom:0px">Claim this profile</h4>
+  </div>
+  <div class="panel-body" style="padding-bottom:10px;color:grey">
+    <p><span style='color:#428bca'>Apply</span><span style='color:#FF8D00'>Within</span> is a free way to advertise jobs and receive applications.</p>
+    <p>Want to claim this profile and start using it to find staff?</p>
+    <br>
+    <p>Send us your Email below and we can set it up for you.</p>
+  </div>
+
+  <div class="panel-footer" style="text-align:left;color:grey">
+    <%= simple_form_for Contact.new, :html => { class:"form-inline" } do |f| %>
+      <div class="form-group">
+        <%= f.hidden_field :name, :value => @business.name %>
+      </div>
+      <div class="form-group" style="width:60%">
+        <%= f.input :email, :required => true, label: false, :input_html => { class: 'form-control', style:"width:100%;border-radius:4px;font-size:.9em", placeholder:"email" } %>
+      </div>
+    <%= f.button :submit, 'Send', :class=> "btn btn-default", style:"border-radius:4px;font-weight:600;font-size:1em;background-color:#428bca;color:white" %>
+    <% end %>
+    <p style="margin-top:10px;font-size:.7em">* if you want us to remove this profile, please email <%= mail_to "contact@applywithin.co.uk", nil, :style => 'color:#428bca' %>, sorry.</p>
+  </div>
+</div>

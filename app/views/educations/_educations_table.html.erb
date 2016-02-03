@@ -1,0 +1,19 @@
+<table class="table table-condensed table-hover" style="border-collapse:collapse;"> 
+  <thead>
+    <tr style="color:#999999;font-size:.8em">
+      <th>institution</th>
+      <th>qualification</th>
+      <th>subject</th>
+      <th>result</th>
+      <th class="hidden-xs">start</th>
+      <th >end</th>
+      <%- if current_user.admin_for?(educations_table.first) %>
+      <th colspan="3"></th>
+      <% end %>
+    </tr>
+  </thead> 
+
+  <tbody>
+    <%= render partial: 'educations/education_row', collection: educations_table %>
+  </tbody>
+</table>

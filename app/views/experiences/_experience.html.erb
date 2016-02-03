@@ -1,0 +1,36 @@
+ <div class="panel panel-warning">
+  <div class="panel-heading">
+    <h3 class="panel-title">Experience: <%= experience.job_title %></h3>
+  </div>
+  <div class="panel-body">
+    <p>
+    <strong>job title:</strong>
+    <%= experience.job_title %>
+    </p>
+
+    <p>
+    <strong>employer:</strong>
+    <%= experience.employer %>
+    </p>
+
+    <p>
+    <strong>location:</strong>
+    <%= experience.location %>
+    </p>
+
+    <p>
+    <strong>start-date:</strong>
+    <%= (experience.start_date).strftime("%b %Y") %>
+    </p>
+
+    <p>
+    <strong>end-date:</strong>
+    <%= (experience.end_date).strftime("%b %Y") %>
+    </p>
+
+    <p>
+    <strong>job description:</strong>
+    <%= simple_format(experience.job_description) %>
+    </p>
+  </div>
+</div>

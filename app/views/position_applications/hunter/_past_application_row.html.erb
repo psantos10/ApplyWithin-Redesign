@@ -1,0 +1,10 @@
+<tr class="clickable danger" data-toggle="collapse" data-target=".<%= past_application_row.id %>">
+  <td><%= past_application_row.title %></td>
+  <td><%= link_to past_application_row.name, business_path(past_application_row.business)%></td>
+  <td><%= BusinessType.find(past_application_row.business_type).name %></td>
+  <td class="hidden-xs"><%= past_application_row.postcode %></td>
+  <td class="hidden-xs"><%= past_application_reason(past_application_row) %></td>
+  <td style="text-align:center"><%= link_to 'view', position_path(past_application_row.position), class:'btn btn-primary btn-xs', style:'border-radius:4px;color:white;font-size:.8em;font-weight:600' %></td>
+</tr>
+
+  

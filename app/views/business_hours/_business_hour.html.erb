@@ -1,0 +1,5 @@
+<tr>
+  <td><%= business_hour.day %></td>
+  <td style="text-align:center"><%= business_hour.opens_at.to_formatted_s(:twelve_hour_clock).strip %></td>
+  <td style="text-align:center"><%= business_hour.closes_at.to_formatted_s(:twelve_hour_clock).strip %></td>
+</tr>

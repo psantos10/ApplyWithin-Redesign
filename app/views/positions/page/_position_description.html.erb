@@ -1,0 +1,16 @@
+<div class="position_about">
+  <% if @position.business.owner?(current_user)  %>
+    <%= link_to edit_about_position_path(@position), class:'btn btn-default pull-right edit' do %>
+    <span class="has-tooltip" data-toggle="tooltip" data-placement="left" title="Edit Jobs Roles & Responsibilities or Desired Skills, Qualifications & Attributes ">
+      <i class="fa fa-pencil-square-o"></i>
+    </span>
+    <% end %>
+  <% end %>
+  <h4>Job Description</h4>
+  <p><%= simple_format(@position.description) %></p>
+  <h4>Roles and Responsibilities</h4>
+  <p><%= simple_format(@position.roles_and_responsibilities) %></p>
+  <h4>Desired Skills, Qualifications and Attributes</h4>
+  <p><%= simple_format(@position.desired_sqa) %></p>
+  <hr>
+</div>

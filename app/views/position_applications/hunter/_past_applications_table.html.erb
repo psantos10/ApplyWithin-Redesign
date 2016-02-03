@@ -1,0 +1,16 @@
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+  <table class="table table-condensed table-hover table-responsive">
+    <thead>
+      <tr>
+        <th>position</th>
+        <th>employer</th>
+        <th>type</th>
+        <th class="hidden-xs">location</th>
+        <th class="hidden-xs">closed</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render partial: 'position_applications/hunter/past_application_row', collection: order_past_applications(past_applications_table) %>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,9 @@
+<tr>
+  <td><%= JobBracket.find(auto_application_row.job_type).name %></td>
+  <td><%= LondonArea.find(auto_application_row.location).name %></td>
+  <td><%= LondonArea.find(auto_application_row.location).postcode %></td>
+  <td style="text-align:center"><%= link_to 'edit', edit_auto_application_path(auto_application_row), class:'btn btn-warning btn-xs', style:'border-radius:4px;color:white;font-size:.8em;font-weight:600' %></td>
+  <td style="text-align:center"><%= link_to 'delete', auto_application_path(auto_application_row), class:'btn btn-danger btn-xs',
+            method: :delete,
+            data: { confirm: 'Are you sure?' }, style:'border-radius:4px;color:white;font-size:.8em;font-weight:600' %></td>
+</tr>

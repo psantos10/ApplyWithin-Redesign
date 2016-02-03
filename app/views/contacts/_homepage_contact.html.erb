@@ -1,0 +1,16 @@
+<%= simple_form_for Contact.new, :html => { } do |f| %>
+  <div class="form-group">
+    <%= f.input :name, :required => true, label: false, :input_html => { class: 'form-control', style:"width:70%;border-radius:4px", placeholder:"name" } %>
+  </div>
+  <div class="form-group">
+    <%= f.input :email, :required => true, label: false, :input_html => { class: 'form-control', style:"width:70%;border-radius:4px", placeholder:"email" } %>
+  </div>
+  <div class= "hidden">
+    <%= f.input :nickname, :hint => 'Leave this field blank!' %>
+  </div>
+  <div class="form-group">
+    <%= f.input :message, as: :text, :required => true, label: false, :input_html => { class: 'form-control', :cols => 5, :rows => 5, style:"width:70%;border-radius:4px", placeholder:"your message" } %>
+  </div>
+  <%= f.button :submit, 'Send message', :class=> "btn btn-xlg", style:"border-radius:4px;font-weight:600;font-size:1.5em;background-color:white;color:#428bca" %>
+<% end %>
+

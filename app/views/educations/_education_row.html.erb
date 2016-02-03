@@ -1,0 +1,22 @@
+<tr class="clickable" data-toggle="collapse" data-target=".<%= education_row.object_id %>" onclick="">
+  <td style="border:0;"><%= education_row.institution %></td>
+  <td style="border:0;"><%= education_row.qualification %></td>
+  <td style="border:0;"><%= education_row.subject %></td>
+  <td style="border:0;"><%= education_row.result %></td>
+  <td style="border:0;"><%= education_row.formatted_start_date %></td>
+  <td class="hidden-xs" style="border:0;"><%= education_row.formatted_end_date %></td>
+  <%- if current_user.admin_for?(education_row) %>
+  <td style="border:0;">
+    <div class="btn-group">
+      <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border-radius:4px;height:60%;line-height:1">
+        <span><i class="fa fa-chevron-down"></i></span>
+        <span class="sr-only">Toggle Dropdown</span>
+      </button>
+      <ul class="dropdown-menu" style="text-align:left;min-width:70px">
+        <li><%= link_to 'edit', edit_education_path(education_row) %></li>
+        <li><%= link_to 'delete', education_path(education_row), method: :delete, data: { confirm: 'Are you sure?' } %></li>
+      </ul>
+    </div>
+  </td>
+  <% end %>
+</tr>

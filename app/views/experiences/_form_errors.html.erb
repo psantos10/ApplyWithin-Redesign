@@ -1,0 +1,16 @@
+<% if @experience.errors.any? %>
+<div class="col-lg-6 col-lg-offset-3">
+  <div class="panel panel-info" style="border-color: #ebccd1;">
+    <div class="panel-heading"  style="color: #a94442;background-color:#f2dede;border-color:#ebccd1;">
+      <h4 style="border:0px;font-weight:600"><%= pluralize(@experience.errors.count, "error") %> prevented this experience from being saved:</h4>
+    </div>
+    <div class="panel-body">
+      <ul>
+      <% @experience.errors.full_messages.each do |message| %>
+        <li style="font-size:1.2em;color:red"><p><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+<% end %>

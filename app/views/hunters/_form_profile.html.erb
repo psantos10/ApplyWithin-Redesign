@@ -1,0 +1,63 @@
+<div class="panel-body">
+  <%= f.input :form, :input_html => {:value => 'profile'}, as: :hidden %>
+
+  <div class="row">
+
+    <div class="col-lg-6 col-md-6 col-sm-6">
+      <%= f.input :first_name, required: true, placeholder: "First Name" %>
+    </div>
+
+    <div class="col-lg-6 col-md-6 col-sm-6">
+      <%= f.input :last_name, required: true, placeholder: "Last Name" %>
+    </div>
+
+    <div class="col-lg-6 col-md-6 col-sm-6">
+      <%= f.input :phone, required: true, placeholder: "Phone" %>
+    </div>
+
+    <div class="col-lg-6 col-md-6 col-sm-6">
+      <%= f.input :location, required: true, placeholder: "Postcode", label: "Postcode" %>
+    </div>
+
+    <div class="col-lg-6 col-md-6 col-sm-6">
+      <%= f.input :dob, as: :date, start_year: Date.today.year - 10, end_year: Date.today.year - 65,  order: [:day, :month, :year], required: true %>
+    </div>
+
+    <div class="col-lg-6 col-md-6 col-sm-6">
+      <%= f.input :nationality, collection: Nationality.all, required: true, placeholder: "Nationality", label: "Nationality", prompt: "Nationality" %>
+    </div>
+
+    <div class="col-lg-6 col-md-6 col-sm-6">
+      <%= f.input :driving_licence, :as => :radio_buttons, :collection => [ 'Yes', 'No' ], label: 'Driving Licence'%>
+    </div>
+
+    <div class="col-lg-6 col-md-6 col-sm-6">
+      <%= f.input :seeking, collection: JobCategory.all, required: true, placeholder: "Seeking", label: "Seeking", prompt: "Seeking" %>
+    </div>
+
+  </div>
+  <hr>
+  <div class="pull-right"><span id="body-count">0</span> characters</div>
+  <%= f.input :tagline, required: true, as: :text, placeholder: "Your Tagline", hint: 'Up to 200 characters', input_html: { :id => "body-field", :cols => 5, :rows => 3 } %>
+  <hr>
+
+  <%= f.input :avatar, as: :file, :input_html => {:onchange => "previewFile()"} %>
+  <div style="text-align:center;margin:5px">
+    <img height="200" width="30%" style="margin-top:10px;text-align:center;border:1px solid grey;border-radius:2px" alt="Image preview...">
+  </div>
+  <hr>
+  <div class="form-actions">
+    <%= f.button :submit, class: 'btn btn-default' %>
+  </div>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  $("#body-field").on("keyup", function(){
+    var length = $(this).val().length;
+    $("#body-count").html(length);
+  });
+});
+</script>
+
+

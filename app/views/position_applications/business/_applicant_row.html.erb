@@ -1,0 +1,8 @@
+<% if applicant_row.new_applicant == true %>
+<tr style="font-weight:600">
+<% else %>
+<tr>
+<% end %>
+  <td><%= link_to applicant_row.hunter.display_name, position_advertisement_position_applications_path(applicant_row.advertisement.id, current_applicant_id: applicant_row.hunter_id), {style: "color:grey;font-size:.8em"} %></td>
+  <td style="text-align:right;font-size:.8em"><%= applicant_row.hunter.location[/(\S+)/, 1] %></td>
+</tr>

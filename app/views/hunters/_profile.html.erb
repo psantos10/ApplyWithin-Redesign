@@ -1,0 +1,112 @@
+<div class="panel panel-default applicant_gallery">
+
+  <div class="panel-heading applicant-head" style="background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('<%= hunter.cover_photo %>');">
+    <div class="row">
+
+      <div class="col-xs-offset-1 col-sm-offset-4 col-lg-offset-0 col-md-offset-0 col-lg-3 col-md-4 col-sm-2 col-xs-2">
+        <%= image_tag hunter.avatar.url(:medium), class: "img-circle" %>
+      </div>
+
+      <div class="col-lg-8 col-md-7 col-sm-12 col-xs-12 applicant_info">
+        <h1><%= hunter.display_name %></h1>
+        <p><%= hunter.tagline %></p>
+        <hr style="border: 1px solid #FF534B">
+        <div class="col-lg-5 col-md-8 col-sm-5 col-xs-12">
+          <p><i class="fa fa-phone-square"></i>&nbsp;&nbsp;<%= hunter.phone %></p>
+          <p><i class="fa fa-envelope"></i>&nbsp;&nbsp;<%= hunter.email %></p>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-3 col-xs-12">
+          <p><i class="fa fa-binoculars"></i>&nbsp;&nbsp;<%= JobCategory.find_by(id: hunter.seeking).name %></p>
+          <p><i class="fa fa-home"></i>&nbsp;&nbsp;<%= hunter.location[/(\S+)/, 1] %></p>
+        </div>
+        <div class="col-lg-4 col-md-12 col-sm-3 col-xs-12 hidden-md hidden-xs">
+          <p><i class="fa fa-calendar"></i>&nbsp;&nbsp;<%= hunter.dob.strftime("%b %Y") %></p>
+          <p><i class="fa fa-globe"></i>&nbsp;&nbsp;<%= Nationality.find_by(id: hunter.nationality).name %></p>
+        </div>
+        <!-- <div class="col-lg-3">
+          <p><i class="fa fa-car"></i>&nbsp;&nbsp;<%= ticks_or_crosses(hunter.driving_licence) %></p>
+        </div> -->
+      </div>
+    </div>
+
+  </div>
+
+  <div class="panel-body">
+
+    <div class="row">
+      <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+
+        <!-- <%= render partial: '/hunters/applicant', locals: { hunter: hunter } %> -->
+        <h5>Experience</h5>
+        <hr style="margin:10px">
+        <% if hunter.experiences.present? %>
+        <%= render partial: '/experiences/experiences_table', object: hunter.experiences %>
+        <% else %>
+        <h4 style="text-align:center;margin-top:20px">This is my first job.</h4>
+        <% end %>
+
+        <h5 style="margin-top:50px">Education</h5>
+        <hr style="margin:10px">
+        <% if hunter.educations.present? %>
+          <%= render partial: '/educations/educations_table', object: hunter.educations %>
+        <% else %>
+        <h4 style="text-align:center;margin-top:20px"><%= link_to "We don't need no education.", "https://www.youtube.com/watch?v=34ZmKbe5oG4", target:"_blank", style:"color:#021542"%></h4>
+        <% end %>
+
+
+        <hr class="hidden-lg hidden-md">
+
+      </div>
+
+      <div class="col-lg-4 col-md-4">
+
+        <h5>Languages</h5>
+        <hr style="margin:10px">
+        <% if hunter.languages.present? %>
+          <%= render partial: '/languages/languages_table', object: hunter.languages %>
+        <% else %>
+          <h4 style="text-align:center;margin-top:20px">I don't speak any languages.</h4>
+        <% end %>
+
+        <h5 style="margin-top:50px">Availability</h5>
+        <hr style="margin:10px">
+        <div class="panel-body">
+          <div class="table-responsive">
+            <table class="table table-hover table-condensed" style="table-layout:fixed">
+              <thead>
+                <tr style="color:#999999;font-size:.5em;">
+                  <th></th>
+                  <th style="text-align:center"><span class="has-tooltip" data-toggle="tooltip" data-placement="bottom" title="Morning 06:00 - 12:00">morning</span></th>
+                  <th style="text-align:center"><span class="has-tooltip" data-toggle="tooltip" data-placement="bottom" title="Afternoon 12:00 - 18:00">afternoon</span></th>
+                  <th style="text-align:center"><span class="has-tooltip" data-toggle="tooltip" data-placement="bottom" title="Evening 18:00 - 00:00">evening</span></th>
+                  <th style="text-align:center"><span class="has-tooltip" data-toggle="tooltip" data-placement="bottom" title="Late 00:00 - 06:00">late</span></th>
+                </tr>
+              </thead>
+              <tbody>
+                <%= render partial: '/available_times/available_time', collection: hunter.available_times %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-lg-12 col-md-12">
+        <hr>
+        <h5>About</h5>
+        <%= render partial: '/hunters/about', object: hunter %>
+        <hr>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  $('.has-tooltip').tooltip();
+  $('.has-popover').popover({
+    trigger: 'hover'
+  });
+});
+</script>

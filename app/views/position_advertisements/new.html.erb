@@ -1,0 +1,6 @@
+<%= form_for(@position_advertisement) do |form| %>
+  <%= @position_advertisement.position_title %>
+  <div class="actions">
+  <%= form.submit nil, :class => "btn btn-primary" %>
+  </div>
+<%- end %>

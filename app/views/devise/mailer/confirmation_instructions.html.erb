@@ -1,0 +1,9 @@
+<div style="font-family:Circular,Helvetica,Arial,sans-serif;font-size:1.2em">
+  <p>Welcome <%= @email %> to <span style='color:#428bca;letter-spacing:1px;font-size:1;font-weight:800'>Apply<span style='color:#FF8D00'>Within</span></p>
+
+  <p>Please confirm your email.</p>
+
+  <p><%= link_to 'Confirm my account', confirmation_url(@user, confirmation_token: @token), class:"btn btn-primary" %></p>
+
+  <p>We're always open to feedback, so if you have any problems or think we could do something better, please let us know by contacting us at <a>contact@applywithin.co.uk</a>.</p>
+</div>

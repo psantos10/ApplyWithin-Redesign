@@ -1,0 +1,25 @@
+<div class="panel-body">
+<%= f.hidden_field :form, value: 'hours' %>
+  <div class="table-responsive" style="border:0px">
+    <table class="table table-condensed">
+      <thead>
+        <tr style="text-align:center">
+          <td></td>
+          <td>open</td>
+          <td>close</td>
+        </tr>
+        <%= f.fields_for :hours do |bhf| %>
+        <tr style="text-align:center;font-size:1.7em">
+          <td><%= bhf.text_field :day, { disabled: true, class: "form-control", style:"outline: none;border: none !important; -webkit-box-shadow: none !important;-moz-box-shadow: none !important;box-shadow: none !important;background: white;width: 60px;font-weight: 600;"}%></td>
+          <td><%= bhf.time_select(:opens_at, options = { minute_step:15 }, html_options = { class:'select', style:'margin-top:7px;font-size:2em'}) %></td>
+          <td><%= bhf.time_select(:closes_at, options = { minute_step:15 }, html_options = { class:'select', style:'margin-top:7px;font-size:2em'}) %></td>
+        </tr>
+        <% end %>
+      </thead>
+    </table>
+  </div>
+  <hr>
+  <div class="form-actions">
+    <%= f.button :submit, class: 'btn btn-default' %>
+  </div>
+</div>

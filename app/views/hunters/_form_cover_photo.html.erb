@@ -1,0 +1,10 @@
+<div class="panel-body">
+  <%= f.input :cover_photo, as: :file, :input_html => {:onchange => "previewFile()"} %>
+  <div style="text-align:center;margin:5px">
+    <img height="200" width="80%" style="margin-top:10px;text-align:center;border:1px solid grey;border-radius:2px" alt="Image preview...">
+  </div>
+  <hr>
+  <div class="form-actions">
+    <%= f.button :submit, class: 'btn btn-default' %>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+<%- if position.advertisements.open.any? %>
+  <%= render partial: 'position_advertisements/buttons/close', locals: {position_advertisement: position.current_advertisement} %>
+<%- else %>
+  <%= render partial: 'position_advertisements/buttons/create', locals: {position: position} %>
+<%- end %>
+
+
+

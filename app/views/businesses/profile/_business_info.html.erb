@@ -1,0 +1,24 @@
+<div class="panel panel-default col-lg-6 col-md-8 col-sm-8 col-xs-10" style="top:60px;background: rgba(0, 0, 0, 0.75);color:white">
+  <div class="addthis_sharing_toolbox pull-right" style="margin:10px"></div>
+  <div class="panel-body">
+    <h3><%= @business.name %></h3>
+    <h5><%= business.type %> | <%= LondonArea.find_by(postcode: @business.postcode[/(\S+)/, 1]).name %></h5>
+    <p><%= @business.tagline %></p>
+    <% if @business.owner?(current_user)  %>
+      <%= link_to edit_info_business_path(current_user.group), class:'btn btn-default pull-right edit' do %>
+      <span class="has-tooltip" data-toggle="tooltip" data-placement="bottom" title="Edit Business Info">
+        <i class="fa fa-pencil-square-o"></i>
+      </span>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  $('.has-tooltip').tooltip();
+  $('.has-popover').popover({
+    trigger: 'hover'
+  });
+});
+</script>

@@ -1,0 +1,28 @@
+<div class="panel-body">
+  <div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-6">
+      <%= f.input :institution, required: true, placeholder: "School / College / University", label: "School / College / University" %>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-6">
+      <%= f.input :qualification, required: true, placeholder: "Qualification", label: "Qualification "%>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-6">
+      <%= f.input :subject, required: true, placeholder: "Subject", label: "Subject "%>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-6">
+      <%= f.input :result, required: true, placeholder: "Result", label: "Result "%>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-6">
+      <%= f.input :start_date, as: :date, end_year: Date.today.year, start_year: Date.today.year - 25, discard_day: true, order: [:month, :year] %>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-6">
+      <%= f.input :end_date, as: :date, end_year: Date.today.year, start_year: Date.today.year - 25, discard_day: true, order: [:month, :year] %>
+    </div>
+  </div>
+  <hr>
+  <div class="form-actions">
+    <%= f.button :submit, class: 'btn btn-default' %>
+  </div>
+</div>

@@ -1,0 +1,2 @@
+module LanguageNamesHelper
+end

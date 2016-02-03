@@ -1,0 +1,27 @@
+<table class="table table-condensed table-responsive">
+  <tbody>
+    <%= render partial: 'experiences/experience_row', collection: experiences_table %>
+  </tbody>
+</table>
+
+<!-- <table class="table table-condensed table-hover table-responsive">
+  <thead>
+    <tr>
+      <th>title</th>
+      <th>employer</th>
+      <th>location</th>
+      <th>duration</th>
+      <th class="hidden-xs">start</th>
+      <th>end</th>
+      <th></th>
+      <%- if current_user.admin_for?(experiences_table.first) %>
+      <th colspan="3"></th>
+      <% end %>
+    </tr>
+
+  </thead>
+
+  <tbody>
+    <%= render partial: 'experiences/experience_row', collection: experiences_table %>
+  </tbody>
+</table> -->

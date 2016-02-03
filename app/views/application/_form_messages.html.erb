@@ -1,0 +1,12 @@
+<% if form_messages.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(form_messages.errors.count, "error") %> prohibited this business from being saved:</h2>
+
+    <ul>
+      <% form_messages.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+

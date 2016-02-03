@@ -1,0 +1,18 @@
+<div class="panel-body">
+  <div class="table-responsive">
+    <table class="table table-hover table-condensed" style="table-layout:fixed">
+      <thead>
+        <tr style="color:#999999;font-size:.8em;">
+          <th></th>
+          <th style="text-align:center">morning</th>
+          <th style="text-align:center">afternoon</th>
+          <th style="text-align:center">evening</th>
+          <th style="text-align:center">late</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render @hunter.available_times %>
+      </tbody>
+    </table>
+  </div>
+</div>

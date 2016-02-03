@@ -1,0 +1,43 @@
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+
+    <div class="modal-content">
+
+      <div class="modal-header" style="border-bottom:0px;padding-bottom:0px">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title" id="myModalLabel" style="border-bottom:0px;color:#428bca;font-weight:600">Apply<span style='color:#FF8D00'>Within</span></h3>
+
+      </div>
+
+      <div class="modal-body" style="padding-bottom:10px;color:grey">
+        <h4 style="color:#428bca;font-weight:600">Welcome to ApplyWithin<p  style="color:#FF8D00;margin-bottom:0px">The free network for the high-street job market</p></h4>
+        <p style="color:grey">We've created a profile for <span style="color:#428bca"><%= @business.name %></span></p>
+        <p><span style='color:#428bca'>Apply</span><span style='color:#FF8D00'>Within</span> is a free way to advertise jobs and receive applications.</p>
+        <p>Want to claim this profile and start using it to find staff?</p>
+        <br>
+        <p>Send us your Email below and we can set it up for you.</p>
+      </div>
+
+      <div class="modal-footer" style="text-align:left;color:grey">
+<%= simple_form_for Contact.new, :html => { class:"form-inline" } do |f| %>
+  <div class="form-group">
+    <%= f.hidden_field :name, :value => @business.name %>
+  </div>
+  <div class="form-group" style="width:60%">
+    <%= f.input :email, :required => true, label: false, :input_html => { class: 'form-control', style:"width:100%;border-radius:4px;font-size:.9em", placeholder:"email" } %>
+  </div>
+  <%= f.button :submit, 'Send', :class=> "btn btn-default", style:"border-radius:4px;font-weight:600;font-size:1em;background-color:#428bca;color:white" %>
+<% end %>
+
+
+      <p style="margin-top:10px;font-size:.7em">* if you want us to remove this profile, please email <%= mail_to "contact@applywithin.co.uk", nil, :style => 'color:#428bca' %>, sorry.</p>
+    </div>
+
+  </div>
+</div>
+
+<script type="text/javascript">
+    $(window).load(function(){
+        $('#myModal').modal('show');
+    });
+</script>

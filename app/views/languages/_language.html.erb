@@ -1,0 +1,21 @@
+<div class="panel panel-warning">
+  <div class="panel-heading">
+    <h3 class="panel-title">Language:  <%= LanguageName.find(@language.name).name %></h3>
+  </div>
+  <div class="panel-body">
+    <p>
+      <strong>Spoken level:</strong>
+      <%= LanguageLevel.find(@language.spoken_level).level %>
+    </p>
+
+    <p>
+      <strong>Written level:</strong>
+      <%= LanguageLevel.find(@language.written_level).level %>
+    </p>
+
+    <p>
+      <strong>Reading level:</strong>
+      <%= LanguageLevel.find(@language.reading_level).level %>
+    </p>
+  </div>
+</div>

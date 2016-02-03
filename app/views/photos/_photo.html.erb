@@ -1,0 +1,16 @@
+<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"> 
+  <span data-toggle="modal" data-target="#<%= photo.object_id %>">
+    <%= image_tag photo.file.url(:medium), style:"margin:5px;border-radius:3px;box-shadow: 4px 4px 2px #d3d3d3" %>
+  </span>
+  <% if @business.owner?(current_user) %>
+    <%= link_to 'remove', photo, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger btn-xs center",  style:'border-radius:4px;color:white;font-size:.8em;font-weight:600;margin-top:10px' %>
+  <% end %>
+
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="<%= photo.object_id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <%= image_tag photo.file.url(:large), class:'img-responsive', style:"margin-left:auto;margin-right:auto;border-radius:4px", class:"modal-dialog", role:"document" %>
+</div>

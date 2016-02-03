@@ -1,0 +1,35 @@
+<div class="form-group">
+  <%= f.label :tagline %><br>
+  <%= f.text_area :tagline, :size => "100x3", class: 'form-control', style:'border-radius:4px;font-size:.9em', placeholder:"a sentence or two on your business" %>
+</div>
+<div class="form-group">
+  <%= f.label :about %><br>
+  <%= f.text_area :about, :size => "30x12", class: 'form-control', style:'border-radius:4px;font-size:.9em', placeholder:"add a description of your business and information about upcoming events" %>
+</div>
+<div class="panel-body">
+<div class="table-responsive" style="border:0px">
+  <table class="table table-condensed">
+    <thead>
+      <tr style="text-align:center">
+        <td></td>
+        <td>open</td>
+        <td>close</td>
+      </tr>
+      <%= f.fields_for :hours do |bhf| %>
+      <tr style="text-align:center;font-size:1.7em">
+        <td><%= bhf.text_field :day, { disabled: true, class: "form-control", style:"border:0px;background:white;width:60px;font-weight:700" }%></td>
+        <td><%= bhf.time_select(:opens_at, options = { minute_step:15 }, html_options = { class:'select', style:'margin-top:7px;font-size:2em'}) %></td>
+        <td><%= bhf.time_select(:closes_at, options = { minute_step:15 }, html_options = { class:'select', style:'margin-top:7px;font-size:2em'}) %></td>
+      </tr>
+      <% end %>
+    </thead>
+  </table>
+</div>
+</div>
+<div class="form-group">
+  <%= f.label :cover_image %><br>
+  <%= f.file_field :cover_image, onchange:"previewFile()"  %>
+  <div style="text-align:center;padding-top:5px">
+    <img height="250" width="80%" style="margin-top:10px;text-align:center" alt="Image preview...">
+  </div>
+</div>

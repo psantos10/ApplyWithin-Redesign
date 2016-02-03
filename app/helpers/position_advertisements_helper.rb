@@ -1,0 +1,2 @@
+module PositionAdvertisementsHelper
+end

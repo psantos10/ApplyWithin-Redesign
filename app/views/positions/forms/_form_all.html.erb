@@ -1,0 +1,82 @@
+<div class="panel-body">
+  <%= f.input :longitude, :input_html => {:value => @position.business.longitude }, as: :hidden %>
+  <%= f.input :latitude, :input_html => {:value => @position.business.latitude }, as: :hidden %>
+  <%= f.input :business_type, :input_html => {:value => @position.business.business_type }, as: :hidden %>
+  <%= f.input :title, required: true, placeholder: "Job Title", label: "Job Title" %>
+  <div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-6">
+      <%= f.input :bracket, collection: JobBracket.all, required: true, prompt: "Job Type"%>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-6">
+      <%= f.input :category, collection: JobCategory.all, required: true, prompt: "Job Category" %>
+    </div>
+  </div>
+  <div class="pull-right"><span id="tagline-count">0</span> characters</div>
+  <%= f.input :tagline, required: true, placeholder: "Job Tagline", hint: 'Up to 200 characters', input_html: { :id => "tagline-field", :cols => 5, :rows => 2 } %>
+  <div class="pull-right"><span id="description-count">0</span> characters</div>
+  <%= f.input :description, required: true, placeholder: "Job Description", hint: 'Between 150 and 500 characters', input_html: { :id => "description-field", :cols => 5, :rows => 5 } %>
+  <hr>
+  <div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-6">
+      <%= f.input :openings, :collection => [ '1', '2', '3', '4', '5+' ], required: true, placeholder: "Openings", label: "Job Openings", prompt: "Job Openings" %>
+      <%= f.input :weekly_hours, collection: WeeklyHour.all , required: true, placeholder: "Weekly Hours", label: "Weekly Hours", prompt: "Weekly Hours" %>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-6">
+      <%= f.input :start_date, :collection => [ 'ASAP', '2 weeks', '1 month', '3 months', '6 months' ], required: true, placeholder: "Start Date", label: "Start Date", prompt: "Start Date" %>
+      <%= f.input :wage, collection: JobWage.all, required: true, placeholder: "Wage", label: "Wage", prompt: "Wage" %>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-6">
+      <%= f.input :customer_facing, :as => :radio_buttons, :collection => [ 'Yes', 'No' ], label: 'Customer Facing'%>
+      <%= f.input :dress_code, :as => :radio_buttons, :collection => [ 'Uniform', 'Smart', 'Casual' ], label: 'Dress Code' %>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-6">
+      <%= f.input :age_restricted, :as => :radio_buttons, :collection => [ 'Yes', 'No' ], label: 'Over 18' %>
+      <%= f.input :tips, :as => :radio_buttons, :collection => [ 'Yes', 'No' ], label: 'Tips' %>
+    </div>
+  </div>
+  <hr>
+  <div class="pull-right"><span id="rr-count">0</span> characters</div>
+    <%= f.input :roles_and_responsibilities, required: true, placeholder: "Job Description", hint: 'Between 150 and 500 characters', input_html: { :id => "rr-field", :cols => 5, :rows => 5 } %>
+  <div class="pull-right"><span id="sqa-count">0</span> characters</div>
+    <%= f.input :desired_sqa, required: true, placeholder: "Job Description", hint: 'Between 150 and 500 characters', input_html: { :id => "sqa-field", :cols => 5, :rows => 5 } %>
+  <%= f.input :form, :input_html => {:value => "all" }, as: :hidden %>  
+  <hr>
+  <div class="form-actions">
+    <%= f.button :submit, class: 'btn btn-default' %>
+  </div>
+
+</div>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+  $("#tagline-field").on("keyup", function(){
+    var length = $(this).val().length;
+    $("#tagline-count").html(length);
+  });
+});
+
+$(document).ready(function() {
+  $("#description-field").on("keyup", function(){
+    var length = $(this).val().length;
+    $("#description-count").html(length);
+  });
+});
+
+$(document).ready(function() {
+  $("#rr-field").on("keyup", function(){
+    var length = $(this).val().length;
+    $("#rr-count").html(length);
+  });
+});
+
+$(document).ready(function() {
+  $("#sqa-field").on("keyup", function(){
+    var length = $(this).val().length;
+    $("#sqa-count").html(length);
+  });
+});
+</script>

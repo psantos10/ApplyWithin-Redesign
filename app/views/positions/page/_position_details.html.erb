@@ -1,0 +1,26 @@
+<table class="table table-condensed">
+  <% if @position.business.owner?(current_user)  %>
+    <%= link_to edit_detail_position_path(@position), class:'btn btn-default pull-right edit' do %>
+    <span class="has-tooltip" data-toggle="tooltip" data-placement="left" title="Edit Job Details">
+      <i class="fa fa-pencil-square-o"></i>
+    </span>
+    <% end %>
+  <% end %>
+  <tbody>
+    <tr>
+      <td>Job Openings:&nbsp;&nbsp;&nbsp;<%= @position.openings %></td> 
+      <td>Start Date:&nbsp;&nbsp;&nbsp;<%= @position.start_date %></td>
+      <td>Type:&nbsp;&nbsp;&nbsp;<%= JobCategory.find(@position.category).name %></td>
+    </tr>
+    <tr>
+      <td><%= JobWage.find(@position.wage).name %>&nbsp;&nbsp;&nbsp;per/hour</td>
+      <td><%= WeeklyHour.find(@position.weekly_hours).name %>&nbsp;&nbsp;&nbsp;hours per/week</td>
+      <td>Dress Code:&nbsp;&nbsp;&nbsp;<%= @position.dress_code %></td>
+    </tr>
+    <tr>
+      <td>Customer Facing:&nbsp;&nbsp;&nbsp;<%= ticks_or_crosses(@position.customer_facing) %></td>
+      <td>Over 18:&nbsp;&nbsp;&nbsp;<%= ticks_or_crosses(@position.age_restricted) %></td>
+      <td>Tips:&nbsp;&nbsp;&nbsp;<%= ticks_or_crosses(@position.tips) %></td>
+    </tr>
+  </tbody>
+</table>

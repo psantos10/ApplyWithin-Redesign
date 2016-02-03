@@ -1,0 +1,6 @@
+<%= form_for(position_advertisement) do |f| %>
+  <input type="hidden" name="position_advertisement[closed_at]"
+        id="position_advertisement_closed_at"
+        value="<%=DateTime.now%>"/>
+  <%= f.submit "close job", class:'btn btn-danger btn-sm btn-block', style:'border-radius:4px;color:white;font-weight:600' %>
+<%- end %>
