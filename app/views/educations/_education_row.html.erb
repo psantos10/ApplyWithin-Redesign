@@ -3,7 +3,7 @@
   <td style="border:0;"><%= education_row.qualification %></td>
   <td style="border:0;"><%= education_row.subject %></td>
   <td style="border:0;"><%= education_row.result %></td>
-  <td style="border:0;"><%= education_row.formatted_start_date %></td>
+  <td class="hidden-xs" style="border:0;"><%= education_row.formatted_start_date %></td>
   <td class="hidden-xs" style="border:0;"><%= education_row.formatted_end_date %></td>
   <%- if current_user.admin_for?(education_row) %>
   <td style="border:0;">
