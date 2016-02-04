@@ -48,7 +48,9 @@
         <h5 style="margin-top:50px">Education</h5>
         <hr style="margin:10px">
         <% if hunter.educations.present? %>
-          <%= render partial: '/educations/educations_table', object: hunter.educations %>
+          <div class="table-responsive">
+            <%= render partial: '/educations/educations_table', object: hunter.educations %>
+          </div>
         <% else %>
         <h4 style="text-align:center;margin-top:20px"><%= link_to "We don't need no education.", "https://www.youtube.com/watch?v=34ZmKbe5oG4", target:"_blank", style:"color:#021542"%></h4>
         <% end %>
