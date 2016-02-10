@@ -53,7 +53,7 @@
               <!-- <%= render partial: '/hunters/applicant', locals: { hunter: @hunter } %> -->
 
               <h5>Experience
-              <%= link_to new_hunter_experience_path(current_user.group), class:"btn btn-default  btn-xs pull-right" do %>
+              <%= link_to new_hunter_experience_path(current_user.group), class:"btn btn-default btn-xs pull-right" do %>
                 <span class="has-tooltip" data-toggle="tooltip" data-placement="bottom" title="Add Your Job History">Add Job</span>
               <% end %>
               </h5>
@@ -66,7 +66,7 @@
               <hr>
 
               <h5>Education
-                <%= link_to new_hunter_education_path(current_user.group), class:"btn btn-default  btn-xs pull-right" do %>
+                <%= link_to new_hunter_education_path(current_user.group), class:"btn btn-default btn-xs pull-right" do %>
                   <span class="has-tooltip" data-toggle="tooltip" data-placement="bottom" title="Add Your Education History">Add Education</span>
                 <% end %>
               </h5>
@@ -104,7 +104,7 @@
 
             <div class="col-lg-12 col-md-12">
               <hr>
-                <%= link_to edit_about_hunter_path(current_user.group), class:"btn btn-default  btn-xs pull-right" do %>
+                <%= link_to edit_about_hunter_path(current_user.group), class:"btn btn-default btn-xs pull-right" do %>
                 <span class="has-tooltip" data-toggle="tooltip" data-placement="bottom" title="Edit About Me Section">Edit About Me</span>
                 <% end %>
               <%= render partial: '/hunters/about', object: @hunter %>
