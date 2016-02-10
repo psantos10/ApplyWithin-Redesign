@@ -106,7 +106,7 @@ private
   def hunter_params
     params.require(:hunter).permit(:first_name, :last_name, :dob, :nationality, :location, :phone, :email, 
                                     :seeking, :driving_licence, :tagline, :avatar, :cover_photo, :summary, :interests, :teamwork, 
-                                    :communication, :customer_service, :responsibility, :form, available_times_attributes: [
+                                    :communication, :customer_service, :responsibility, :form, :start_date, available_times_attributes: [
                                        :id, :morning, :afternoon, :evening, :late
                                      ])
   end

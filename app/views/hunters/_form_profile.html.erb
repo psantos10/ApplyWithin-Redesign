@@ -34,13 +34,16 @@
     <div class="col-lg-6 col-md-6 col-sm-6">
       <%= f.input :seeking, collection: JobCategory.all, required: true, placeholder: "Seeking", label: "Seeking", prompt: "Seeking" %>
     </div>
+    <div class="col-lg-6 col-md-6 col-sm-6">
+      <%= f.input :start_date, :collection => [ 'ASAP', '2 weeks', '1 month', '3 months', '6 months' ], required: true, placeholder: "Start Date", label: "Start Date", prompt: "Start Date" %>
+    </div>
 
   </div>
+
   <hr>
   <div class="pull-right"><span id="body-count">0</span> characters</div>
   <%= f.input :tagline, required: true, as: :text, placeholder: "Your Tagline", hint: 'Up to 200 characters', input_html: { :id => "body-field", :cols => 5, :rows => 3 } %>
   <hr>
-
   <%= f.input :avatar, as: :file, :input_html => {:onchange => "previewFile()"} %>
   <div style="text-align:center;margin:5px">
     <img height="200" width="30%" style="margin-top:10px;text-align:center;border:1px solid grey;border-radius:2px" alt="Image preview...">
