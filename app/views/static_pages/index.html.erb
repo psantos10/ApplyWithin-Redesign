@@ -13,8 +13,7 @@
     <!-- Portfolio Section -->
     <div class="row">
         <div class="col-lg-12">
-          <h3 class: 'page-header'><%= link_to 'Live Jobs', positions_path %></h3>
-          <hr>
+          <h2 class='page-header'><%= link_to 'Live Jobs', positions_path %></h2>
         </div>
         <% Position.order('updated_at DESC').limit(12).each do |position| %>
         <div class="col-xs-offset-1 col-sm-offset-0 col-md-offset-0 col-lg-offset-0 col-lg-3 col-md-4 col-sm-6 col-xs-10">
@@ -28,14 +27,12 @@
     <!-- Business Section -->
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">
-              Want a great way to find staff?
-            </h1>
+          <h2 class='page-header'>Want a great way to find staff?</h2>
         </div>
         <div class="col-md-4">
             <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4><span class="fa fa-building fa-2x"></span> Create Business Profile</h4>
+                <div class="panel-heading" style="background:#021542;color:white">
+                  <h4>&nbsp;<span class="fa fa-building fa-2x"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create Business Profile</h4>
                 </div>
                 <div class="panel-body">
                     <p>This includes key information about your business, your jobs and photos.</p>
@@ -45,8 +42,8 @@
         </div>
         <div class="col-md-4">
             <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4><span class="fa fa-list-alt fa-2x"></span> Add jobs</h4>
+                <div class="panel-heading" style="background:#021542;color:white">
+                  <h4>&nbsp;<span class="fa fa-list-alt fa-2x"></span>&nbsp;&nbsp;&nbsp;&nbsp;Add jobs</h4>
                 </div>
                 <div class="panel-body">
                     <p>There's no limit to how many jobs you add or how often you advertise them.</p>
@@ -56,8 +53,8 @@
         </div>
         <div class="col-md-4">
             <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4><span class="fa fa-users fa-2x"></span> Receive applications</h4>
+                <div class="panel-heading" style="background:#021542;color:white">
+                  <h4>&nbsp;<span class="fa fa-users fa-2x"></span>&nbsp;&nbsp;&nbsp;&nbsp;Receive applications</h4>
                 </div>
                 <div class="panel-body">
                     <p>Receive applications from interested job-hunters directly through the website.</p>
@@ -71,20 +68,20 @@
     <!-- Job Hunter Section -->
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Job hunting made easy</h1>
+          <h2 class="page-header" style="color:#337ab7">Job hunting made easy</h2>
         </div>
         <div class="col-md-6">
-            <p>The Modern Business template by Start Bootstrap includes:</p>
+            <p>Create your profile and start applying instantly:</p>
             <ul>
-                <li><strong>Bootstrap v3.2.0</strong>
-                </li>
-                <li>jQuery v1.11.0</li>
-                <li>Font Awesome v4.1.0</li>
-                <li>Working PHP contact form with validation</li>
-                <li>Unstyled page elements for easy customization</li>
-                <li>17 HTML pages</li>
+                <li><strong>About you</strong></li>
+                <li>Pictures</li>
+                <li>Experience</li>
+                <li>Education</li>
+                <li>Language</li>
+                <li>Availability</li>
             </ul>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, omnis doloremque non cum id reprehenderit, quisquam totam aspernatur tempora minima unde aliquid ea culpa sunt. Reiciendis quia dolorum ducimus unde.</p>
+            <p>Once you've completed your profile you can start searching and applying for job instantly, your profile will only be shared with businesses you apply to.  Set up <span style="color:#FF534B">Auto Apply</span> alerts and let our system find jobs for you.</p>
+            <p>Track your applications.</p>
         </div>
         <div class="col-md-6">
             <img class="img-responsive" src="http://placehold.it/700x450" alt="">
@@ -101,7 +98,7 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, expedita, saepe, vero rerum deleniti beatae veniam harum neque nemo praesentium cum alias asperiores commodi.</p>
             </div>
             <div class="col-md-4">
-              <%= link_to 'Sign Up', new_registration_path(resource_name), class: 'btn btn-lg btn-default btn-block' %>
+              <%= link_to 'Sign Up!', new_registration_path(resource_name), class: 'btn btn-lg btn-default btn-block', style:"font-family: 'Lobster', cursive;font-weight:600;color:white;background:#FF534B;font-size:2em;letter-spacing:2px" %>
             </div>
         </div>
     </div>
