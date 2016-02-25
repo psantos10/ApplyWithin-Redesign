@@ -1,35 +1,22 @@
-<div class="container" id="main">
-  <div class="row" style="margin-top:7%">  
-    <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
+<div class="row">
+  <div class="col-xs-offset-1 col-sm-offset-2 col-md-offset-3 col-lg-offset-4 col-lg-4 col-md-6 col-sm-8 col-xs-10">
+    <div class="panel panel-default">
 
-      <div class="panel panel-default">
-
-        <div class="panel-heading">
-          <h4 style="color:#FF8D00;font-weight:600">Resend unlock instructions</h5>
-        </div>
-
-        <div class="panel-body">
-
-          <%= form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
-            <%= devise_error_messages! %>
-
-            <div class="form-group">
-              <div class="input-group input-group-lg">
-                  <span class="input-group-addon">
-                      <span class="fa fa-envelope-o fa-fw"></span>
-                  </span>
-                  <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "email" %>
-              </div>
-            </div>
-
-            <div class="actions" style="text-align:center;">
-        	    <%= f.submit "Resend unlock instructions", class:"btn btn-default", style:"margin-top:20px;background-color:#428bca;border-radius:4px;font-weight:600;color:white" %>
-              <% end %>
-            </div>
-
-        </div>
+      <div class="panel-heading">
+        <h3 class="panel-title">Unlock Account</h3>
       </div>
 
+      <div class="panel-body">
+        <%= simple_form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
+        <%= f.error_notification %>
+          <%= f.input :reset_password_token, as: :hidden %>
+          <div class="form-inputs">
+            <%= f.input :email %>
+          </div>
+          <hr>
+            <%= f.button :submit, "Send Unlock Instructions" %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
