@@ -74,6 +74,15 @@ class Hunter < ActiveRecord::Base
     applications.where(position_advertisement_id: advertisement.id).any?
   end
 
+  def cover_image
+    if cover_photo.present? 
+      cover_photo
+    else
+      ActionController::Base.helpers.asset_path("wall.jpg")
+    end  
+
+  end
+
   def display_name
     "#{first_name} #{last_name}"
   end
