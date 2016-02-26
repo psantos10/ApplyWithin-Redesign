@@ -1,13 +1,5 @@
 <div class="container">
   <div class="row">
-    <% if @position.business.owner?(current_user)  %>
-      <%= link_to edit_detail_position_path(@position), class:'btn btn-default pull-right edit' do %>
-      <span class="has-tooltip" data-toggle="tooltip" data-placement="left" title="Edit Job Details">
-        <i class="fa fa-pencil-square-o"></i>
-      </span>
-      <% end %>
-    <% end %>
-    
     <div class="col-lg-12 col-md-12 col-sm-6 col-xs-12" id="position_detail">
       <div class="col-lg-3 col-md-3">
        <p><span id="bold"><%= JobCategory.find(@position.category).name %>&nbsp;&nbsp;(&nbsp;<%= WeeklyHour.find(@position.weekly_hours).name %>&nbsp;p/w&nbsp;)</span></p>
@@ -43,6 +35,5 @@
        <p>Tips&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="bold"><%= ticks_or_crosses(@position.tips) %></span></p>
       </div>  
     </div>
-
   </div>
 </div>

@@ -17,6 +17,14 @@
         <h4><%= link_to @position.business do %><%= @position.business.name %> | <%= @position.business.type %> | <%= LondonArea.find_by(postcode: @position.business.postcode[/(\S+)/, 1]).name %><% end %></h4>
         <p><%= @position.tagline %></p>
         <hr>
+        <% if @position.business.owner?(current_user)  %>
+          <%= link_to edit_detail_position_path(@position), class:'btn btn-default pull-right' do %>
+          <span class="has-tooltip" data-toggle="tooltip" data-placement="left" title="Edit Job Details">
+            <i class="fa fa-pencil-square-o"></i>
+          </span>
+          <% end %>
+        <% end %>
+
         <%= render partial: 'positions/page/position_details', locals: { position: @position }%>
         <hr>
         <%= render partial: 'positions/page/position_description', locals: { position: @position }%>
