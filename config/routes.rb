@@ -109,18 +109,13 @@ Rails.application.routes.draw do
   get 'dashboard/index', as: :dashboard
 
   get 'static_pages/index'
-  
-  get 'static_pages/privacy_policy'
-  get 'static_pages/general_terms'
-  get 'static_pages/business_terms'
-  get 'static_pages/hunter_terms'
-  get 'static_pages/about'
-
-  get 'static_pages/example1'
-  get 'static_pages/example2'
-  get 'static_pages/example3'
-  get 'static_pages/example4'
-  get 'static_pages/example5'
+  get 'privacy_policy', :to => 'static_pages#privacy_policy'
+  get 'general_terms', :to => 'static_pages#general_terms'
+  get 'business_terms', :to => 'static_pages#business_terms'
+  get 'hunter_terms', :to => 'static_pages#hunter_terms'
+  get 'about', :to => 'static_pages#about'
+  get 'contact', :to => 'static_pages#contact'
+  get 'help', :to => 'static_pages#help'
 
   match '/contacts', to: 'contacts#new', via: 'get'
   resources "contacts", only: [:new, :create]
