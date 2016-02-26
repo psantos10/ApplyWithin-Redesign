@@ -1,113 +1,92 @@
 <div class="container">
 
-<div class="jumbotron hidden-sm hidden-xs">
-  <div class="container">
-    <h1>Apply<span id="within">Within</span></h1>
-    <p class="hidden-sm hidden-xs">Connecting bars, restaurants & cafes with local job hunters</p>
+  <div class="jumbotron hidden-sm hidden-xs">
+    <div class="container">
+      <h1>Apply<span id="within">Within</span></h1>
+      <p class="hidden-sm hidden-xs">Connecting bars, restaurants & cafes with local job hunters</p>
+    </div>
   </div>
-</div>
 
 <!-- Page Content -->
-<div class="container">
-
+  <div class="container">
     <!-- Portfolio Section -->
     <div class="row">
-        <div class="col-lg-12">
-          <h2 class='page-header'><%= link_to 'Live Jobs', positions_path %></h2>
-        </div>
-        <% Position.order('updated_at DESC').limit(12).each do |position| %>
-        <div class="col-xs-offset-1 col-sm-offset-0 col-md-offset-0 col-lg-offset-0 col-lg-3 col-md-4 col-sm-6 col-xs-10">
-          <%= render partial: 'positions/position', locals: {position: position} %>
-        </div>
-        <% end %>
-
+      <div class="col-lg-12">
+        <h2 class='page-header'><%= link_to 'Live Jobs', positions_path %></h2>
+      </div>
+      <% Position.order('updated_at DESC').limit(12).each do |position| %>
+      <div class="col-xs-offset-1 col-sm-offset-0 col-md-offset-0 col-lg-offset-0 col-lg-3 col-md-4 col-sm-6 col-xs-10">
+        <%= render partial: 'positions/position', locals: {position: position} %>
+      </div>
+      <% end %>
     </div>
     <!-- /.row -->
-
     <!-- Business Section -->
     <div class="row">
-        <div class="col-lg-12">
-          <h2 class='page-header'>Want a great way to find staff?</h2>
-        </div>
-        <div class="col-md-4">
-            <div class="panel panel-default">
-                <div class="panel-heading" style="background:#021542;color:white">
-                  <h4>&nbsp;<span class="fa fa-building fa-2x"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create Business Profile</h4>
-                </div>
-                <div class="panel-body">
-                    <p>This includes key information about your business, your jobs and photos.</p>
-                    <%= link_to 'Example', Business.second, :class => 'btn btn-default'%>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="panel panel-default">
-                <div class="panel-heading" style="background:#021542;color:white">
-                  <h4>&nbsp;<span class="fa fa-list-alt fa-2x"></span>&nbsp;&nbsp;&nbsp;&nbsp;Add jobs</h4>
-                </div>
-                <div class="panel-body">
-                    <p>There's no limit to how many jobs you add or how often you advertise them.</p>
-                  <%= link_to 'Example', Position.last, :class => 'btn btn-default' %>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="panel panel-default">
-                <div class="panel-heading" style="background:#021542;color:white">
-                  <h4>&nbsp;<span class="fa fa-users fa-2x"></span>&nbsp;&nbsp;&nbsp;&nbsp;Receive applications</h4>
-                </div>
-                <div class="panel-body">
-                    <p>Receive applications from interested job-hunters directly through the website.</p>
-                    <%= link_to 'Example', root_path, :class => 'btn btn-default' %>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- /.row -->
-
-    <!-- Job Hunter Section -->
-    <div class="row">
-        <div class="col-lg-12">
-          <h2 class="page-header" style="color:#337ab7">Job hunting made easy</h2>
-        </div>
-        <div class="col-md-6">
-            <p>Create your profile and start applying instantly:</p>
-            <ul>
-                <li><strong>About you</strong></li>
-                <li>Pictures</li>
-                <li>Experience</li>
-                <li>Education</li>
-                <li>Language</li>
-                <li>Availability</li>
-            </ul>
-            <p>Once you've completed your profile you can start searching and applying for job instantly, your profile will only be shared with businesses you apply to.  Set up <span style="color:#FF534B">Auto Apply</span> alerts and let our system find jobs for you.</p>
-            <p>Track your applications.</p>
-        </div>
-        <div class="col-md-6" style="padding:20px;padding-top:0px">
-          <span data-toggle="modal" data-target="#myModal">
-            <%= image_tag("hunter.jpg", height: '600', width: '600`', class: "img-responsive homepage") %>
-          </span>
-        </div>
-    </div>
-    <!-- /.row -->
-
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-body">
-        <%= image_tag("hunter.jpg", class: "img-responsive homepage") %>
+      <div class="col-lg-12">
+        <h2 class='page-header'>Want a great way to find staff?</h2>
+      </div>
+      <div class="col-md-4">
+          <div class="panel panel-default">
+              <div class="panel-heading" style="background:#021542;color:white">
+                <h4>&nbsp;<span class="fa fa-building fa-2x"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create Business Profile</h4>
+              </div>
+              <div class="panel-body">
+                  <p>This includes key information about your business, your jobs and photos.</p>
+                  <%= link_to 'Example', Business.second, :class => 'btn btn-default'%>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-4">
+          <div class="panel panel-default">
+              <div class="panel-heading" style="background:#021542;color:white">
+                <h4>&nbsp;<span class="fa fa-list-alt fa-2x"></span>&nbsp;&nbsp;&nbsp;&nbsp;Add jobs</h4>
+              </div>
+              <div class="panel-body">
+                  <p>There's no limit to how many jobs you add or how often you advertise them.</p>
+                <%= link_to 'Example', Position.last, :class => 'btn btn-default' %>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-4">
+          <div class="panel panel-default">
+              <div class="panel-heading" style="background:#021542;color:white">
+                <h4>&nbsp;<span class="fa fa-users fa-2x"></span>&nbsp;&nbsp;&nbsp;&nbsp;Receive applications</h4>
+              </div>
+              <div class="panel-body">
+                  <p>Receive applications from interested job-hunters directly through the website.</p>
+                  <%= link_to 'Example', root_path, :class => 'btn btn-default', "data-toggle" => "modal", "data-target" => "#myModal" %>
+              </div>
+          </div>
       </div>
     </div>
-  </div>
-</div>
-
-
-
-
-
+    <!-- /.row -->
+    <!-- Job Hunter Section -->
+    <div class="row">
+      <div class="col-lg-12">
+        <h2 class="page-header" style="color:#337ab7">Job hunting made easy</h2>
+      </div>
+      <div class="col-md-6">
+          <p>Create your profile and start applying instantly:</p>
+          <ul>
+              <li><strong>About you</strong></li>
+              <li>Pictures</li>
+              <li>Experience</li>
+              <li>Education</li>
+              <li>Language</li>
+              <li>Availability</li>
+          </ul>
+          <p>Once you've completed your profile you can start searching and applying for job instantly, your profile will only be shared with businesses you apply to.  Set up <span style="color:#FF534B">Auto Apply</span> alerts and let our system find jobs for you.</p>
+          <p>Track your applications.</p>
+      </div>
+      <div class="col-md-6" style="padding:20px;padding-top:0px">
+        <span data-toggle="modal" data-target="#myModal">
+          <%= image_tag("hunter.jpg", height: '600', width: '600`', class: "img-responsive homepage") %>
+        </span>
+      </div>
+    </div>
+    <!-- /.row -->
     <hr>
-
     <!-- Call to Action Section -->
     <div class="well">
         <div class="row">
@@ -119,8 +98,18 @@
             </div>
         </div>
     </div>
-
     <hr>
+  </div>
 
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <%= image_tag("hunter.jpg", class: "img-responsive homepage") %>
+      </div>
+    </div>
+  </div>
 </div>
