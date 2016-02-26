@@ -1,32 +1,34 @@
-<div class="row">
-  <div class="col-xs-offset-1 col-sm-offset-2 col-md-offset-3 col-lg-offset-4 col-lg-4 col-md-6 col-sm-8 col-xs-10">
-
-    <div class="panel panel-default">
-      <%= render partial: 'devise/shared/errors' %>
-      <% if request.fullpath.include?('signup_business') %>
-      <%= render partial: 'business' %>
-      <% elsif request.fullpath.include?('signup_hunter') %>
-      <%= render partial: 'hunter' %>
-      <% else %>
-
-      <div class="panel-heading">
-        <h3 class="panel-title">Account Type?</h3>
+<div class="container">
+  <div class="row">
+    <%= render partial: 'devise/shared/errors' %>
+    <% if request.fullpath.include?('signup_business') %>
+    <div class="col-xs-offset-1 col-sm-offset-2 col-md-offset-3 col-lg-offset-4 col-lg-4 col-md-6 col-sm-8 col-xs-10">
+      <div class="panel panel-default">
+        <%= render partial: 'business' %>
       </div>
-        <div class="panel-body">
-          <div class="col-lg-6">
-            <span class="has-tooltip" data-toggle="tooltip" data-placement="bottom" title="Do you need to find new staff?">
-              <%= button_to('BUSINESS', signup_business_path, class: 'btn circle blue-circle' )%>
-            </span>
-
-          </div>
-          <div class="col-lg-6">
-            <span class="has-tooltip" data-toggle="tooltip" data-placement="bottom" title="Are you looking for jobs?">
-              <%= button_to('JOB HUNTER', signup_hunter_path, class: 'btn circle orange-circle' )%>
-            </span>
-          </div>
-        </div>
-      <% end %>
     </div>
+    <% elsif request.fullpath.include?('signup_hunter') %>
+    <div class="col-xs-offset-1 col-sm-offset-2 col-md-offset-3 col-lg-offset-4 col-lg-4 col-md-6 col-sm-8 col-xs-10">
+      <div class="panel panel-default">
+        <%= render partial: 'hunter' %>
+      </div>
+    </div>
+    <% else %>
+    <h2 class="page-header" style="color:#337ab7;text-align:center">What type of account do you need?</h2>
+
+    <div class="col-lg-6" style="text-align:center">
+      <span class="has-tooltip" data-toggle="tooltip" data-placement="bottom" title="Do you need to find new staff?">
+        <%= button_to('Business User', signup_business_path, class: 'btn circle business-circle' )%>
+      </span>
+    </div>
+
+    <div class="col-lg-6" style="text-align:center">
+      <span class="has-tooltip" data-toggle="tooltip" data-placement="bottom" title="Are you looking for jobs?">
+        <%= button_to('Job Hunter User', signup_hunter_path, class: 'btn circle hunter-circle' )%>
+      </span>
+    </div>
+
+    <% end %>
   </div>
 </div>
 
