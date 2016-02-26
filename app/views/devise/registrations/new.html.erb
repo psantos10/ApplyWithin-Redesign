@@ -1,20 +1,26 @@
 <div class="container">
   <div class="row">
     <%= render partial: 'devise/shared/errors' %>
+
     <% if request.fullpath.include?('signup_business') %>
+
     <div class="col-xs-offset-1 col-sm-offset-2 col-md-offset-3 col-lg-offset-4 col-lg-4 col-md-6 col-sm-8 col-xs-10">
       <div class="panel panel-default">
         <%= render partial: 'business' %>
       </div>
     </div>
+
     <% elsif request.fullpath.include?('signup_hunter') %>
+
     <div class="col-xs-offset-1 col-sm-offset-2 col-md-offset-3 col-lg-offset-4 col-lg-4 col-md-6 col-sm-8 col-xs-10">
       <div class="panel panel-default">
         <%= render partial: 'hunter' %>
       </div>
     </div>
+
     <% else %>
-    <h2 class="page-header" style="color:#337ab7;text-align:center">What type of account do you need?</h2>
+
+    <h3 class="page-header" style="color:#337ab7;text-align:center">What type of account do you need?</h2>
 
     <div class="col-lg-6" style="text-align:center">
       <span class="has-tooltip" data-toggle="tooltip" data-placement="bottom" title="Do you need to find new staff?">

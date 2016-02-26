@@ -11711,6 +11711,12 @@ h2.page-header {
     margin-bottom: 15px;
   }
 }
+/* line 71, /Users/colin/code/rails/redesign/app/assets/stylesheets/landing.css.sass */
+.homepage {
+  border: 2px #337ab7 solid;
+  box-shadow: 4px 4px 2px #888888;
+  border-radius: 4px;
+}
 /* line 6, /Users/colin/code/rails/free_job_network/app/assets/stylesheets/navbar.css.sass */
 .navbar-inverse {
   background-color: #021542;
@@ -11839,7 +11845,7 @@ h2.page-header {
 .fa-search {
   font-size: 1.5em;
 }
-/* line 5, /Users/colin/code/rails/free_job_network/app/assets/stylesheets/position.css.sass */
+/* line 5, /Users/colin/code/rails/redesign/app/assets/stylesheets/position.css.sass */
 .position-panel {
   background-size: cover;
   border-radius: 2px;
@@ -11847,12 +11853,12 @@ h2.page-header {
   box-shadow: 4px 4px 2px #888888;
   text-align: center;
 }
-/* line 11, /Users/colin/code/rails/free_job_network/app/assets/stylesheets/position.css.sass */
+/* line 11, /Users/colin/code/rails/redesign/app/assets/stylesheets/position.css.sass */
 .position-panel .panel-body {
   position: relative;
   min-height: 275px;
 }
-/* line 14, /Users/colin/code/rails/free_job_network/app/assets/stylesheets/position.css.sass */
+/* line 14, /Users/colin/code/rails/redesign/app/assets/stylesheets/position.css.sass */
 .position-panel .panel-body .inner-position-box {
   margin-top: 10px;
   background: rgba(0, 0, 0, 0.75);
@@ -11863,14 +11869,14 @@ h2.page-header {
   font-size: 0.7em;
 }
 
-/* line 24, /Users/colin/code/rails/free_job_network/app/assets/stylesheets/position.css.sass */
+/* line 24, /Users/colin/code/rails/redesign/app/assets/stylesheets/position.css.sass */
 .inner-position-header {
   color: white;
   font-size: 1.3em;
   letter-spacing: 1px;
 }
 
-/* line 29, /Users/colin/code/rails/free_job_network/app/assets/stylesheets/position.css.sass */
+/* line 29, /Users/colin/code/rails/redesign/app/assets/stylesheets/position.css.sass */
 .view-icon {
   font-size: 1em;
   position: absolute;
@@ -11878,67 +11884,103 @@ h2.page-header {
   right: 10px;
 }
 
-/* line 35, /Users/colin/code/rails/free_job_network/app/assets/stylesheets/position.css.sass */
+/* line 35, /Users/colin/code/rails/redesign/app/assets/stylesheets/position.css.sass */
 #position_show {
   margin-top: 30px;
 }
-/* line 37, /Users/colin/code/rails/free_job_network/app/assets/stylesheets/position.css.sass */
+/* line 37, /Users/colin/code/rails/redesign/app/assets/stylesheets/position.css.sass */
+#position_show .panel-body {
+  padding: 20px;
+  padding-top: 30px;
+}
+/* line 40, /Users/colin/code/rails/redesign/app/assets/stylesheets/position.css.sass */
 #position_show td {
   border: 0px;
 }
 
-/* line 40, /Users/colin/code/rails/free_job_network/app/assets/stylesheets/position.css.sass */
+/* line 43, /Users/colin/code/rails/redesign/app/assets/stylesheets/position.css.sass */
 .position_about > h4 {
   margin-top: 30px;
   color: #337ab7;
 }
 
-/* line 44, /Users/colin/code/rails/free_job_network/app/assets/stylesheets/position.css.sass */
+/* line 47, /Users/colin/code/rails/redesign/app/assets/stylesheets/position.css.sass */
 #position_info {
   top: 60px;
   background: rgba(0, 0, 0, 0.75);
   color: white;
 }
-/* line 48, /Users/colin/code/rails/free_job_network/app/assets/stylesheets/position.css.sass */
+/* line 51, /Users/colin/code/rails/redesign/app/assets/stylesheets/position.css.sass */
 #position_info .panel-body {
-  margin-top: 15px;
-}
-/* line 50, /Users/colin/code/rails/free_job_network/app/assets/stylesheets/position.css.sass */
-#position_info .panel-body h3 {
   margin-top: 0px;
 }
-/* line 52, /Users/colin/code/rails/free_job_network/app/assets/stylesheets/position.css.sass */
+/* line 53, /Users/colin/code/rails/redesign/app/assets/stylesheets/position.css.sass */
+#position_info .panel-body h3 {
+  margin: 0px;
+}
+/* line 55, /Users/colin/code/rails/redesign/app/assets/stylesheets/position.css.sass */
 #position_info .panel-body h2 {
+  margin-top: 10px;
   margin-bottom: 5px;
 }
+/* line 58, /Users/colin/code/rails/redesign/app/assets/stylesheets/position.css.sass */
+#position_info .panel-body h4 {
+  margin: 5px;
+}
 
-/* line 56, /Users/colin/code/rails/free_job_network/app/assets/stylesheets/position.css.sass */
+/* line 61, /Users/colin/code/rails/redesign/app/assets/stylesheets/position.css.sass */
+#info-row {
+  border-bottom: 1px solid white;
+  margin: 5px;
+  padding: 5px;
+  text-align: center;
+}
+
+/* line 68, /Users/colin/code/rails/redesign/app/assets/stylesheets/position.css.sass */
 #position_info hr {
   margin-top: 5px;
   margin-bottom: 10px;
 }
 
-/* line 60, /Users/colin/code/rails/free_job_network/app/assets/stylesheets/position.css.sass */
+/* line 72, /Users/colin/code/rails/redesign/app/assets/stylesheets/position.css.sass */
 .pinky {
   color: #FF534B;
 }
 
-/* line 63, /Users/colin/code/rails/free_job_network/app/assets/stylesheets/position.css.sass */
+/* line 75, /Users/colin/code/rails/redesign/app/assets/stylesheets/position.css.sass */
 .bluey {
   margin-bottom: 0px;
   font-weight: 600;
   color: #021542;
 }
 
-/* line 68, /Users/colin/code/rails/free_job_network/app/assets/stylesheets/position.css.sass */
+/* line 80, /Users/colin/code/rails/redesign/app/assets/stylesheets/position.css.sass */
 .panel-default > .panel-heading {
   padding-top: 10px;
   padding-bottom: 10px;
 }
 
-/* line 73, /Users/colin/code/rails/free_job_network/app/assets/stylesheets/position.css.sass */
+/* line 85, /Users/colin/code/rails/redesign/app/assets/stylesheets/position.css.sass */
 #edit_detail td {
   border: 0px;
+}
+
+/* line 89, /Users/colin/code/rails/redesign/app/assets/stylesheets/position.css.sass */
+#position_detail p {
+  margin-bottom: 20px;
+  color: #909090;
+}
+
+/* line 92, /Users/colin/code/rails/redesign/app/assets/stylesheets/position.css.sass */
+#bold {
+  font-weight: 600;
+  color: #333333;
+  font-size: 1.2em;
+}
+
+/* line 97, /Users/colin/code/rails/redesign/app/assets/stylesheets/position.css.sass */
+#atstbx {
+  font-size: 0.8em;
 }
 /* line 2, /Users/colin/code/rails/free_job_network/app/assets/stylesheets/search.css.sass */
 .search-bar {
@@ -11957,25 +11999,35 @@ h2.page-header {
   border: 1px solid #021542;
   box-shadow: 4px 4px 2px #888888;
 }
-/* line 5, /Users/colin/code/rails/free_job_network/app/assets/stylesheets/sign_up_forms.css.sass */
-.circle {
-  width: 270px;
-  height: 270px;
-  padding: 6px 0;
-  border-radius: 150px;
-  outline: 0px;
-  text-align: center;
-  font-size: 2em;
+/* line 5, /Users/colin/code/rails/redesign/app/assets/stylesheets/sign_up_forms.css.sass */
+#form-title {
+  margin-top: 10px;
+  font-size: 1.2em;
   font-weight: 600;
-  color: white;
+  color: #FF534B;
 }
 
-/* line 16, /Users/colin/code/rails/free_job_network/app/assets/stylesheets/sign_up_forms.css.sass */
-.blue-circle {
-  background-color: #428bca;
+/* line 11, /Users/colin/code/rails/redesign/app/assets/stylesheets/sign_up_forms.css.sass */
+.circle {
+  margin: 25px;
+  padding: 6px 0;
+  width: 400px;
+  height: 400px;
+  border-radius: 200px;
+  text-align: center;
+  font-family: "Lobster", cursive;
+  font-size: 50px;
+  font-weight: 600;
 }
 
-/* line 19, /Users/colin/code/rails/free_job_network/app/assets/stylesheets/sign_up_forms.css.sass */
-.orange-circle {
-  background-color: #FF8D00;
+/* line 24, /Users/colin/code/rails/redesign/app/assets/stylesheets/sign_up_forms.css.sass */
+.hunter-circle {
+  color: #021542;
+  background-image: url("people.jpg");
+}
+
+/* line 29, /Users/colin/code/rails/redesign/app/assets/stylesheets/sign_up_forms.css.sass */
+.business-circle {
+  color: #FF534B;
+  background-image: url("coffee.jpg");
 }
