@@ -11,6 +11,6 @@
 
 <!-- Modal -->
 <div class="modal fade" id="<%= photo.object_id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <%= image_tag photo.file.url(:large), class:'img-responsive', style:"margin-left:auto;margin-right:auto;border-radius:4px", class:"modal-dialog", role:"document" %>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <%= image_tag photo.file.url(:large), class:'img-responsive', style:"margin-left:auto;margin-right:auto;border-radius:4px", class:"modal-dialog", role:"document" %>
 </div>

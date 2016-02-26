@@ -83,11 +83,28 @@
             <p>Once you've completed your profile you can start searching and applying for job instantly, your profile will only be shared with businesses you apply to.  Set up <span style="color:#FF534B">Auto Apply</span> alerts and let our system find jobs for you.</p>
             <p>Track your applications.</p>
         </div>
-        <div class="col-md-6">
-            <img class="img-responsive" src="http://placehold.it/700x450" alt="">
+        <div class="col-md-6" style="padding:20px;padding-top:0px">
+          <span data-toggle="modal" data-target="#myModal">
+            <%= image_tag("hunter.jpg", height: '600', width: '600`', class: "img-responsive homepage") %>
+          </span>
         </div>
     </div>
     <!-- /.row -->
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <%= image_tag("hunter.jpg", class: "img-responsive homepage") %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
 
     <hr>
 
