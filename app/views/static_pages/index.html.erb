@@ -32,7 +32,8 @@
                 <h4>&nbsp;<span class="fa fa-building fa-2x"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create Business Profile</h4>
               </div>
               <div class="panel-body">
-                  <p>This includes key information about your business, your jobs and photos.</p>
+                  <p>This includes key information about your business, jobs and photos.</p>
+                  <br>
                   <%= link_to 'Example', Business.second, :class => 'btn btn-default'%>
               </div>
           </div>
@@ -44,6 +45,7 @@
               </div>
               <div class="panel-body">
                   <p>There's no limit to how many jobs you add or how often you advertise them.</p>
+                  <br>
                 <%= link_to 'Example', Position.last, :class => 'btn btn-default' %>
               </div>
           </div>
@@ -54,8 +56,11 @@
                 <h4>&nbsp;<span class="fa fa-users fa-2x"></span>&nbsp;&nbsp;&nbsp;&nbsp;Receive applications</h4>
               </div>
               <div class="panel-body">
-                  <p>Receive applications from interested job-hunters directly through the website.</p>
-                  <%= link_to 'Example', root_path, :class => 'btn btn-default', "data-toggle" => "modal", "data-target" => "#myModal" %>
+                <p>Receive applications from interested job-hunters directly through the website.</p>
+                <br>
+                <button type="button" class="btn btn-default" data-toggle="modal" data-target="#Modal2">
+                Example
+                </button>
               </div>
           </div>
       </div>
@@ -80,8 +85,8 @@
           <p>Track your applications.</p>
       </div>
       <div class="col-md-6" style="padding:20px;padding-top:0px">
-        <span data-toggle="modal" data-target="#myModal">
-          <%= image_tag("hunter.jpg", height: '600', width: '600`', class: "img-responsive homepage") %>
+        <span data-toggle="modal" data-target="#Modal1">
+          <%= image_tag('hunter_small.jpg', height: '600', width: '600', class: "img-responsive homepage") %>
         </span>
       </div>
     </div>
@@ -104,7 +109,18 @@
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="Modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <%= image_tag("hunter.jpg", class: "img-responsive homepage") %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="Modal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-body">
