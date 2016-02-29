@@ -16,7 +16,7 @@
   <div class="pull-right"><span id="tagline-count">0</span> characters</div>
   <%= f.input :tagline, required: true, placeholder: "Job Tagline", hint: 'Up to 200 characters', input_html: { :id => "tagline-field", :cols => 5, :rows => 2 } %>
   <div class="pull-right"><span id="body-count">0</span> characters</div>
-  <%= f.input :description, required: true, placeholder: "Job Description", hint: 'Between 150 and 500 characters', input_html: { :id => "body-field", :cols => 5, :rows => 4 } %>
+  <%= f.input :description, required: true, placeholder: "Job Description", hint: 'Between 150 and 1,000 characters', input_html: { :id => "body-field", :cols => 5, :rows => 4 } %>
   <hr>
   <div class="form-actions">
     <%= f.button :submit, 'Add Job', class: 'btn btn-default' %>

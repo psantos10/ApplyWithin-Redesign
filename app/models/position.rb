@@ -11,9 +11,9 @@ class Position < ActiveRecord::Base
 
   validates :title, :bracket, :category, :presence => true, :if => lambda { |b| b.form == "info"}
   validates :tagline, length: { minimum: 20, maximum: 200}, :presence => true, :if => lambda { |b| b.form == "info"}
-  validates :description, length: { minimum: 20, maximum: 500}, :presence => true, :if => lambda { |b| b.form == "info"}
+  validates :description, length: { minimum: 20, maximum: 1000}, :presence => true, :if => lambda { |b| b.form == "info"}
   validates :openings, :start_date, :wage, :weekly_hours, :age_restricted, :customer_facing, :dress_code, :tips, :presence => true, :if => lambda { |b| b.form == "detail"}
-  validates :roles_and_responsibilities, :desired_sqa, length: { minimum: 20, maximum: 500}, :presence => true, :if => lambda { |b| b.form == "about" }
+  validates :roles_and_responsibilities, :desired_sqa, length: { minimum: 20, maximum: 1000}, :presence => true, :if => lambda { |b| b.form == "about" }
 
   after_create :set_postcode, :set_area, :set_bracket_name, :set_category_name, :set_business_type
   after_create :create_advertisement

@@ -14,7 +14,7 @@
   <div class="pull-right"><span id="tagline-count">0</span> characters</div>
   <%= f.input :tagline, required: true, placeholder: "Job Tagline", hint: 'Up to 200 characters', input_html: { :id => "tagline-field", :cols => 5, :rows => 2 } %>
   <div class="pull-right"><span id="description-count">0</span> characters</div>
-  <%= f.input :description, required: true, placeholder: "Job Description", hint: 'Between 150 and 500 characters', input_html: { :id => "description-field", :cols => 5, :rows => 5 } %>
+  <%= f.input :description, required: true, placeholder: "Job Description", hint: 'Between 150 and 1,000 characters', input_html: { :id => "description-field", :cols => 5, :rows => 5 } %>
   <hr>
   <div class="row">
     <div class="col-lg-6 col-md-6 col-sm-6">
@@ -39,9 +39,9 @@
   </div>
   <hr>
   <div class="pull-right"><span id="rr-count">0</span> characters</div>
-    <%= f.input :roles_and_responsibilities, required: true, placeholder: "Job Description", hint: 'Between 150 and 500 characters', input_html: { :id => "rr-field", :cols => 5, :rows => 5 } %>
+    <%= f.input :roles_and_responsibilities, required: true, placeholder: "Job Description", hint: 'Between 150 and 1,000 characters', input_html: { :id => "rr-field", :cols => 5, :rows => 5 } %>
   <div class="pull-right"><span id="sqa-count">0</span> characters</div>
-    <%= f.input :desired_sqa, required: true, placeholder: "Job Description", hint: 'Between 150 and 500 characters', input_html: { :id => "sqa-field", :cols => 5, :rows => 5 } %>
+    <%= f.input :desired_sqa, required: true, placeholder: "Job Description", hint: 'Between 150 and 1,000 characters', input_html: { :id => "sqa-field", :cols => 5, :rows => 5 } %>
   <%= f.input :form, :input_html => {:value => "all" }, as: :hidden %>  
   <hr>
   <div class="form-actions">
