@@ -2,14 +2,14 @@
 
   <% elsif position.business.name.present? %>
 
-  <h5><%= link_to position.title, position, style:"color:#FF8D00;font-weight:600;font-size:1em" %><p style="margin-bottom:0px;font-size:.8em"><%= position.business.business_type %> | <%= LondonArea.find_by(postcode: position.business.postcode[/(\S+)/, 1]).name %></p></h5>
+  <h5><%= link_to position.title, position, style:"color:#FF8D00;font-weight:600;font-size:1em" %><p style="margin-bottom:0px;font-size:.8em"><%= position.business.type %> | <%= LondonArea.find_by(postcode: position.business.postcode[/(\S+)/, 1]).name %></p></h5>
 
   <% if position.business.cover_image.present? %>
   
   <a><%= image_tag position.business.cover_image, style:"height:75px;width:75px;border-radius:4px;margin-left:auto;margin-right:auto" %></a>
   
   <% else %>
-  <a><%= image_tag ("missing.png"), style:"border-radius:4px;height:75px;width:75px" %></a>
+  <a><%= image_tag ("wall.jpg"), style:"border-radius:4px;height:75px;width:75px" %></a>
   <% end %> 
 
 

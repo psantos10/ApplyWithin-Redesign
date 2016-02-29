@@ -6,11 +6,11 @@ end
   LanguageLevel.find_or_create_by({level: level})
 end
 
-['Bar', 'Cafe', 'Restaurant'].each do |type|
+['Bar', 'Cafe', 'Restaurant', 'Fast Food', 'Shop'].each do |type|
   BusinessType.find_or_create_by({name: type})
 end
 
-['Waiting staff', 'Bar staff', 'Barista', 'Chef', 'Kitchen Porter'].each do |bracket|
+['Waiting staff', 'Bar staff', 'Barista', 'Chef', 'Shop Staff', 'Kitchen Staff', 'Kitchen Porter'].each do |bracket|
   JobBracket.find_or_create_by({name: bracket})
 end
 
