@@ -39,9 +39,11 @@ Hash["Abbey Wood" => "SE2", "Acton" => "W3", "Aldgate" => "EC3A", "Anerley" => "
 "Southgate" => "N14", "Southwark" => "SE1", "St Johns Wood" => "NW8", "Stepney" => "E1", "Stockwell" => "SW9", "Stoke Newington" => "N16", "Stratford" => "E15", "Streatham" => "SW16", "Sydenham" => "SE26", "St Barts" => "EC1A", "St Luke's" => "EC1Y", "St Pancras" => "WC1H", 
 "St Paul's" => "EC4M", "Temple" => "EC4Y", "Thamesmead" => "SE28", "The Hyde" => "NW9", "Tooting" => "SW17", "Tottenham" => "N17", "Tower Hill" => "EC2N", "Upper Edmonton" => "N18", "UCL" => "WC1E",  "Upper Holloway" => "N19", "Victoria Docks & North Woolwich" => "E16", 
 "Walthamstow" => "E17", "Walworth" => "SE17", "Wandsworth" => "SW18", "West Ealing" => "W13", "West Brompton" => "SW10", "West Kensington" => "W14", "West Norwood" => "SE27", "West Wimbledon" => "SW20", "Westminster" => "SW1", "Whetstone" => "N20", "Willseden" => "NW10", 
-"Wimbledon" => "SW19", "Winchmore Hill" => "N21", "Wood Green" => "N22", "Woodford & South Woodford" => "E18", "Woolwich" => "SE18"].each do |key, value|
+"Wimbledon" => "SW19", "Winchmore Hill" => "N21", "Wood Green" => "N22", "Woodford & South Woodford" => "E18", "Woolwich" => "SE18", "Tottenham Court Road" => "W1T"].each do |key, value|
   LondonArea.find_or_create_by({name: key, postcode: value})
 end
+
+
 
 ['Afghan', 'Albanian', 'Algerian', 'American', 'Andorran', 'Angolan', 'Antiguans', 'Argentinean', 'Armenian', 'Australian', 'Azerbaijani', 
   'Bahamian', 'Bahraini', 'Bangladeshi', 'Barbadian', 'Barbudans', 'Batswana', 'Belarusian', 'Belgian', 'Belizean', 'Beninese', 'Bhutanese', 'Bolivian', 'Bosnian', 'Brazilian', 'British', 'Bruneian', 'Bulgarian', 'Burkinabe', 'Burmese', 'Burundian', 
