@@ -40,9 +40,9 @@ class PositionsController < ApplicationController
 
     prepare_meta_tags(title: "#{position.title} @ #{position.business.name}",
                       description: position.tagline,
-                      og:     {title: "#{position.title} with #{position.business.name}",
+                      og:     {title: "#{position.title} with #{position.business.name} on #ApplyWithin",
                               description: position.tagline,
-                              image: position.business.cover_image(:small),}
+                              image: position.business.cover_image(:small) }
                       )
   end
 
@@ -77,7 +77,7 @@ class PositionsController < ApplicationController
           flash[:success] = 'Now add the Job details.'
           format.html { redirect_to edit_detail_position_path(@position) }
         else 
-          flash[:success] = 'Job was successfully created.'
+          flash[:success] = 'Job was successfully created, remember to share it on social media!'
           format.html { redirect_to @business }
           format.json { render :show, status: :created, location: @business }
         end
@@ -92,7 +92,7 @@ class PositionsController < ApplicationController
   def update
     respond_to do |format|
       if @position.update(position_params)
-        flash[:success] = 'Job was successfully updating.'
+        flash[:success] = 'Job was successfully updated, why not share it on social media!'
         format.html { redirect_to @position }
         format.json { render :show, status: :created, location: @position }
       else

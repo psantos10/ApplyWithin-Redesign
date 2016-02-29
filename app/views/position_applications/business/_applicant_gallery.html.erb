@@ -1,3 +1,19 @@
+<%- if applicant_gallery.empty? %>
+  <div class="container">
+    <div class="col-lg-8 col-lg-offset-2">
+      <div class="panel panel-default">
+        <div class="panel-body">
+        <h3 id="form-title">Sorry no applications for <%= position_advertisement.title %></h3>
+        <p>Remember to share your jobs on social media using the buttons on the job page.</p>
+        <p>Head back to your dashboard and we'll let you know when there's been a new application.</p>
+        <hr>
+        <%= link_to 'Dashboard', :dashboard, class:"btn btn-default pull-right" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%- else %>
+
 <%- hunter = hunter_to_view(applicant_gallery) %>
 <%- application = hunter.application_for(position_advertisement) %>
 <%= record_application_impression(application) %>
@@ -44,7 +60,7 @@
   </div>
 </div>
 
-
+  <% end %>
 
 <!-- <%- hunter = hunter_to_view(applicant_gallery) %>
 
