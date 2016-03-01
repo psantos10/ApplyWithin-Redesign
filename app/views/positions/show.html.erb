@@ -14,7 +14,7 @@
       <div class="addthis_sharing_toolbox pull-right" style="margin:10px"></div>
       <div class="panel-body">
         <h1><%= @position.title %></h1>
-        <h4><%= link_to @position.business do %><%= @position.business.name %> | <%= @position.business.type %> | <%= LondonArea.find_by(postcode: @position.business.postcode[/(\S+)/, 1]).name %><% end %></h4>
+        <h4><%= link_to @position.business do %><%= @position.business.name %> | <%= @position.business.type %> <% end %></h4>
         <p><%= @position.tagline %></p>
         <hr>
         <% if @position.business.owner?(current_user)  %>

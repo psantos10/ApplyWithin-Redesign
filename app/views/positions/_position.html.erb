@@ -3,7 +3,7 @@
   <div class="panel-body">
     <div class="inner-position-box">
       <h6><%= link_to position.title, position, class: 'inner-position-header', target: "_blank" %><p><%= link_to position.business.name, position.business, :target => "_blank"  %></h6>
-      <p><%= JobCategory.find(position.category).name %> | <%= position.type %> | <%= LondonArea.find_by(postcode: position.business.postcode[/(\S+)/, 1]).name %></p>
+      <p><%= JobCategory.find(position.category).name %> | <%= position.type %></p>
     </div>
 
       <%= link_to position_path(position), class:"btn btn-default btn-sm view-icon", :target => "_blank" do %>
