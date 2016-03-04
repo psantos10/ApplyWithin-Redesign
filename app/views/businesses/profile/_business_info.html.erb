@@ -2,7 +2,7 @@
   <div class="addthis_sharing_toolbox pull-right" style="margin:10px"></div>
   <div class="panel-body">
     <h3><%= @business.name %></h3>
-    <h5><%= business.type %> | <%= LondonArea.find_by(postcode: @business.postcode[/(\S+)/, 1]).name %></h5>
+    <h5><%= business.type %> |  xxx </h5>
     <hr class="margin-top:10px;margin-bottom:10px">
     <p><%= @business.tagline %></p>
     <% if @business.owner?(current_user)  %>
