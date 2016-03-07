@@ -23,7 +23,7 @@ class PositionsController < ApplicationController
     # @positions = @positions.barista(params[:barista]) if params[:barista].present?
     # @positions = @positions.shop(params[:shop]) if params[:shop].present?
 
-    @positions = @positions.order('updated_at DESC').paginate(:page => params[:page], :per_page => 24)
+    @positions = @positions.order('updated_at DESC').paginate(:page => params[:page], :per_page => 48)
 
 		@hash = Gmaps4rails.build_markers(@positions) do |position, marker|
 		  marker.lat position.latitude
