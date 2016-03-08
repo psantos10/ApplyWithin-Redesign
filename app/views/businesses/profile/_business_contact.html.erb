@@ -13,7 +13,7 @@
   <div class="panel-body" style="text-align:center">
     <p><%= @business.address %></p>
     <p><%= @business.postcode %></p>
-    <p><%= LondonArea.find_by(postcode: @business.postcode[/(\S+)/, 1]).name %></p>
+    <p><%= business.postcode[/(\S+)/, 1] %></p>
     <p><%= @business.city %></p>
     <p><%= @business.phone %></p>
     <p><%= link_to @business.website, "http://#{@business.website}", style:"font-weight:500", target:"_blank"%></p>
