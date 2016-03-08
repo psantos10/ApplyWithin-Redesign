@@ -2,7 +2,7 @@
 
   <% elsif position.business.name.present? %>
 
-  <h5><%= link_to position.title, position, style:"color:#FF8D00;font-weight:600;font-size:1em" %><p style="margin-bottom:0px;font-size:.8em"><%= position.business.type %> | <%= LondonArea.find_by(postcode: position.business.postcode[/(\S+)/, 1]).name %></p></h5>
+  <h5><%= link_to position.title, position, style:"color:#FF534B;font-weight:600;font-size:1em" %><p style="color:#021542;margin-bottom:0px;font-size:.8em"><%= position.business.type %> | <%= LondonArea.find_by(postcode: position.business.postcode[/(\S+)/, 1]).name %></p></h5>
 
   <% if position.business.cover_image.present? %>
   
