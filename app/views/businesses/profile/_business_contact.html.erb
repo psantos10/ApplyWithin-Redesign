@@ -1,7 +1,7 @@
 <div class="panel panel-default">
   <div class="panel-heading">
     <% if @business.owner?(current_user)  %>
-      <%= link_to edit_contact_business_path(current_user.group), class:'btn btn-default pull-right edit' do %>
+      <%= link_to edit_contact_business_path(current_user.group), class:'btn btn-default pull-right' do %>
       <span class="has-tooltip" data-toggle="tooltip" data-placement="bottom" title="Edit Business Contact">
         <i class="fa fa-pencil-square-o"></i>
       </span>
@@ -10,7 +10,7 @@
     <h4 class="bluey">Contact</h4>
     <p class="pinky"><%= @business.name %></p>
   </div>
-  <div class="panel-body" style="text-align:center;height:280px">
+  <div class="panel-body" style="text-align:center">
     <p><%= @business.address %></p>
     <p><%= @business.postcode %></p>
     <p><%= @business.city %></p>

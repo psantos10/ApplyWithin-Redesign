@@ -14,20 +14,13 @@
   <div class="row" style="margin-top:20px">
     <div class="col-lg-8">
       <%= render partial: "businesses/profile/business_jobs", locals: { business: @business } %>
-      <%= render partial: "businesses/profile/business_about", locals: { business: @business } %>
-      <div class="row">
-        <div class="col-lg-6">
-          <%= render partial: "businesses/profile/business_contact", locals: { business: @business } %>
-        </div>
-        <div class="col-lg-6">
-          <%= render partial: "businesses/profile/business_hours", locals: { business: @business } %>
-        </div>
-      </div>
-      <%= render partial: "businesses/profile/business_map", locals: { business: @business } %>
-    </div>
-
-    <div class="col-lg-4">
       <%= render partial: "businesses/profile/business_gallery", locals: { business: @business } %>
+      <%= render partial: "businesses/profile/business_about", locals: { business: @business } %>
+    </div>
+    <div class="col-lg-4">
+      <%= render partial: "businesses/profile/business_contact", locals: { business: @business } %>
+      <%= render partial: "businesses/profile/business_hours", locals: { business: @business } %>
+      <%= render partial: "businesses/profile/business_map", locals: { business: @business } %>
     </div>
   </div>
 

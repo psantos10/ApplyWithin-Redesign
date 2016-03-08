@@ -1,8 +1,8 @@
-<div class="panel panel-default">
+<div class="panel panel-default hidden-xs">
   <div class="panel-heading">
     <% if @business.owner?(current_user) %>
       <% if @business.default_gallery.photos.length < 6 %>
-        <%= link_to new_photo_path, class:'btn btn-default pull-right edit' do %>
+        <%= link_to new_photo_path, class:'btn btn-default pull-right' do %>
         <span class="has-tooltip" data-toggle="tooltip" data-placement="bottom" title="Add Picture">
           <i class="fa fa-plus-circle"></i>
         </span>
