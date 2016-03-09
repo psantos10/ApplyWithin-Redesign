@@ -8,7 +8,7 @@ class PositionsController < ApplicationController
   before_action :position, only: %i[update edit destroy]
 
   def index
-    @positions = Position.all
+    @positions = Position.all.where(status: "available")
     if PgSearch.multisearch(params["q"]).present?
       @positions = PgSearch.multisearch(params["q"])
       @positions = Position.where(id: @positions.map(&:searchable).map(&:id))
