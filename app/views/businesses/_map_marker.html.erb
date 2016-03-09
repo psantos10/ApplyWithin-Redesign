@@ -2,7 +2,7 @@
 
 <% elsif business.name.present? %>
 
-  <h5><%= link_to business.name, business, style:"color:#FF8D00;font-weight:600;font-size:1em" %><p style="margin-bottom:0px;font-size:.8em"><%= business.business_type %> | <%= LondonArea.find_by(postcode: business.postcode[/(\S+)/, 1]).name %>  </p></h5>
+  <h5><%= link_to business.name, business, style:"color:#FF8D00;font-weight:600;font-size:1em" %><p style="margin-bottom:0px;font-size:.8em"><%= business.business_type %> | <%= location(business) %>  </p></h5>
   <% if business.cover_image.present? %>
     <a><%= image_tag business.cover_image, style:"height:75px;width:75px;border-radius:4px;margin-left:auto;margin-right:auto" %></a>
   <% else %>
