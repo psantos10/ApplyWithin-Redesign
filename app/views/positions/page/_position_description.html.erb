@@ -8,9 +8,13 @@
   <% end %>
   <h4>Job Description</h4>
   <p><%= simple_format(@position.description) %></p>
+<% if @position.roles_and_responsibilities.present? %>
   <h4>Roles &amp; Responsibilities</h4>
   <p><%= simple_format(@position.roles_and_responsibilities) %></p>
+<% end %>
+<% if @position.roles_and_responsibilities.present? %>
   <h4>Skills, Qualifications &amp; Attributes</h4>
   <p><%= simple_format(@position.desired_sqa) %></p>
+<% end %>
   <hr>
 </div>

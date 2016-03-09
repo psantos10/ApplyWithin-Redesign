@@ -29,7 +29,7 @@
         <hr>
         <%= render partial: 'positions/page/position_description', locals: { position: @position }%>
         <div class="pull-right" style="font-size:1.3em">
-          <% if position.is_this_job_open %>
+          <% if @position.is_this_job_open %>
           <td style="text-align:center"><%= render partial: 'position_advertisements/apply', locals: { position_advertisement: @position.current_advertisement } %></td>
           <% else %>
           <td style="text-align:center"><%= link_to "unavailable", nil,  class:"label label-warning", disabled: !current_user.hunter?, style:'border-radius:4px;color:white;font-size:1em;font-weight:600;margin-top:10px', :disabled => true %></td>
