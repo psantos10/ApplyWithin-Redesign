@@ -14,7 +14,7 @@
       <div class="col-lg-12">
         <h2 class='page-header'><%= link_to 'Live Jobs', positions_path %></h2>
       </div>
-      <% Position.order('updated_at DESC').limit(12).each do |position| %>
+      <% Position.all.where(status: "available").order('updated_at DESC').limit(12).each do |position| %>
       <div class="col-xs-offset-0 col-sm-offset-0 col-md-offset-0 col-lg-offset-0 col-lg-3 col-md-4 col-sm-6 col-xs-12">
         <%= render partial: 'positions/position', locals: {position: position} %>
       </div>
