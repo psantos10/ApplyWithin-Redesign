@@ -43,6 +43,7 @@ module FreeJobNetwork
     config.action_controller.allow_forgery_protection = false
     config.assets.initialize_on_precompile = false
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
+    config.exceptions_app = self.routes
   end
   
 end
