@@ -89,7 +89,7 @@ class BusinessesController < ApplicationController
         if @business.form == "job"
           flash[:success] = 'Your profile is ready now add your job.'
           format.html { redirect_to new_business_position_path(@business) }
-        else 
+        else
           flash[:success] = 'Business was successfully updated.'
           format.html { redirect_to @business }
           format.json { render :show, status: :created, location: @business }

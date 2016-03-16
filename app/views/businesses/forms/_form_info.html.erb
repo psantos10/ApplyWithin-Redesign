@@ -2,8 +2,14 @@
   <%= f.input :form, :input_html => {:value => 'info'}, as: :hidden %>
   <div class="form-inputs">
     <%= f.input :name, required: true, placeholder: "Business Name" %>
-    <%= f.input :business_type, collection: BusinessType.all, required: true, prompt: "Business Type" %>
-    <%= f.input :postcode, required: true, placeholder: "Business Name" %>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-6">
+        <%= f.input :business_type, collection: BusinessType.all, required: true, prompt: "Business Type" %>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-6">
+        <%= f.input :postcode, required: true, placeholder: "Postcode" %>
+      </div>
+    </div>
     <div class="pull-right"><span id="body-count">0</span> characters</div>
     <%= f.input :tagline, required: true, placeholder: "Business Tagline", hint: 'Up to 200 characters', input_html: { :id => "body-field", :cols => 5, :rows => 3 } %>
     <%= f.input :cover_image, as: :file, :input_html => {:onchange => "previewFile()"} %>

@@ -6,11 +6,11 @@ class Business < ActiveRecord::Base
   belongs_to :owner, class_name: "User", foreign_key: :user_id
 
   validates :user, :presence => true
-  validates :name, :postcode, :business_type, :presence => true, :if => lambda { |b| b.form == "info" } && lambda { |b| b.form == "job" }
-  validates :tagline, length: { minimum: 10, maximum: 200 }, :presence => true, :if => lambda { |b| b.form == "info" } && lambda { |b| b.form == "job" }
-  validates :cover_image, :presence => true, :if => lambda { |b| b.form == "info" } && lambda { |b| b.form == "job" }
-  validates :address, :city, :phone, :website, :presence => true, :if => lambda { |b| b.form == "contact" }
-  validates :about, :presence => true, :if => lambda { |b| b.form == "about" }
+  validates :name, :postcode, :business_type, :presence => true, :if => lambda { |b| b.form == "info" } && lambda { |b| b.form == "job" } && lambda { |b| b.form == "all" }
+  validates :tagline, length: { minimum: 10, maximum: 200 }, :presence => true, :if => lambda { |b| b.form == "info" } && lambda { |b| b.form == "job" } && lambda { |b| b.form == "all" }
+  validates :cover_image, :presence => true, :if => lambda { |b| b.form == "info" } && lambda { |b| b.form == "job" } && lambda { |b| b.form == "all" }
+  validates :address, :city, :phone, :website, :presence => true, :if => lambda { |b| b.form == "contact" } && lambda { |b| b.form == "all" }
+  validates :name, :postcode, :business_type, :presence => true, :if => lambda { |b| b.form == "about" } && lambda { |b| b.form == "all" }
 
   has_many :positions, dependent: :destroy
   has_many :position_advertisements, through: :positions, source: :advertisements
