@@ -7,9 +7,13 @@ class PositionApplicationsController < ApplicationController
 
   def create
     if current_user.group.is_a?(Business)
-      redirect_to :back, notice: "Sorry, you're a business user and can't apply for jobs"
-    else position_advertisement.applicants << Hunter.find_by_user_id(current_user)
-      redirect_to :back, notice: "You've applied to the position, check your current applications"
+      respond_to do |format|
+        flash[:warning] = "Sorry, you're a business user and can't apply for jobs."
+        format.html { redirect_to :back }
+        format.json { render :show, status: :created, location: :back }
+      end
+    else 
+      hunter_apply
     end
   end
 
@@ -59,6 +63,25 @@ private
 
   def nested?
     params.keys.include?('position_advertisement_id')
+  end
+
+  def hunter_apply
+    respond_to do |format|
+      if hunter.first_name.blank?
+        flash[:danger] = 'You need to complete your profile.'
+        format.html { redirect_to hunter }
+        format.json { render :show, status: :created, location: hunter }
+      else
+        position_advertisement.applicants << hunter
+        format.html { redirect_to hunter }
+        format.json { render :show, status: :created, location: hunter }
+      end
+    end
+
+  end
+
+  def hunter
+    @hunter = Hunter.find_by_user_id(current_user)
   end
 
 end

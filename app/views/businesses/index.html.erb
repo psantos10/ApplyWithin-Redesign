@@ -30,6 +30,7 @@
 </button>
 
     <h5>Results:&nbsp;<%= @businesses.count %> <%= params[:q] %> <%= params[:location] %></h5>
+    <%= will_paginate @businesses, :page_links => true, style:"margin:0px" %>
     <hr>
   <div class="row">
     <% @businesses.each do |business| %>
@@ -40,7 +41,7 @@
       <% end %>
     <% end %>
   </div>
-
+    <%= will_paginate @businesses, :page_links => true, style:"margin:0px", class:"pull-right" %>
 </div>
 
 <script type="text/javascript">

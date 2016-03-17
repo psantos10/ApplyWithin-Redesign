@@ -15,15 +15,8 @@ class PositionsController < ApplicationController
     end
 
     @positions = @positions.near(params[:location], params[:miles]) if params[:location].present?
-    @positions = @positions.status(params[:status]) if params[:status].present?
 
-    # @positions = @positions.waiting(params[:waiting]) if params[:waiting].present?
-    # @positions = @positions.kitchen(params[:kitchen]) if params[:kitchen].present?
-    # @positions = @positions.bar(params[:bar]) if params[:bar].present?
-    # @positions = @positions.barista(params[:barista]) if params[:barista].present?
-    # @positions = @positions.shop(params[:shop]) if params[:shop].present?
-
-    @positions = @positions.order('updated_at DESC').paginate(:page => params[:page], :per_page => 48)
+    @positions = @positions.order('updated_at DESC').paginate(:page => params[:page], :per_page => 24)
 
 		@hash = Gmaps4rails.build_markers(@positions) do |position, marker|
 		  marker.lat position.latitude
@@ -158,5 +151,4 @@ private
   def searched?
     params.keys.include?("search")
   end
-
 end

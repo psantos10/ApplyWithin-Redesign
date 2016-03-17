@@ -1,27 +1,23 @@
 <div class="panel panel-default applicant_gallery">
 
-  <div class="panel-heading applicant-head" style="background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('<%= hunter.cover_photo %>');">
+  <div class="panel-heading applicant-head" style="background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('<%= hunter.cover_image %>');">
     <div class="row">
 
-      <div class="col-xs-offset-1 col-sm-offset-4 col-lg-offset-0 col-md-offset-0 col-lg-3 col-md-4 col-sm-2 col-xs-2">
+      <div class="col-lg-offset-0 col-md-offset-0 col-lg-3 col-md-4 col-sm-12 col-xs-12" style="text-align:center">
         <%= image_tag hunter.avatar.url(:medium), class: "img-circle" %>
       </div>
 
-      <div class="col-lg-8 col-md-7 col-sm-12 col-xs-12 applicant_info">
+      <div class="col-lg-8 col-md-7 col-sm-12 col-xs-12 applicant_info" style="text-align:center">
         <h1><%= hunter.display_name %></h1>
         <p><%= hunter.tagline %></p>
         <hr style="border: 1px solid #FF534B">
-        <div class="col-lg-5 col-md-8 col-sm-5 col-xs-12">
+        <div class="col-lg-9 col-md-7 col-sm-6 col-xs-12">
           <p><i class="fa fa-phone-square"></i>&nbsp;&nbsp;<%= hunter.phone %></p>
-          <p><i class="fa fa-envelope"></i>&nbsp;&nbsp;<%= hunter.email %></p>
+          <p><i class="fa fa-envelope"></i>&nbsp;&nbsp;<%= mail_to "#{hunter.email}", nil, style:'color:white' %></p>
         </div>
-        <div class="col-lg-3 col-md-4 col-sm-3 col-xs-12">
+        <div class="col-lg-3 col-md-5 col-sm-6 col-xs-12">
           <p><i class="fa fa-binoculars"></i>&nbsp;&nbsp;<%= JobCategory.find_by(id: hunter.seeking).name %></p>
           <p><i class="fa fa-home"></i>&nbsp;&nbsp;<%= hunter.location[/(\S+)/, 1] %></p>
-        </div>
-        <div class="col-lg-4 col-md-12 col-sm-3 col-xs-12 hidden-md hidden-xs">
-          <p><i class="fa fa-calendar"></i>&nbsp;&nbsp;<%= hunter.dob.strftime("%b %Y") %></p>
-          <p><i class="fa fa-globe"></i>&nbsp;&nbsp;<%= Nationality.find_by(id: hunter.nationality).name %></p>
         </div>
         <!-- <div class="col-lg-3">
           <p><i class="fa fa-car"></i>&nbsp;&nbsp;<%= ticks_or_crosses(hunter.driving_licence) %></p>

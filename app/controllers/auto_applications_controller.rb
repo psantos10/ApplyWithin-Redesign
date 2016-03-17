@@ -9,7 +9,6 @@ class AutoApplicationsController < ApplicationController
 
   def index
     @auto_applications = AutoApplication.all
-
     @auto_applications = @auto_applications.job_type(params[:job_type]) if params[:job_type].present?
     @auto_applications = @auto_applications.location(params[:location]) if params[:location].present?
   end
@@ -64,6 +63,15 @@ private
 
   def hunter
     @hunter ||= Hunter.find(params[:hunter_id])
+    if @hunter.first_name.blank?
+      respond_to do |format|
+        flash[:danger] = 'You need to complete your profile.'
+        format.html { redirect_to @hunter }
+        format.json { render :show, status: :created, location: @hunter }
+      end
+    else
+      @hunter
+    end
   end
 
   def auto_application_params

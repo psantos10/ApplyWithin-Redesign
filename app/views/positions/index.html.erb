@@ -15,6 +15,7 @@
 </button>
 
     <h5>Results:&nbsp;<%= @positions.count %> <%= params[:q] %> <%= params[:location] %></h5>
+    <%= will_paginate @positions, :page_links => true, style:"margin:0px" %>
     <hr>
   <div class="row">
     <% @positions.each do |position| %>
@@ -25,6 +26,7 @@
         </div>
       <% end %>
     <% end %>
+    <%= will_paginate @positions, :page_links => true, style:"margin:0px", class:"pull-right" %>
   </div>
 
 </div>
