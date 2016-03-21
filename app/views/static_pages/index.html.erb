@@ -3,7 +3,7 @@
   <div class="jumbotron hidden-sm hidden-xs">
     <div class="container">
       <h1>Apply<span id="within">Within</span></h1>
-      <p class="hidden-sm hidden-xs">Connecting bars, restaurants & cafes with local job hunters</p>
+      <p class="hidden-sm hidden-xs">Connecting bars, restaurants & cafes with their next team member</p>
     </div>
   </div>
 
@@ -14,85 +14,11 @@
       <div class="col-lg-12">
         <h2 class='page-header'><%= link_to 'Live Jobs', positions_path %></h2>
       </div>
-      <% Position.all.where(status: "available").order('updated_at DESC').limit(12).each do |position| %>
+      <% Position.all.where(status: "available").order('updated_at DESC').limit(24).shuffle.each do |position| %>
       <div class="col-xs-offset-0 col-sm-offset-0 col-md-offset-0 col-lg-offset-0 col-lg-3 col-md-4 col-sm-6 col-xs-12">
         <%= render partial: 'positions/position', locals: {position: position} %>
       </div>
       <% end %>
-    </div>
-    <!-- /.row -->
-    <!-- Business Section -->
-    <div class="row" style="margin-bottom:40px">
-      <div class="col-lg-12">
-        <h2 class='page-header'>Want a great way to find staff?</h2>
-      </div>
-      <div class="col-xs-offset-1 col-sm-offset-2 col-md-offset-0 col-lg-offset-0 col-lg-4 col-md-4 col-sm-8 col-xs-10">
-          <div class="panel panel-default">
-              <div class="panel-heading" style="background:#021542;color:white">
-                <h4>&nbsp;<span class="fa fa-building fa-2x"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create Business Profile</h4>
-              </div>
-              <div class="panel-body">
-                  <p>This includes key information about your business, jobs and photos.</p>
-                  <br>
-                  <%= link_to 'Example', Business.first, :class => 'btn btn-default'%>
-              </div>
-          </div>
-      </div>
-      <div class="col-xs-offset-1 col-sm-offset-2 col-md-offset-0 col-lg-offset-0 col-lg-4 col-md-4 col-sm-8 col-xs-10">
-          <div class="panel panel-default">
-              <div class="panel-heading" style="background:#021542;color:white">
-                <h4>&nbsp;<span class="fa fa-list-alt fa-2x"></span>&nbsp;&nbsp;&nbsp;&nbsp;Add jobs</h4>
-              </div>
-              <div class="panel-body">
-                  <p>There's no limit to how many jobs you add or how often you advertise them.</p>
-                  <br>
-                <%= link_to 'Example', Position.last, :class => 'btn btn-default' %>
-              </div>
-          </div>
-      </div>
-      <div class="col-xs-offset-1 col-sm-offset-2 col-md-offset-0 col-lg-offset-0 col-lg-4 col-md-4 col-sm-8 col-xs-10">
-          <div class="panel panel-default">
-              <div class="panel-heading" style="background:#021542;color:white">
-                <h4>&nbsp;<span class="fa fa-users fa-2x"></span>&nbsp;&nbsp;&nbsp;&nbsp;Receive applications</h4>
-              </div>
-              <div class="panel-body">
-                <p>Receive applications from interested job-hunters directly through the website.</p>
-                <br>
-                <button type="button" class="btn btn-default" data-toggle="modal" data-target="#Modal2">
-                Example
-                </button>
-              </div>
-          </div>
-      </div>
-    </div>
-    <!-- /.row -->
-    <!-- Job Hunter Section -->
-    <div class="row" style="margin-bottom:40px">
-      <div class="col-lg-12">
-        <h2 class="page-header" style="color:#337ab7">Job hunting made easy</h2>
-      </div>
-      <div class="col-md-6">
-        <br>
-        <br>
-          <p>Create your profile and start applying instantly:</p>
-          <ul>
-              <li>Experience</li>
-              <li>Education</li>
-              <li>Language</li>
-              <li>Availability</li>
-              <li>About you</li>
-              <li>Profile & Cover Pictures</li>
-          </ul>
-          <p><strong>Create your profile, this will act as your CV on ApplyWithin.</strong>  The more information you add to your profile the better your chances will be with businesses.</p>
-          <p><strong>Once your profile is complete, you can apply directly to any job on the network with a single click.</strong>  When you apply for a job, your profile will be shared with the businesses.</p>
-          <p><strong>Or set up an <span style="color:#FF534B">Auto Apply</span> alert and let us do the work for you.</strong>  The <span style="color:#FF534B">Auto Apply</span> alert will automatically apply you with any job that matches the area and job type.  Whenever a new job gets added, you can get your foot in the door instantly!</p>
-          <p><strong>After you’ve applied to a job, you can track the progress of your application</strong> and you can cancel the application at any time.</p>
-      </div>
-      <div class="col-md-6" style="padding:20px;padding-top:0px">
-        <span data-toggle="modal" data-target="#Modal1">
-          <%= image_tag('hunter.jpg', height: '600', width: '600', class: "img-responsive homepage") %>
-        </span>
-      </div>
     </div>
     <!-- /.row -->
     <hr>
