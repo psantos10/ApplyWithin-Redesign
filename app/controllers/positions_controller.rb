@@ -9,6 +9,7 @@ class PositionsController < ApplicationController
 
   def index
     @positions = Position.all.where(status: "available")
+
     if PgSearch.multisearch(params["q"]).present?
       @positions = PgSearch.multisearch(params["q"])
       @positions = Position.where(id: @positions.map(&:searchable).map(&:id))
