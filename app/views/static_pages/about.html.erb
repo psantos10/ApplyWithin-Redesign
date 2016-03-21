@@ -1,58 +1,106 @@
-<div class="container" id="main">
+<div class="container">
 
-  <!-- Business Section -->
-  <div class="row" style="margin-bottom:40px">
+  <div class="row" style="margin-top:10px">
     <div class="col-lg-12">
-      <h2 class='page-header'>Want a great way to find staff?</h2>
-    </div>
-    <div class="col-xs-offset-1 col-sm-offset-2 col-md-offset-0 col-lg-offset-0 col-lg-4 col-md-4 col-sm-8 col-xs-10">
-        <div class="panel panel-default">
-            <div class="panel-heading" style="background:#021542;color:white">
-              <h4>&nbsp;<span class="fa fa-building fa-2x"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create Business Profile</h4>
-            </div>
-            <div class="panel-body">
-                <p>This includes key information about your business, jobs and photos.</p>
-                <br>
-                <%= link_to 'Example', Business.first, :class => 'btn btn-default'%>
-            </div>
-        </div>
-    </div>
-    <div class="col-xs-offset-1 col-sm-offset-2 col-md-offset-0 col-lg-offset-0 col-lg-4 col-md-4 col-sm-8 col-xs-10">
-        <div class="panel panel-default">
-            <div class="panel-heading" style="background:#021542;color:white">
-              <h4>&nbsp;<span class="fa fa-list-alt fa-2x"></span>&nbsp;&nbsp;&nbsp;&nbsp;Add jobs</h4>
-            </div>
-            <div class="panel-body">
-                <p>There's no limit to how many jobs you add or how often you advertise them.</p>
-                <br>
-              <%= link_to 'Example', Position.last, :class => 'btn btn-default' %>
-            </div>
-        </div>
-    </div>
-    <div class="col-xs-offset-1 col-sm-offset-2 col-md-offset-0 col-lg-offset-0 col-lg-4 col-md-4 col-sm-8 col-xs-10">
-        <div class="panel panel-default">
-            <div class="panel-heading" style="background:#021542;color:white">
-              <h4>&nbsp;<span class="fa fa-users fa-2x"></span>&nbsp;&nbsp;&nbsp;&nbsp;Receive applications</h4>
-            </div>
-            <div class="panel-body">
-              <p>Receive applications from interested job-hunters directly through the website.</p>
-              <br>
-              <button type="button" class="btn btn-default" data-toggle="modal" data-target="#Modal2">
-              Example
-              </button>
-            </div>
-        </div>
+      <h2 class='page-header' style="text-align:left">About</h2>
     </div>
   </div>
-  <!-- /.row -->
-  <!-- Job Hunter Section -->
-  <div class="row" style="margin-bottom:40px">
-    <div class="col-lg-12">
-      <h2 class="page-header" style="color:#337ab7">Job hunting made easy</h2>
-    </div>
-    <div class="col-md-6">
-      <br>
-      <br>
+
+	<div class="row">
+<!--left-->
+      <div class="col-md-3" id="leftCol">
+        <ul class="nav nav-stacked" id="sidebar">
+          <li><a href="#sec0">Hello</a></li>
+          <li><a href="#sec1">Find staff</a></li>
+          <li><a href="#sec2">Find jobs</a></li>
+          <li><a href="#sec3">About us</a></li>
+        </ul>
+      </div>
+<!--/left-->
+
+<!--right-->
+<!-- Hello Section -->
+      <div class="col-md-9">
+        <h2 id="sec0" style="text-align:center;color:#337AB7;margin:20px;margin-top:0px;padding:20px">Hello</h2>
+        <p>
+          At Bootply we like to build simple Bootstrap templates that utilize the code Bootstap CSS without a lot of customization. Sure you can 
+          find a lot of Bootstrap themes and inspiration, but these templates tend to be heavy on customization.</p>
+        <hr>
+
+
+<!-- Business Section -->
+        <h2 id="sec1" style="text-align:center;color:#337AB7;margin:20px;padding:20px">Find staff</h2>
+        <p>
+          Rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae 
+          dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut.
+        </p>
+        <div class="row">
+          
+          <div class="col-xs-offset-1 col-sm-offset-2 col-md-offset-0 col-lg-offset-0 col-lg-4 col-md-4 col-sm-8 col-xs-10">
+              <div class="panel panel-default">
+                  <div class="panel-heading" style="background:#021542;color:white">
+                    <h4>&nbsp;<span class="fa fa-building fa-2x"></span>&nbsp;&nbsp;&nbsp;&nbsp;Create Business Profile</h4>
+                  </div>
+                  <div class="panel-body">
+                      <p>This includes key information about your business, jobs and photos.</p>
+                      <br>
+                      <%= link_to 'Example', Business.first, :class => 'btn btn-default'%>
+                  </div>
+              </div>
+          </div>
+          <div class="col-xs-offset-1 col-sm-offset-2 col-md-offset-0 col-lg-offset-0 col-lg-4 col-md-4 col-sm-8 col-xs-10">
+              <div class="panel panel-default">
+                  <div class="panel-heading" style="background:#021542;color:white">
+                    <h4>&nbsp;<span class="fa fa-list-alt fa-2x"></span>&nbsp;&nbsp;&nbsp;&nbsp;Add jobs</h4>
+                  </div>
+                  <div class="panel-body">
+                      <p>There's no limit to how many jobs you add or how often you advertise them.</p>
+                      <br>
+                    <%= link_to 'Example', Position.last, :class => 'btn btn-default' %>
+                  </div>
+              </div>
+          </div>
+          <div class="col-xs-offset-1 col-sm-offset-2 col-md-offset-0 col-lg-offset-0 col-lg-4 col-md-4 col-sm-8 col-xs-10">
+              <div class="panel panel-default">
+                  <div class="panel-heading" style="background:#021542;color:white">
+                    <h4>&nbsp;<span class="fa fa-users fa-2x"></span>&nbsp;&nbsp;&nbsp;&nbsp;Receive applications</h4>
+                  </div>
+                  <div class="panel-body">
+                    <p>Receive applications from interested job-hunters directly through the website.</p>
+                    <br>
+                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#Modal2">
+                    Example
+                    </button>
+                  </div>
+              </div>
+          </div>
+          
+          
+          <div class="col-md-6">
+            <div class="panel panel-default">
+              <div class="panel-heading"><h3>Hello.</h3></div>
+              <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
+                Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis 
+                dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
+                Aliquam in felis sit amet augue.
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="panel panel-default">
+              <div class="panel-heading"><h3>Hello.</h3></div>
+              <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
+                Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis 
+                dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
+                Aliquam in felis sit amet augue.
+              </div>
+            </div>
+          </div>  
+        </div>
+<!-- /business_section -->
+        <hr>
+<!-- Job Hunter Section -->
+        <h2 id="sec2" style="text-align:center;color:#337AB7;margin:20px;padding:20px">Find jobs</h2>
         <p>Create your profile and start applying instantly:</p>
         <ul>
             <li>Experience</li>
@@ -66,13 +114,88 @@
         <p><strong>Once your profile is complete, you can apply directly to any job on the network with a single click.</strong>  When you apply for a job, your profile will be shared with the businesses.</p>
         <p><strong>Or set up an <span style="color:#FF534B">Auto Apply</span> alert and let us do the work for you.</strong>  The <span style="color:#FF534B">Auto Apply</span> alert will automatically apply you with any job that matches the area and job type.  Whenever a new job gets added, you can get your foot in the door instantly!</p>
         <p><strong>After you’ve applied to a job, you can track the progress of your application</strong> and you can cancel the application at any time.</p>
-    </div>
-    <div class="col-md-6" style="padding:20px;padding-top:0px">
-      <span data-toggle="modal" data-target="#Modal1">
-        <%= image_tag('hunter.jpg', height: '600', width: '600', class: "img-responsive homepage") %>
-      </span>
+
+        <div class="row">
+          <div class="col-md-4"><img src="//placehold.it/300x300" class="img-responsive"></div>
+          <div class="col-md-4"><img src="//placehold.it/300x300" class="img-responsive"></div>
+          <div class="col-md-4"><img src="//placehold.it/300x300" class="img-responsive"></div>
+        </div>
+<!-- /.row -->
+        <hr>
+<!-- About Us Section -->
+        <h2 id="sec3" style="text-align:center;color:#337AB7;margin:20px;padding:20px">About us</h2>
+        <p>
+          Images are responsive sed @mdo but sum are more fun peratis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, 
+          totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae 
+          dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia cor magni dolores 
+          eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, 
+          sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. 
+          Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut..</p>
+        <p>
+          Fos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, 
+          sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. 
+          Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut..</p>
+<!-- /.row -->
+        <hr>
+
+        </div>
+<!--/right-->
+  	</div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="Modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <%= image_tag("hunter.jpg", class: "img-responsive homepage") %>
+      </div>
     </div>
   </div>
-  <!-- /.row -->
-  
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="Modal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <%= image_tag("hunter.jpg", class: "img-responsive homepage") %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script type="text/javascript">
+/* activate sidebar */
+$('#sidebar').affix({
+  offset: {
+    top: 235
+  }
+});
+
+/* activate scrollspy menu */
+var $body   = $(document.body);
+var navHeight = $('.navbar').outerHeight(true) + 10;
+
+$body.scrollspy({
+	target: '#leftCol',
+	offset: navHeight
+});
+
+/* smooth scrolling sections */
+$('a[href*=#]:not([href=#])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        $('html,body').animate({
+          scrollTop: target.offset().top - 50
+        }, 1000);
+        return false;
+      }
+    }
+});
+
+</script>
+
