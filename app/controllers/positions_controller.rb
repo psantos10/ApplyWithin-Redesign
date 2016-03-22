@@ -17,7 +17,7 @@ class PositionsController < ApplicationController
 
     @positions = @positions.near(params[:location], params[:miles]) if params[:location].present?
 
-    @positions = @positions.order('updated_at DESC').paginate(:page => params[:page], :per_page => 24)
+    @positions = @positions.order('updated_at DESC').paginate(:page => params[:page], :per_page => 36)
 
 		@hash = Gmaps4rails.build_markers(@positions) do |position, marker|
 		  marker.lat position.latitude
