@@ -37,7 +37,7 @@ Rails.application.configure do
   config.assets.raise_runtime_errors = true
 
   config.assets.compile = false
-  config.serve_static_files = false
+  config.serve_static_files = true
   
   config.after_initialize do
     Paperclip::Attachment.default_options[:storage] = :s3
