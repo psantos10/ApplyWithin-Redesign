@@ -45,7 +45,7 @@
 </div>
 
 <script type="text/javascript">
-  var handler = Gmaps.build('Google', { markers: { clusterer: { maxZoom: 16, gridSize: 70 }}});
+  var handler = Gmaps.build('Google', { markers: { clusterer: { maxZoom: 12, gridSize: 100 }}});
   handler.buildMap({ 
   	provider: { mapTypeId: google.maps.MapTypeId.ROADMAP, maxZoom: 16 }, 
   	internal: {id: 'multi_markers'}}, function(){
