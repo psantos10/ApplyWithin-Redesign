@@ -3,14 +3,14 @@
     <h3><%= experience_row.job_title %>
       <div class="btn-group-vertical pull-right" role="group" >
       <%- if current_user.admin_for?(experience_row) %>
-        <button type="button" class="btn btn-default btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Edit Job<span class="sr-only">Toggle Dropdown</span></button>
+        <button type="button" class="btn btn-default btn-xs" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >Edit Job<span class="sr-only">Toggle Dropdown</span></button>
         <ul class="dropdown-menu" style="text-align:left;min-width:70px">
           <li><%= link_to 'edit', edit_experience_path(experience_row) %></li>
           <li><%= link_to 'delete', experience_path(experience_row), method: :delete, data: { confirm: 'Are you sure?' } %></li>
         </ul>
       <% end %>
         <span class="has-tooltip" data-toggle="tooltip" data-placement="bottom" title="Job Description">
-          <button class='btn btn-default btn-sm' data-toggle="collapse" data-target="#<%= experience_row.object_id %>" aria-expanded="false">
+          <button class='btn btn-default btn-xs' data-toggle="collapse" data-target="#<%= experience_row.object_id %>" aria-expanded="false">
             More
           </button>
         </span>
