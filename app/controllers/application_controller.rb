@@ -14,17 +14,9 @@ class ApplicationController < ActionController::Base
     description = "the free network connecting the high-street with job hunters"
     current_url = request.url
     defaults = {
-      site:        "ApplyWithin",
-      title:       "home",
       description: "The free network connecting bars, restaurants & cafes with local job-hunters.",
       keywords:    %w[applywithin.co.uk apply within with applywithin london hammersmith chiswick shepherd's-bush high-street jobs london part-time full-time bar restaurants bars coffee shops cafes waiter barista vacancy CV],
-      twitter:     {site_name: "ApplyWithin",
-                    site: '@applywithin',
-                    card: 'a social network for the high-street job market',
-                    description: description,
-                    }
-      }
-
+    }
     options.reverse_merge!(defaults)
     set_meta_tags options
   end

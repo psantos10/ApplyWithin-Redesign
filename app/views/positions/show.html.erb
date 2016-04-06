@@ -1,3 +1,11 @@
+<% content_for :head do %>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta property="og:title" content="<%= @position.title %>"/>
+  <meta property="og:description" content="<%= @position.tagline %>"/>
+  <meta property="og:image" content="<%= @position.business.cover_image %>"/>
+<% end %>
+
+
 <div class="row">
   <div class="cover_image" style="background-image: url(<%= @position.business.cover_image_profile %>)">
     <div class="container">

@@ -31,13 +31,6 @@ class PositionsController < ApplicationController
 
   def show
     position
-
-    prepare_meta_tags(title: "#{position.title} @ #{position.business.name}",
-                      description: position.tagline,
-                      og:     {title: "#{position.title} with #{position.business.name} on #ApplyWithin",
-                              description: position.tagline,
-                              image: position.business.cover_image(:small) }
-                      )
   end
 
   def new
