@@ -12,7 +12,6 @@ class ApplicationController < ActionController::Base
     site        = "ApplyWithin"
     title       = [controller_name, action_name].join(" ")
     description = "the free network connecting the high-street with job hunters"
-    current_url = request.url
     defaults = {
       description: "The free network connecting bars, restaurants & cafes with local job-hunters.",
       keywords:    %w[applywithin.co.uk apply within with applywithin london hammersmith chiswick shepherd's-bush high-street jobs london part-time full-time bar restaurants bars coffee shops cafes waiter barista vacancy CV],
