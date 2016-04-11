@@ -2,11 +2,12 @@
   <div class="col-xs-offset-1 col-sm-offset-2 col-md-offset-3 col-lg-offset-3 col-lg-6 col-md-6 col-sm-8 col-xs-10">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 id="form-title">Edit Business Details</h3>
+        <h3 id="form-title">Edit Business Details
+          <%= link_to 'back', :back, class:'pull-right', style:'font-size:.8em' %>
+        </h3>
       </div>
       <%= simple_form_for(@business) do |f| %>
         <%= render partial: 'businesses/forms/form_info', locals: {f: f} %>
       <% end %>
-    <%= link_to 'Back', business_path(@business), class: "btn btn-default center-block" %>
   </div>
 </div>

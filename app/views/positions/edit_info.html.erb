@@ -2,7 +2,9 @@
   <div class="col-lg-offset-3 col-lg-6">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 id="form-title">Add Job Info</h3>
+        <h3 id="form-title">Add Job Info
+          <%= link_to 'back', :back, class:'pull-right', style:'font-size:.8em' %>
+        </h3>
       </div>
       <%= simple_form_for([@business, @position]) do |f| %>
         <%= render partial: 'positions/forms/form_info', locals: {f: f} %>

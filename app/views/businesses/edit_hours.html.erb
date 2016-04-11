@@ -2,11 +2,12 @@
   <div class="col-lg-offset-3 col-lg-6">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 id="form-title">Edit Business Opening Hours</h3>
+        <h3 id="form-title">Edit Business Opening Hours
+          <%= link_to 'back', :back, class:'pull-right', style:'font-size:.8em' %>
+        </h3>
       </div>
       <%= form_for(@business) do |f| %>
         <%= render partial: 'businesses/forms/form_hours', locals: {f: f} %>
       <% end %>
-    <%= link_to 'Back', business_path(@business), class: "btn btn-default center-block" %>
   </div>
 </div>

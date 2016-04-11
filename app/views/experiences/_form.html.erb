@@ -27,8 +27,8 @@
   <div class="pull-right"><span id="body-count">0</span> characters</div>
   <%= f.input :job_description, required: true, placeholder: "Job Description", hint: 'Between 150 and 700 characters', input_html: { :id => "body-field", :cols => 5, :rows => 7 } %>
   <hr>
-  <div class="form-actions">
-    <%= f.button :submit, class: 'btn btn-default' %>
+  <div class="form-actions" style="text-align:center">
+    <%= f.submit "Submit", class: 'btn btn-default' %>
   </div>
 </div>
 

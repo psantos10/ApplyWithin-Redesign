@@ -2,7 +2,9 @@
   <div class="col-lg-offset-3 col-lg-6">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 id="form-title">Add Pictures</h3>
+        <h3 id="form-title">Add Pictures
+          <%= link_to 'back', :back, class:'pull-right', style:'padding-top:5px;font-size:.8em' %>
+        </h3>
       </div>
       
       <div class="panel-body">
@@ -15,7 +17,7 @@
           <img height="400" width="400" style="margin-top:10px;text-align:center" alt="Image preview...">
         <hr>
         </div>
-        <div class="form-actions">
+        <div class="form-actions" style="text-align:center">
           <%= f.submit "Add Picture", class:'btn btn-default' %>
         </div>
       </div>
