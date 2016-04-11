@@ -36,6 +36,7 @@
         <%= render partial: 'positions/page/position_details', locals: { position: @position }%>
         <hr>
         <%= render partial: 'positions/page/position_description', locals: { position: @position }%>
+    <%= link_to 'back', :back, class:'btn circle-small pull-left', style:'font-size:1em' %>
         <div class="pull-right" style="font-size:1.3em">
           <% if @position.is_this_job_open %>
           <td style="text-align:center"><%= render partial: 'position_advertisements/apply', locals: { position_advertisement: @position.current_advertisement } %></td>

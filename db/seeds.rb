@@ -10,7 +10,7 @@ end
   BusinessType.find_or_create_by({name: type})
 end
 
-['Waiting staff', 'Bar staff', 'Barista', 'Chef', 'Shop Staff', 'Kitchen Staff', 'Kitchen Porter'].each do |bracket|
+['Waiting staff', 'Bar staff', 'Barista', 'Chef', 'Shop Staff', 'Kitchen Staff', 'Kitchen Porter', 'Manager', 'Assistant Manager', 'Supervisor'].each do |bracket|
   JobBracket.find_or_create_by({name: bracket})
 end
 
@@ -29,7 +29,7 @@ end
 Hash["SE2" => "Abbey Wood", "W3" => "Acton", "EC3A" => "Aldgate", "SE20" => "Anerley", "SW12" => "Balham", "EC2R" => "Bank of England", "EC2Y" => "Barbican", "SW13" => "Barnes", "SW11" => "Battersea", "EC4V" => "Blackfriars", "E2" => "Bethnal Green",
 "SE3" => "Blackheath", "WC1B" => "Bloomsbury", "E3" => "Bow", "SW2" => "Brixton", "SE4" => "Brockley", "SE5" => "Camberwell", "NW1" => "Camden Town", "EC4R" => "Cannon Street", "WC2A" => "Chancery Lane", "WC2N" => "Charing Cross", "SE6" =>
 "Catford", "SE7" => "Charlton", "SW3" => "Chelsea", "E4" => "Chingford", "W4" => "Chiswick", "SW4" => "Clapham", "E5" => "Clapton", "EC3V" => "Cornhill", "WC2E" => "Covent Garden", "SE8" => "Deptford", "SE21" => "Dulwich", "WC2B" => "Drury Lane",
-"W5" => "Ealing", "SW5" => "Earls Court", "SE22" => "East Dulwich", "N2" => "East Finchley", "E6" => "East Ham", "SE9" => "Eltham", "EC1M" => "Farringdon", "EC4A" => "Fetter Lane", "N3" => "Finchley Church End", "N4" => "Finsbury Park", "EC1R" =>
+"W5" => "Ealing", "SW5" => "Earls Court", "SE22" => "East Dulwich", "N2" => "East Fintchley", "E6" => "East Ham", "SE9" => "Eltham", "EC1M" => "Farringdon", "EC4A" => "Fetter Lane", "N3" => "Finchley Church End", "N4" => "Finsbury Park", "EC1R" =>
 "Finsbury", "EC1V" => "Finsbury", "E7" => "Forest Gate", "SE23" => "Forest Hill", "SW6" => "Fulham", "WC1R" => "Gray's Inn", "NW11" => "Golders Green", "SE10" => "Greenwich", "EC2V" => "Guildhall", "EC1N" => "Hatton Garden", "E8" => "Hackney", "W6" => "Hammersmith", "NW3" => "Hampstead", "W7" => "Hanwell", "NW4" => "Hendon", "SE24" => "Herne Hill", "N5" => "Highbury", "N6" => "Highgate", "WC1V" => "Holborn", "N7" => "Holloway", "E9" => "Homerton", "N8" => "Hornsey", "N1" => "Islington", 
 "SE11" => "Kennington", "W8" => "Kensington", "NW5" => "Kentish Town", "NW6" => "Kilburn", "WC1X" => "Kings Cross", "SE12" => "Lee", "WC2H" => "Leicester Square", "SE13" => "Lewisham", "E10" => "Leyton", "E11" => "Leytonstone", "EC2M" => "Liverpool
 Street", "EC3M" => "Lloyd's of London", "N9" => "Lower Edmonton", "W9" => "Maida Hill", "E12" => "Manor Park", "EC4N" => "Mansion House", "W1" => "Marble Arch", "NW7" => "Mill Hill", "SW14" => "Mortlake", "EC3R" => "Monument", "N10" => "Muswell
