@@ -1,27 +1,19 @@
-<div class="panel panel-default position-panel" style="background-image: url(<%= position.business.cover_image_profile %>)">
+<%= link_to position_path(position), class:"", target: "_blank" do %>
 
-  <div class="panel-body">
-    <div class="inner-position-box">
-      <h6><%= link_to position.title, position, class: 'inner-position-header', target: "_blank" %><p><%= link_to position.business.name, position.business, :target => "_blank"  %></h6>
-      <p><%= JobCategory.find(position.category).name %> | <%= position.type %> | <%= LondonArea.find_by(postcode: position.business.postcode[/(\S+)/, 1]).name %></p>
+  <div class="panel panel-default position-panel" style="  border:1px #021542 solid;background-image: url(<%= position.business.cover_image_profile %>)">
+    <div class="panel-body">
+
+      <div class="inner-position-box">
+        <h6 class="inner-position-header"><%= position.title %><p style="font-size:.7em;color:#FF534B"><%= position.business.name %></p></h6>
+        <p><%= JobCategory.find(position.category).name %> | <%= LondonArea.find_by(postcode: position.business.postcode[/(\S+)/, 1]).name %></p>
+      </div>
     </div>
-
-      <%= link_to position_path(position), class:"btn btn-default btn-sm view-icon", :target => "_blank" do %>
-      <span class="has-tooltip" data-toggle="tooltip" data-placement="bottom" title="View Job">
-        <i class="fa fa-arrow-circle-o-right"></i>
-      </span>
-      <% end %>
-    <div style="text-align:center;position: absolute;bottom: 10px;left: 10px">
-
-      <% if position.is_this_job_open %>
-      <%= render partial: 'position_advertisements/apply', locals: { position_advertisement: position.current_advertisement } %>
-      <% else %>
-      <%= link_to "unavailable", nil, class: "label label-warning", :disabled => true, style:'border-radius:4px;color:white;font-size:.9em;font-weight:600;margin-top:10px'  %>
-      <% end %>
+    <div class="panel-footer" style="background:white">
+      <%= render partial: 'position_btn', locals: {position: position }%>
     </div>
   </div>
 
-</div>
+<% end %>
 
 <script type="text/javascript">
 $(document).ready(function() {
