@@ -2,13 +2,13 @@
   <%= f.input :form, :input_html => {:value => 'about'}, as: :hidden %>
 
   <div class="pull-right"><span id="summary-count">0</span> characters</div>
-  <%= f.input :summary, required: true, as: :text, label: "About Me", placeholder: "About Me", hint: 'Up to 800 characters', input_html: { :id => "summary-field", :cols => 5, :rows => 5 } %>
+  <%= f.input :summary, required: true, as: :text, label: "About Me", placeholder: "About Me.  This is a good opportunity to tell employers what you're looking for, is this a career or a part-time role while you pursue your dream.  Give them some background, you're more than a piece of paper (computer screen).", hint: 'Up to 800 characters', input_html: { :id => "summary-field", :cols => 5, :rows => 5 } %>
 
   <div class="pull-right"><span id="interests-count">0</span> characters</div>
-  <%= f.input :interests, required: true, as: :text, placeholder: "Interests", hint: 'Up to 800 characters', input_html: { :id => "interests-field", :cols => 5, :rows => 5 } %>
+  <%= f.input :interests, required: true, as: :text, placeholder: "Interests.  What makes you tick?  Guess what, employers are people too with interests and passions, so let them know what makes you get out of bed in the morning. ", hint: 'Up to 800 characters', input_html: { :id => "interests-field", :cols => 5, :rows => 5 } %>
 
   <div class="pull-right"><span id="customer_service-count">0</span> characters</div>
-  <%= f.input :customer_service, as: :text, placeholder: "Can you give an example of good customer service?", hint: 'Up to 800 characters', input_html: { :id => "customer_service-field", :cols => 5, :rows => 5 } %>
+  <%= f.input :customer_service, as: :text, placeholder: "Can you give an example of good customer service?  This may not be relevant to the job you're applying to but you know what we mean.  What does doing a good job mean to you?", hint: 'Up to 800 characters', input_html: { :id => "customer_service-field", :cols => 5, :rows => 5 } %>
 
   <hr>
   <div class="form-actions" style="text-align:center">

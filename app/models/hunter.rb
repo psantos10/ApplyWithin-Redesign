@@ -1,10 +1,9 @@
 class Hunter < ActiveRecord::Base
   belongs_to :user
 
-  validates :first_name, :last_name, :phone, :location, :dob, :nationality, :seeking, :driving_licence, :avatar, presence: true, :if => lambda { |b| b.form == "profile" }
+  validates :first_name, :last_name, :phone, :location, :seeking, :driving_licence, :avatar, presence: true, :if => lambda { |b| b.form == "profile" }
   validates :tagline, length: { minimum: 10, maximum: 200 }, :presence => true, :if => lambda { |b| b.form == "profile" }
   validates :summary, :interests, length: { minimum: 50, maximum: 800 }, :presence => true, :if => lambda { |b| b.form == "about" }
-
 
   has_many :experiences, -> { order('end_date DESC') }, dependent: :destroy
   has_many :educations, -> { order('end_date DESC') }, dependent: :destroy
@@ -12,7 +11,6 @@ class Hunter < ActiveRecord::Base
   has_many :applications, class_name: "PositionApplication"
   has_many :auto_applications
   has_many :available_times, class_name: 'AvailableTime', dependent: :destroy
-
 
   after_create :ensure_available_times
   after_create :check_user

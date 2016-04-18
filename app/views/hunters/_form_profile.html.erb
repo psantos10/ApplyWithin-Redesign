@@ -41,7 +41,7 @@
 
   <hr>
   <div class="pull-right"><span id="body-count">0</span> characters</div>
-  <%= f.input :tagline, required: true, as: :text, placeholder: "Your Tagline", hint: 'Up to 200 characters', input_html: { :id => "body-field", :cols => 5, :rows => 3 } %>
+  <%= f.input :tagline, required: true, as: :text, placeholder: "A sentence or two about yourself. This appears at the top of your profile and is a great chance to catch the eye of an employer.", hint: 'Up to 200 characters', input_html: { :id => "body-field", :cols => 5, :rows => 3 } %>
   <hr>
   <%= f.input :avatar, as: :file, :input_html => {:onchange => "previewFile()"} %>
   <div style="text-align:center;margin:5px">

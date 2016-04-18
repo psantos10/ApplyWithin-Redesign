@@ -23,9 +23,9 @@
   </div>
 
   <div class="pull-right"><span id="tagline-count">0</span> characters</div>
-  <%= f.input :tagline, required: true, placeholder: "Job Tagline", hint: 'Between 20 and 200 characters', input_html: { :id => "tagline-field", :cols => 5, :rows => 3 } %>
+  <%= f.input :tagline, required: true, placeholder: "A sentence or two overview of the job, the more interesting it sounds the more chance you have of attracting a potential employer. ", hint: 'Between 20 and 200 characters', input_html: { :id => "tagline-field", :cols => 5, :rows => 3 } %>
   <div class="pull-right"><span id="body-count">0</span> characters</div>
-  <%= f.input :job_description, required: true, placeholder: "Job Description", hint: 'Between 150 and 700 characters', input_html: { :id => "body-field", :cols => 5, :rows => 7 } %>
+  <%= f.input :job_description, required: true, placeholder: "Job Description.  Guess what, the more information you add about your previous jobs the more chance you have of attracting employers.  We know it's a pain to type this stuff out again but this might be your only chance to impress an employer, so why not take the time (you only have to do it once!).", hint: 'Between 150 and 700 characters', input_html: { :id => "body-field", :cols => 5, :rows => 7 } %>
   <hr>
   <div class="form-actions" style="text-align:center">
     <%= f.submit "Submit", class: 'btn btn-default' %>

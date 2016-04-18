@@ -4,7 +4,7 @@
     <div class="panel panel-default">
       <div class="panel-heading">
         <h3>Current Applications</h3>
-        <p>This is what you've applied to</p>
+        <p>This is what you've applied to recently.</p>
       </div>
       <div class="panel-body">
         <%= render partial: 'position_applications/hunter/current_applications_table', object: current_user.group.current_applications %>
@@ -14,7 +14,7 @@
     <div class="panel panel-default">
       <div class="panel-heading">
         <h3>Auto Apply<%= link_to 'Set-Up Auto Apply', new_hunter_auto_application_path(current_user.group), class:'btn btn-default pull-right' %></h3>
-        <p>Lets make it easy</p>
+        <p>Lets make it super easy to find and apply for jobs.</p>
       </div>
       <div class="panel-body">
         <%= render partial: '/auto_applications/auto_applications_table', object: current_user.group.auto_applications %>
@@ -24,7 +24,7 @@
     <div class="panel panel-default">
       <div class="panel-heading">
         <h3>Past Applications</h4>
-        <p>This is your application history</p>
+        <p>This is your application history.</p>
       </div>
       <div class="panel-body">
         <%= render partial: 'position_applications/hunter/past_applications_table', object: current_user.group.past_applications %>
