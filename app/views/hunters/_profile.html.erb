@@ -1,9 +1,14 @@
 <div class="panel panel-default applicant_gallery">
 
-  <div class="panel-heading applicant-head" style="background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('<%= hunter.cover_image %>');">
+  <% if hunter.cover_photo.present? %>
+  <div class="panel-heading applicant-head" style="background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('<%= hunter.cover_photo %>');">
+  <% else %>
+  <div class="panel-heading applicant-head" style="background-color:#337AB7;">
+  <% end %>
+
     <div class="row">
 
-      <div class="col-lg-offset-0 col-md-offset-0 col-lg-3 col-md-4 col-sm-12 col-xs-12" style="text-align:center">
+      <div class="col-lg-offset-0 col-md-offset-0 col-lg-3 col-md-4 col-sm-12 col-xs-12" style="text-align:center;margin:10px">
         <%= image_tag hunter.avatar.url(:medium), class: "img-circle" %>
       </div>
 
@@ -33,8 +38,7 @@
     <div class="row">
       <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
 
-        <!-- <%= render partial: '/hunters/applicant', locals: { hunter: hunter } %> -->
-        <h5>Experience</h5>
+        <h5 style="text-align:center;margin:20px">Experience</h5>
         <hr style="margin:10px">
         <% if hunter.experiences.present? %>
         <%= render partial: '/experiences/experiences_table', object: hunter.experiences %>
@@ -42,7 +46,7 @@
         <h4 style="text-align:center;margin-top:20px">This is my first job.</h4>
         <% end %>
 
-        <h5 style="margin-top:50px">Education</h5>
+        <h5 style="text-align:center;margin:20px;margin-top:50px">Education</h5>
         <hr style="margin:10px">
         <% if hunter.educations.present? %>
           <div class="table-responsive">
@@ -59,7 +63,7 @@
 
       <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
 
-        <h5>Languages</h5>
+        <h5 style="text-align:center;margin:20px;">Languages</h5>
         <hr style="margin:10px">
         <% if hunter.languages.present? %>
           <%= render partial: '/languages/languages_table', object: hunter.languages %>
@@ -67,7 +71,7 @@
           <h4 style="text-align:center;margin-top:20px">I don't speak any languages.</h4>
         <% end %>
 
-        <h5 style="margin-top:50px">Availability</h5>
+        <h5 style="text-align:center;margin:20px;margin-top:50px">Availability</h5>
         <hr style="margin:10px">
         <div class="panel-body">
           <div class="table-responsive">
@@ -91,10 +95,9 @@
       </div>
 
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <h5 style="text-align:center;margin:20px;">About</h5>
         <hr>
-        <h5>About</h5>
         <%= render partial: '/hunters/about', object: hunter %>
-        <hr>
       </div>
     </div>
 

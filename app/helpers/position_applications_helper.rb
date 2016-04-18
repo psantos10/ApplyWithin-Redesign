@@ -34,19 +34,20 @@ module PositionApplicationsHelper
 
   def prev_arrow(position_applications)
       applications = application_cycler(:left, position_applications)
-      link_to('Back', "?current_applicant_id=#{applications.cycle}",
-             class: 'btn btn-default btn-sm')
+      link_to('back', "?current_applicant_id=#{applications.cycle}",
+           class: 'btn btn-warning btn-circle btn-xl', style:'font-weight:600;padding-top:23px;letter-spacing:1px')
   end
 
   def next_arrow(position_applications)
     applications = application_cycler(:right, position_applications)
-    link_to('Next', "?current_applicant_id=#{applications.cycle}",
-           class: 'btn btn-default btn-sm')
+    link_to('next', "?current_applicant_id=#{applications.cycle}",
+           class: 'btn btn-success btn-circle btn-xl', style:'font-weight:600;padding-top:23px;letter-spacing:1px')
   end
 
   def arrow_icon(direction=:left)
-    raw("<i class='fa fa-arrow-#{direction}'></i>")
+    raw("<i class='fa fa-arrow-#{direction} fa-2x'></i>")
   end
+
 
 private
 

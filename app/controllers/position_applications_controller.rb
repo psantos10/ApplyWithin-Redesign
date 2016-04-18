@@ -73,7 +73,7 @@ private
         format.json { render :show, status: :created, location: hunter }
       else
         position_advertisement.applicants << hunter
-        format.html { redirect_to hunter }
+        format.html { redirect_to :back }
         format.json { render :show, status: :created, location: hunter }
       end
     end

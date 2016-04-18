@@ -92,6 +92,8 @@ GEM
       dotenv (= 1.0.2)
     erubis (2.7.0)
     execjs (2.2.2)
+    font-awesome-rails (4.6.1.0)
+      railties (>= 3.2, < 5.1)
     font-awesome-sass (4.2.2)
       sass (~> 3.2)
     geocoder (1.2.6)
@@ -261,6 +263,7 @@ DEPENDENCIES
   country_select
   devise
   dotenv-rails
+  font-awesome-rails
   font-awesome-sass
   geocoder
   gmaps4rails
@@ -290,3 +293,6 @@ DEPENDENCIES
   underscore-rails
   web-console (~> 2.0)
   will_paginate (~> 3.0.6)
+
+BUNDLED WITH
+   1.11.2

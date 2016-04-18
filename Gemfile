@@ -10,6 +10,7 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'sass-rails', '>= 3.2'
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
+gem "font-awesome-rails"
 gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'

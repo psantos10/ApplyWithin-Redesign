@@ -76,7 +76,7 @@ class Hunter < ActiveRecord::Base
     if cover_photo.present? 
       cover_photo
     else
-      ActionController::Base.helpers.asset_path("wall.jpg")
+      
     end  
 
   end

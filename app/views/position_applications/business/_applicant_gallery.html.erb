@@ -12,130 +12,114 @@
       </div>
     </div>
   </div>
-  <%- else %>
-
+<%- else %>
 <%- hunter = hunter_to_view(applicant_gallery) %>
 <%- application = hunter.application_for(position_advertisement) %>
 <%= record_application_impression(application) %>
 
-<div class="container-fluid">
-
-  <div class="row">
-
-    <div class="col-sm-12 col-xs-12 hidden-lg hidden-md">
-      <div class="panel-body" style="margin-top:-10px;padding-top:0px">
-        <h5>Applications - <%= applicant_gallery.count %> (<%= position_advertisement.new_applications %>)</h5>
-        <div class="btn-group btn-group-justified" role="group" aria-label="...">
-          <%= prev_arrow(applicant_gallery) %>
-          <%= link_to 'Reject', reject_application_position_application_path(application), data: { confirm: 'Are you sure?' }, class: 'btn btn-default btn-sm', method: :put  %>
-          <%= next_arrow(applicant_gallery) %>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-lg-10 col-md-9 col-sm-12 col-xs-12">
-      <%= render partial: 'hunters/profile', locals: { hunter: hunter } %>
-    </div>
-
-    <div class="col-lg-2 col-md-3 hidden-sm hidden-xs">
-
-      <div class="panel-body">
-        <div class="btn-group btn-group-justified" role="group" aria-label="...">
-          <%= prev_arrow(applicant_gallery) %>
-          <%= link_to 'Reject', reject_application_position_application_path(application), data: { confirm: 'Are you sure?' }, class: 'btn btn-default btn-sm', method: :put  %>
-          <%= next_arrow(applicant_gallery) %>
-        </div>
-      </div>
-
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h5>Applications - <%= applicant_gallery.count %> (<%= position_advertisement.new_applications %>)</h5>
-          </div>
-        <div class="panel-body">
-          <%= render partial: 'position_applications/business/applicants_table', object: position_advertisement.applications.active %>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-  <% end %>
-
-<!-- <%- hunter = hunter_to_view(applicant_gallery) %>
-
-<%- if applicant_gallery.empty? %>
   <div class="container-fluid">
-    <div class="col-lg-8 col-lg-offset-2">
-      <div class="panel panel-default">
-        <div class="panel-body" style="padding-bottom:0px">
-        <h2 style="color:#428bca;font-weight:500">Sorry no applications for <%= position_advertisement.title %></h2>
-        <p style="color:grey;font-weight:400">return to your dashboard and we'll let you know when there's been a new application.</p>
-        <hr>
-        <%= link_to 'Dashboard', :dashboard, class:"label label-primary pull-right", style:"color:white;font-size:1.5em;margin-bottom:10px"  %>
+    <div class="row">
+
+      <div class="col-sm-12 col-xs-12 hidden-lg hidden-md">
+        <div class="panel-body" style="margin-top:-10px;padding-top:0px">
+          <div class="dropdown">
+            <h5 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-weight:600;color:#337AB7" ><%= position_advertisement.position.title %> Applications - <%= applicant_gallery.count %> (<%= position_advertisement.new_applications %>)&nbsp;&nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i></h5>
+            <ul class="dropdown-menu" aria-labelledby="dLabel">
+              <% current_user.group.current_advertisements_with_applications.each do |other_advert| %>
+              <li><%= link_to "#{other_advert.position.title} - #{other_advert.applications.count}", position_advertisement_position_applications_path(other_advert), style:"font-weight:600;font-size:.9em;text-align:left" %></li>
+              <% end %>
+            </ul>
+          </div>
+          <hr>
+
+          <div class="col-sm-3 col-xs-3" style="text-align:center;padding-left:0px">
+            <%= prev_arrow(applicant_gallery) %>
+          </div>
+
+          <div class="col-sm-3 col-xs-3" style="text-align:center;padding-left:0px">
+            <%= button_to reject_application_position_application_path(application), data: { confirm: 'Reject #{hunter.first_name} #{hunter.last_name}, are you sure?' }, class: 'btn btn-danger btn-circle btn-xl',  method: :put do %> 
+              <i class='fa fa-times fa-2x'></i>
+            <% end %>
+          </div>
+
+          <div class="col-sm-3 col-xs-3" style="text-align:center;padding-left:0px">
+            <%= button_to reject_application_position_application_path(application), data: { confirm: "Print #{hunter.first_name} #{hunter.last_name}'s profile?" }, class: 'btn btn-info btn-circle btn-xl',  method: :put do %> 
+              <i class='fa fa-print fa-2x'></i>
+            <% end %>
+          </div>
+
+          <div class="col-sm-3 col-xs-3" style="text-align:center;padding-left:0px">
+            <%= next_arrow(applicant_gallery) %>
+          </div>
         </div>
       </div>
+
+      <div class="col-lg-10 col-md-9 col-sm-12 col-xs-12">
+        <%= render partial: 'hunters/profile', locals: { hunter: hunter } %>
+      </div>
+
+      <div class="col-lg-2 col-md-3 hidden-sm hidden-xs">
+        <div class="panel panel-default">
+          <div class="panel-heading" style="padding:5px;padding-left:10px">
+            <h5 style="font-weight:600;color:#FF534B">Applications</h5>
+            <div class="dropdown">
+              <h6 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-weight:600" ><%= position_advertisement.position.title %> - <%= applicant_gallery.count %> (<%= position_advertisement.new_applications %>)&nbsp;&nbsp;<i class="fa fa-caret-down" aria-hidden="true"></i></h6>
+              <ul class="dropdown-menu" aria-labelledby="dLabel">
+                <% current_user.group.current_advertisements_with_applications.each do |other_advert| %>
+                <li><%= link_to "#{other_advert.position.title} - #{other_advert.active_applicant_count}", position_advertisement_position_applications_path(other_advert), style:"text-align:center;font-size:.9em;text-align:left" %></li>
+                <% end %>
+              </ul>
+            </div>
+
+            </div>
+          <div class="panel-body" style="padding:5px">
+            <%= render partial: 'position_applications/business/applicants_table', object: position_advertisement.applications.active %>
+          </div>
+        </div>
+
+        <div class="panel-body" style="padding:10px;padding-bottom:20px;">
+          <div class="col-lg-6 col-md-6" style="text-align:center;padding-left:0px">
+            <%= prev_arrow(applicant_gallery) %>
+            <%= button_to reject_application_position_application_path(application), data: { confirm: "Print #{hunter.first_name} #{hunter.last_name}'s profile?" }, class: 'btn btn-info btn-circle btn-xl',  method: :put do %> 
+              <i class='fa fa-print fa-2x'></i>
+            <% end %>
+          </div>
+          <div class="col-lg-6 col-md-6" style="text-align:center;padding-left:0px">
+            <%= next_arrow(applicant_gallery) %>
+            <%= button_to reject_application_position_application_path(application), data: { confirm: "Reject #{hunter.first_name} #{hunter.last_name}, are you sure?" }, class: 'btn btn-danger btn-circle btn-xl',  method: :put do %> 
+              <i class='fa fa-times fa-2x'></i>
+            <% end %>
+          </div>
+
+          <hr>
+        </div>
+      </div>
+
+      <div class="col-sm-12 col-xs-12 hidden-lg hidden-md">
+        <div class="panel-body" style="margin:10px;">
+          <div class="col-sm-3 col-xs-3" style="text-align:center;padding-left:0px">
+            <%= prev_arrow(applicant_gallery) %>
+          </div>
+
+          <div class="col-sm-3 col-xs-3" style="text-align:center;padding-left:0px">
+            <%= button_to reject_application_position_application_path(application), data: { confirm: 'Reject #{hunter.first_name} #{hunter.last_name}, are you sure?' }, class: 'btn btn-danger btn-circle btn-xl',  method: :put do %> 
+              <i class='fa fa-times fa-2x'></i>
+            <% end %>
+          </div>
+
+          <div class="col-sm-3 col-xs-3" style="text-align:center;padding-left:0px">
+            <%= button_to reject_application_position_application_path(application), data: { confirm: "Print #{hunter.first_name} #{hunter.last_name}'s profile?" }, class: 'btn btn-info btn-circle btn-xl',  method: :put do %> 
+              <i class='fa fa-print fa-2x'></i>
+            <% end %>
+          </div>
+
+          <div class="col-sm-3 col-xs-3" style="text-align:center;padding-left:0px">
+            <%= next_arrow(applicant_gallery) %>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 
-<%- else %>
-<%- application = hunter.application_for(position_advertisement) %>
-
-<%= record_application_impression(application) %>
-
-<div class="container" id="main">
-
-  <div class="row">
-
-    <div class="col-lg-9 col-lg-offset-3" style="margin-bottom:10px">
-
-      <div class="btn-group btn-group-justified" role="group">
-        <div class="btn-group" role="group">
-          <%= prev_arrow(applicant_gallery) %>
-        </div>
-        <div class="btn-group" role="group">
-          <%= link_to raw('<i class="fa fa-thumbs-down"></i>'), reject_application_position_application_path(application), data: { confirm: 'Are you sure?' } , class: 'btn btn-default', style:"color:#F90101;border-radius:4px", method: :put  %>
-
-        </div>
-        <div class="btn-group" role="group">
-          <button type="button" class="btn btn-default" style="border-radius:4px">
-            <i class="fa fa-print" style="color:#009925"></i>
-          </button>
-        </div>
-        <div class="btn-group" role="group">
-            <%=  next_arrow(applicant_gallery) %>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-lg-2 col-md-3 col-sm-12 col-xs-12 hidden-sm hidden-xs">
-
-      <div class="panel panel-default">
-        <div class="panel-body" style="padding:5px">
-        <h5 style="color:#FF8D00;font-weight:600">Applications<p style="font-size:.7em;color:#999999">have a look at the applications received</p></h5>
-      <%= render partial: 'position_applications/business/applications_summary', object: current_user.group.current_advertisements_with_applications %>
-        </div>
-      </div>
-
-
-      <div class="panel panel-default">
-        <div class="panel-body" style="padding:5px">
-        <h5 style="color:#428bca;font-weight:600"><%= position_advertisement.title %> <span class="pull-right"><%= applicant_gallery.count %> (<%= position_advertisement.new_applications %>)</span></h5>
-          <%= render partial: 'position_applications/business/applicants_table', object: position_advertisement.applications.active %>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
-      <%= render partial: 'position_applications/business/applicant', locals: { hunter: hunter } %>
-    </div>
-
-
-  </div>
-</div>
-
-<% end %> -->
+<% end %>
