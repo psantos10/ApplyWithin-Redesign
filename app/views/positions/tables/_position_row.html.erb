@@ -1,15 +1,28 @@
-<tr data-toggle="collapse" data-target=".<%= position_row.id %>"  onclick="" >
-  <td><%= position_row.title %></td>
-  <td><%= JobCategory.find(position_row.category).name %></td>
-  <td ><%= position_row.start_date %></td>
-  <td><%= WeeklyHour.find(position_row.weekly_hours).name %></td>
-  <td><%= position_row.openings %></td>
-  <!-- <td><%= advertisement_or_position_date(position_row) %> ago</td> -->
-  <td style="text-align:center;font-size:.9em"><%= link_to 'view', position_path(position_row), class:'label label-primary', style:'border-radius:4px;color:white;font-size:1em;font-weight:600;margin-top:10px' %></td>
+<tr data-toggle="collapse" data-target=".<%= position_row.id %>"  onclick="" style="font-size:1.1em;">
+
+  <td style="vertical-align:middle;"><%= position_row.title %></td>
+  <td class="hidden-xs" style="vertical-align:middle;"><%= JobCategory.find(position_row.category).name %></td>
+  <td class="hidden-xs" style="vertical-align:middle;"><%= position_row.start_date %></td>
+  <td class="hidden-xs" style="vertical-align:middle;"> <%= WeeklyHour.find(position_row.weekly_hours).name %></td>
+  <td style="text-align:center;font-size:.9em">
+    <%= link_to position_path(position_row), class:'btn btn-primary btn-circle btn-xl', style:'padding-top:20px' do %>
+    <span class="has-tooltip" data-toggle="tooltip" data-placement="bottom" title="view">
+      <i class="fa fa-binoculars fa-2x" aria-hidden="true"></i>
+    </span>
+    <% end %>
+
+  </td>
+
   <% if position_row.is_this_job_open %>
   <td style="text-align:center;font-size:.9em"><%= render partial: 'position_advertisements/apply', locals: { position_advertisement: position_row.current_advertisement } %></td>
   <% else %>
-  <td style="text-align:center;font-size:.9em"><%= link_to "unavailable", nil, class: "label label-warning", :disabled => true, style:'border-radius:4px;color:white;font-size:1em;font-weight:600;margin-top:10px' %></td>
+  <td style="text-align:center;font-size:.9em">
+    <span class="has-tooltip" data-toggle="tooltip" data-placement="bottom" title="unavailable">
+      <%= button_to root_path,  class:"btn btn-danger btn-circle btn-xl", :disabled => true do %>
+        <i class="fa fa-times fa-2x" aria-hidden="true"></i>
+      <% end %>
+    </span>
+  </td>
   <% end %>
 </tr>
 
