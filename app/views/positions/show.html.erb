@@ -48,7 +48,6 @@
             <td style="text-align:center"><%= render partial: 'position_advertisements/apply', locals: { position_advertisement: @position.current_advertisement } %></td>
             <% else %>
             <td style="text-align:center">
-
             <span class="has-tooltip" data-toggle="tooltip" data-placement="bottom" title="Unavailable">
               <%= button_to root_path,  class:"btn btn-danger btn-circle btn-xl", :disabled => true do %>
                 <i class="fa fa-times fa-2x" aria-hidden="true"></i>
