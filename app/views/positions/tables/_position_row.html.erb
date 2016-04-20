@@ -5,12 +5,11 @@
   <td class="hidden-xs" style="vertical-align:middle;"><%= position_row.start_date %></td>
   <td class="hidden-xs" style="vertical-align:middle;"> <%= WeeklyHour.find(position_row.weekly_hours).name %></td>
   <td style="text-align:center;font-size:.9em">
-    <%= link_to position_path(position_row), class:'btn btn-primary btn-circle btn-xl', style:'padding-top:20px' do %>
     <span class="has-tooltip" data-toggle="tooltip" data-placement="bottom" title="view">
-      <i class="fa fa-binoculars fa-2x" aria-hidden="true"></i>
-    </span>
+    <%= link_to position_path(position_row), class:'btn btn-info btn-circle btn-lg', style:'padding-right:20px;padding-top:10px' do %>
+      <i class="fa fa-binoculars" aria-hidden="true"></i>
     <% end %>
-
+    </span>
   </td>
 
   <% if position_row.is_this_job_open %>
@@ -18,8 +17,8 @@
   <% else %>
   <td style="text-align:center;font-size:.9em">
     <span class="has-tooltip" data-toggle="tooltip" data-placement="bottom" title="unavailable">
-      <%= button_to root_path,  class:"btn btn-danger btn-circle btn-xl", :disabled => true do %>
-        <i class="fa fa-times fa-2x" aria-hidden="true"></i>
+      <%= button_to root_path,  class:"btn btn-warning btn-circle btn-lg", :disabled => true do %>
+        <i class="fa fa-times" aria-hidden="true"></i>
       <% end %>
     </span>
   </td>

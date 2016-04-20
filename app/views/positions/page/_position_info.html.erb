@@ -1,5 +1,12 @@
-<div class="panel panel-default col-xs-offset-1 col-sm-offset-0 col-md-offset-0 col-lg-offset-3 col-lg-6 col-md-8 col-sm-8 col-xs-10" id="position_info">
+<div class="panel panel-default col-xs-offset-1 col-sm-offset-2 col-md-offset-2 col-lg-offset-3 col-lg-6 col-md-8 col-sm-8 col-xs-10" id="position_info">
   <div class="panel-body" style="text-align:center">
+    <% if @position.business.owner?(current_user)  %>
+      <%= link_to edit_info_position_path(@position), class:'btn btn-default pull-right' do %>
+      <span class="has-tooltip" data-toggle="tooltip" data-placement="bottom" title="Edit Job Info">
+        <i class="fa fa-pencil-square-o"></i>
+      </span>
+      <% end %>
+    <% end %>
     <!-- <p class="pull-right"style="color:white"><%= advertisement_or_position_date(@position) %> ago</p> -->
     <h3 style="margin-top:10px"><%= @position.title %></h3>
     <h4><%= link_to @position.business.name, @position.business, class: "pinky" %></h4>
@@ -7,36 +14,28 @@
       <h5><%= JobCategory.find(@position.category).name %>&nbsp;&nbsp;|&nbsp;&nbsp;<%= @position.type %>&nbsp;&nbsp;|&nbsp;&nbsp;<%= @position.business.type %></h5>
     </div>
     <p><%= @position.tagline %></p>
-
-    <% if @position.business.owner?(current_user)  %>
-      <%= link_to edit_info_position_path(@position), class:'btn btn-default pull-left' do %>
-      <span class="has-tooltip" data-toggle="tooltip" data-placement="bottom" title="Edit Job Info">
-        <i class="fa fa-pencil-square-o"></i>
-      </span>
-      <% end %>
-    <% end %>
   <div class="addthis_sharing_toolbox" style="margin-top:10px"></div>
-  <span style="margin-top:20px">
+  <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-1 col-sm-10 col-lg-8 col-md-8" style="margin-top:20px;margin-bottom:20px">
     <div class="pull-right" style="font-size:1.3em">
       <% if @position.is_this_job_open %>
       <td style="text-align:center"><%= render partial: 'position_advertisements/apply', locals: { position_advertisement: @position.current_advertisement } %></td>
       <% else %>
       <td style="text-align:center">
       <span class="has-tooltip" data-toggle="tooltip" data-placement="bottom" title="Unavailable">
-        <%= button_to root_path,  class:"btn btn-danger btn-circle btn-xl", :disabled => true do %>
-          <i class="fa fa-times fa-2x" aria-hidden="true"></i>
+        <%= button_to root_path,  class:"btn btn-warning btn-circle btn-lg", :disabled => true do %>
+          <i class="fa fa-times" aria-hidden="true"></i>
         <% end %>
       </span>
       </td>
       <% end %>
     </div>
-    <%= link_to :back, class:'btn btn-info btn-circle btn-xl pull-left', style:'border:0px;padding-top:20px;background-color:#337AB7' do %>
       <span class="has-tooltip" data-toggle="tooltip" data-placement="bottom" title="back">
-        <i class="fa fa-arrow-left fa-2x" aria-hidden="true"></i>
+        <%= link_to :back, class:'btn btn-info btn-circle btn-lg pull-left', style:'padding-top:12px' do %>
+          <i class="fa fa-arrow-left" aria-hidden="true"></i>
+        <% end %>
       </span>
-    <% end %>
-  </span>
-</div>
+    </div>
+  </div>
 </div>
 
 <script type="text/javascript">

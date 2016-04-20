@@ -1,7 +1,11 @@
 <div style="text-align:center;">
   <% if position.is_this_job_open %>
-  <%= render partial: 'position_advertisements/apply', locals: { position_advertisement: position.current_advertisement } %>
+    <%= render partial: 'position_advertisements/apply', locals: { position_advertisement: position.current_advertisement } %>
   <% else %>
-  <%= link_to "unavailable", nil, class: "label label-warning", :disabled => true, style:'border-radius:4px;color:white;font-size:.9em;font-weight:600;margin-top:10px'  %>
+    <span class="has-tooltip" data-toggle="tooltip" data-placement="bottom" title="Unavailable">
+      <%= button_to root_path,  class:"btn btn-warning btn-circle btn-lg", :disabled => true do %>
+        <i class="fa fa-times" aria-hidden="true"></i>
+      <% end %>
+    </span>
   <% end %>
 </div>

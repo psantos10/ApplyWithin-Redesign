@@ -1,16 +1,16 @@
 <% if current_user.group.is_a?(Hunter) && current_user.has_applied?(position_advertisement) %>
 
   <span class="has-tooltip" data-toggle="tooltip" data-placement="bottom" title="You've applied">
-    <%= button_to position_advertisement_position_applications_path(position_advertisement), method: :post, class:"btn btn-warning btn-circle btn-xl", disabled: true do %>
-    <i class="fa fa-check fa-2x" aria-hidden="true"></i>
+    <%= button_to position_advertisement_position_applications_path(position_advertisement), method: :post, class:"btn btn-warning btn-circle btn-lg", disabled: true do %>
+    <i class="fa fa-check" aria-hidden="true"></i>
     <% end %>
   </span>
 
 <% else %>
 
   <span class="has-tooltip" data-toggle="tooltip" data-placement="bottom" title="Apply for <%= position_advertisement.position.title %> @ <%= position_advertisement.position.business.name %> ">
-    <%= button_to position_advertisement_position_applications_path(position_advertisement), method: :post, class:"btn btn-success btn-circle btn-xl", disabled: !current_user.hunter? do %>
-      <i class="fa fa-thumbs-up fa-2x" aria-hidden="true"></i>
+    <%= button_to position_advertisement_position_applications_path(position_advertisement), method: :post, class:"btn btn-success btn-circle btn-lg" do %>
+      <i class="fa fa-bullseye" aria-hidden="true"></i>
     <% end %>
   </span>
 
