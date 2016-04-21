@@ -22,7 +22,7 @@
     <div class="col-md-6">
       <span class="pull-left">
         showing
-        <%= select_tag :per_page, options_for_select([12, 24, 48, 96], params[:per_page].to_i), class: "form-control", style:"width:40px;margin:10px;display:inline", :onchange => "if(this.value){window.location='?per_page='+this.value;}" %>
+        <%= select_tag :per_page, options_for_select([12, 24, 48, 96], params[:per_page].to_i), class: "form-control", style:"width:50px;margin:10px;display:inline", :onchange => "if(this.value){window.location='?per_page='+this.value;}" %>
         of <%= @positions.count %> 
         <% if params[:q].present? %>
           results for <%= params[:q] %>
