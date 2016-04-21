@@ -1,6 +1,6 @@
 <%= link_to position_path(position), class:"", target: "_blank" do %>
 
-  <div class="panel panel-default position-panel" style="  border:1px #021542 solid;background-image: url(<%= position.business.cover_image_profile %>)">
+  <div class="panel panel-default position-panel" style="  border:1px #021542 solid;background-image: url(<%= position.business.cover_image_profile.url(:large) %>)">
     <div class="panel-body">
 
       <div class="inner-position-box">
