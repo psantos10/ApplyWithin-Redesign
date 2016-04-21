@@ -1,23 +1,45 @@
 <div class="container" style="margin-top:-20px">
 
-<%= render '/positions/search' %>
-
-<div class="collapse collapse in" id="collapseExample">
-  <div class="panel-body">
-    <div class="col-lg-offset-1 col-lg-10">
-      <div id="multi_markers" class="map" style='width:100%;height:300px;'></div>
+  <div class="row">
+    <div class="col-lg-12">
+    <%= render '/positions/search' %>
+      <div class="collapse collapse" id="collapseExample">
+        <div class="panel-body">
+          <div class="col-lg-offset-1 col-lg-10">
+            <div id="multi_markers" class="map" style='width:100%;height:300px;'></div>
+          </div>
+        </div>
+      </div>
+      <button id="map_btn" class="btn btn-info btn-circle btn-lg pull-right" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        <span class="has-tooltip" data-toggle="tooltip" data-placement="right" title="Map">
+          <i class="fa fa-map" aria-hidden="true"></i>
+        </span>
+      </button>
     </div>
   </div>
-</div>
 
-<button class="btn btn-default pull-right" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-  Map
-</button>
-
-    <h5>Results:&nbsp;<%= @positions.count %> <%= params[:q] %> <%= params[:location] %></h5>
-    <%= will_paginate @positions, :page_links => true, style:"margin:0px" %>
-    <hr>
   <div class="row">
+    <div class="col-md-6">
+      <span class="pull-left">
+        showing
+        <%= select_tag :per_page, options_for_select([12, 24, 48, 96], params[:per_page].to_i), class: "form-control", style:"width:40px;margin:10px;display:inline", :onchange => "if(this.value){window.location='?per_page='+this.value;}" %>
+        of <%= @positions.count %> 
+        <% if params[:q].present? %>
+          results for <%= params[:q] %>
+        <% end %>
+        <% if params[:location].present? %>
+           in <%= params[:location] %>
+        <% end %>
+      </span>
+    </div>
+    <div class="col-md-6">
+    <%= will_paginate @positions, renderer: BootstrapPagination::Rails, class:'pull-right' %>
+    </div>
+  </div>
+
+
+  <div class="row">
+  <hr style="margin-top:0px">
     <% @positions.each do |position| %>
       <% if position.business.email == nil %>
       <% elsif position.business.name.present? %>
@@ -26,18 +48,22 @@
         </div>
       <% end %>
     <% end %>
-    <%= will_paginate @positions, :page_links => true, style:"margin:0px", class:"pull-right" %>
   </div>
+    <hr>
+    <%= will_paginate @positions, renderer: BootstrapPagination::Rails, class:"pull-right"  %>
 
 </div>
 
 <script type="text/javascript">
-var handler = Gmaps.build('Google', { markers: { clusterer: { maxZoom: 10, gridSize: 100 }}});
-handler.buildMap({ 
-	provider: { mapTypeId: google.maps.MapTypeId.ROADMAP, maxZoom: 18 }, 
-	internal: {id: 'multi_markers'}}, function(){
-  var markers = handler.addMarkers(<%=raw @hash.to_json %>);
-  handler.bounds.extendWith(markers);
-  handler.fitMapToBounds();
-});
+    document.getElementById("map_btn").addEventListener("click", google_map);
+    function google_map() {
+      var handler = Gmaps.build('Google', { markers: { clusterer: { maxZoom: 10, gridSize: 100 }}});
+      handler.buildMap({ 
+    	provider: { mapTypeId: google.maps.MapTypeId.ROADMAP, maxZoom: 18 }, 
+    	internal: {id: 'multi_markers'}}, function(){
+      var markers = handler.addMarkers(<%=raw @hash.to_json %>);
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+      });
+    }
 </script>
