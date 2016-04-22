@@ -1,55 +1,15 @@
 <div class="container" style="margin-top:-10px">
 
   <div class="row">
-    <%= render '/positions/search' %>
-    <div class="col-lg-12">
-      <div class="collapse collapse" id="collapseExample">
-        <div class="panel-body" style="padding-top:0px">
-          <div id="multi_markers" class="map" style='width:100%;height:300px;'></div>
-        </div>
-      </div>
-      <button id="map_btn" class="btn btn-info btn-circle btn-lg pull-right" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-        <span class="has-tooltip" data-toggle="tooltip" data-placement="right" title="Map">
-          <i class="fa fa-map" aria-hidden="true"></i>
-        </span>
-      </button>
-    </div>
+    <%= render 'positions/search'%>
+    <%= render 'positions/map' %>
   </div>
 
   <div class="row">
-    <div class="col-md-6">
-      <span class="pull-left">
-        showing
-        <%= select_tag :per_page, options_for_select([12, 24, 48, 96], params[:per_page].to_i), class: "form-control", style:"width:50px;margin:10px;display:inline", :onchange => "if(this.value){window.location='?per_page='+this.value;}" %>
-        of <%= @positions.count %> 
-        <% if params[:q].present? %>
-          results for <%= params[:q] %>
-        <% end %>
-        <% if params[:location].present? %>
-           in <%= params[:location] %>
-        <% end %>
-      </span>
-    </div>
-    <div class="col-md-6">
-    <%= will_paginate @positions, renderer: BootstrapPagination::Rails, class:'pull-right' %>
+    <div id="positions">
+      <%= render 'positions/results' %>
     </div>
   </div>
-
-
-  <div class="row">
-  <hr style="margin-top:0px">
-    <% @positions.each do |position| %>
-      <% if position.business.email == nil %>
-      <% elsif position.business.name.present? %>
-        <div class="col-xs-offset-0 col-sm-offset-0 col-md-offset-0 col-lg-offset-0 col-lg-3 col-md-4 col-sm-6 col-xs-12">
-          <%= render partial: 'positions/position', locals: {position: position} %>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
-    <hr>
-    <%= will_paginate @positions, renderer: BootstrapPagination::Rails, class:"pull-right"  %>
-
 </div>
 
 <script type="text/javascript">
@@ -65,3 +25,4 @@
       });
     }
 </script>
+

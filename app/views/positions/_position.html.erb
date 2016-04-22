@@ -1,18 +1,21 @@
 <%= link_to position_path(position), class:"", target: "_blank" do %>
+  <div id="position_panel">
+    <div class="panel panel-default position-panel" style="border:1px #021542 solid;background-image: url(<%= position.business.cover_image_profile.url(:large) %>)">
 
-  <div class="panel panel-default position-panel" style="  border:1px #021542 solid;background-image: url(<%= position.business.cover_image_profile.url(:large) %>)">
-    <div class="panel-body">
+      <div class="panel-body">
 
-      <div class="inner-position-box">
-        <h6 class="inner-position-header"><%= position.title %><p style="font-size:.7em;color:#FF534B"><%= position.business.name %></p></h6>
-        <p><%= JobCategory.find(position.category).name %> | <%= LondonArea.find_by(postcode: position.business.postcode[/(\S+)/, 1]).name %></p>
+        <div class="inner-position-box">
+          <h6 class="inner-position-header"><%= position.title %><p style="font-size:.7em;color:#FF534B"><%= position.business.name %></p></h6>
+          <p><%= JobCategory.find(position.category).name %> | <%= LondonArea.find_by(postcode: position.business.postcode[/(\S+)/, 1]).name %></p>
+        </div>
       </div>
-    </div>
-    <div class="panel-footer" style="background:white">
-      <%= render partial: 'positions/position_btn', locals: {position: position }%>
+
+      <div class="panel-footer" style="background:white">
+        <%= render partial: 'positions/position_btn', locals: {position: position }%>
+      </div>
+
     </div>
   </div>
-
 <% end %>
 
 <script type="text/javascript">

@@ -32,4 +32,3 @@ function previewFile() {
     preview.src = "";
   }
 }
-

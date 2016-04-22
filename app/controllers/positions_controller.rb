@@ -10,8 +10,6 @@ class PositionsController < ApplicationController
   def index
     @positions = Position.all.where(status: "available")
 
-    @per_page = params[:per_page] || @positions.per_page || 24
-
     @positions = @positions.waiting(params[:waiting]) if params[:waiting].present?
     @positions = Position.bar(params[:bar]) if params[:bar].present?
     @positions = Position.barista(params[:barista]) if params[:barista].present?
@@ -27,13 +25,17 @@ class PositionsController < ApplicationController
     end
     @positions = @positions.near(params[:location], params[:miles]) if params[:location].present?
 
+    @per_page = params[:per_page] || 24 
     @positions = @positions.order('updated_at DESC').paginate( :per_page => @per_page, :page => params[:page])
-		@hash = Gmaps4rails.build_markers(@positions) do |position, marker|
-		  marker.lat position.latitude
-		  marker.lng position.longitude
-		  marker.infowindow render_to_string(:partial => "/positions/map_marker", :locals => { :position => position}) 
-		  marker.json({ title: position.title })
+
+    gmaps(@positions)
+
+    respond_to do |format|
+        format.html
+        format.json { render json: @positions, status: :ok }
+        format.js
     end
+    
 
     prepare_meta_tags title: "Jobs", description: "Search for jobs in your local area"
   end
@@ -154,4 +156,16 @@ private
   def searched?
     params.keys.include?("search")
   end
+
+  def gmaps(positions)
+    @postions = positions
+  	@hash = Gmaps4rails.build_markers(@positions) do |position, marker|
+  	  marker.lat position.latitude
+  	  marker.lng position.longitude
+  	  marker.infowindow render_to_string(:partial => "/positions/map_marker", :locals => { :position => position}) 
+  	  marker.json({ title: position.title })
+    end
+  end
+
+
 end

@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-lg-12">
+    <%= select_tag :per_page, options_for_select([24, 48, 96], params[:per_page].to_i), class: "form-control", style:"width:50px;margin:10px;display:inline", :onchange => "if(this.value){window.location='?per_page='+this.value;}" %>
+    <%= will_paginate @positions, renderer: BootstrapPagination::Rails, class:'pull-right' %>
+    <hr style="margin-top:0px;margin-bottom:10px">
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-12">
+    <% @positions.each do |position| %>
+      <div class="col-xs-offset-0 col-sm-offset-0 col-md-offset-0 col-lg-offset-0 col-lg-3 col-md-4 col-sm-6 col-xs-12">
+        <%= render partial: 'positions/position', locals: {position: position} %>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div class="row">
+  <hr>
+  <%= will_paginate @positions, renderer: BootstrapPagination::Rails, class:"pull-right"  %>
+</div>
