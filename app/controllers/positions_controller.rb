@@ -10,6 +10,8 @@ class PositionsController < ApplicationController
   def index
     @positions = Position.all.where(status: "available")
 
+    @per_page = params[:per_page] || @positions.per_page || 24
+
     @positions = @positions.waiting(params[:waiting]) if params[:waiting].present?
     @positions = Position.bar(params[:bar]) if params[:bar].present?
     @positions = Position.barista(params[:barista]) if params[:barista].present?
@@ -25,7 +27,6 @@ class PositionsController < ApplicationController
     end
     @positions = @positions.near(params[:location], params[:miles]) if params[:location].present?
 
-    @per_page = params[:per_page] || @positions.per_page || 12
     @positions = @positions.order('updated_at DESC').paginate( :per_page => @per_page, :page => params[:page])
 		@hash = Gmaps4rails.build_markers(@positions) do |position, marker|
 		  marker.lat position.latitude
