@@ -29,16 +29,6 @@ class Position < ActiveRecord::Base
   reverse_geocoded_by :latitude, :longitude
 
   scope :status, -> (status) { where status: "available" }
-  scope :waiting, -> (waiting) { where bracket: 1 }
-  scope :bar, -> (bar) { where bracket: 2 }
-  scope :barista, -> (barista) { where bracket: 3 }
-  scope :chef, -> (chef) { where bracket: 4 }
-  scope :shop, -> (shop) { where bracket: 5 }  
-  # scope :kitchen, -> (kitchen) { where bracket: 6 } kitchen staff & kitchen porter would clash, need a solution
-  scope :kitchen, -> (kitchen) { where bracket: 7 }
-  scope :manager, -> (manager) { where bracket: 8 }
-  scope :assistant, -> (assistant) { where bracket: 9 }
-  scope :supervisor, -> (supervisor) { where bracket: 10 }
 
   def current_advertisement
     advertisements.order("created_at").last

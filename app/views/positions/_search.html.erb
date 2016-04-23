@@ -3,25 +3,25 @@
     <div class="panel-body" style="padding:10px;padding-left:20px;padding-right:20px">
       <%= form_tag positions_path, :method => :get, :html => {:class => "form-inline"} do %>
 
-        <div class="row">
-          <div class="form-group col-md-5 col-sm-5">
+        <div class="row hidden-xs">
+          <div class="form-group col-md-3 col-sm-6">
             <%= text_field_tag :q, params[:q], placeholder: "What?", class:"form-control"  %>
           </div>
-          <div class="form-group col-md-4 col-sm-4 hidden-xs">
+          <div class="form-group col-md-3 col-sm-6">
+            <%= select_tag :bracket, options_for_select(['Waiting staff', 'Bar staff', 'Barista', 'Chef', 'Shop Staff', 'Kitchen Staff', 'Kitchen Porter', 'Manager', 'Assistant Manager', 'Supervisor'], params[:bracket]), class:"form-control" %>
+          </div>
+          <div class="form-group col-md-3 col-sm-6">
             <%= text_field_tag :location, params[:location], placeholder: "Where?", class:"form-control" %>
           </div>
-          <div class="form-group col-md-2 col-sm-2 hidden-xs">
-            <%= select_tag(:miles, options_for_select([1,2.5,5,10,15,20], 5), options = {class:'form-control', style:"width:50px;display:inline"}) %><label style="margin-left:10px">miles</label>
+          <div class="form-group col-md-3 col-sm-3">
+            <%= select_tag(:miles, options_for_select([1,2.5,5,10,15,20], 5), options = {class:'form-control', style:"width:70px;display:inline" }) %>&nbsp;&nbsp;miles
           </div>
         </div>
-        <div class="row">
-          <% JobBracket.all.each do |a| %>
-          <div class="col-md-3 col-sm-6 col-xs-6" style="text-align:left">
-            <%= check_box_tag("#{a.name.downcase.split.first}", a.id, params["#{a.name.downcase.split.first}"] )%>
-            -
-            <%= a.name %>
+
+        <div class="row hidden-lg hidden-md hidden-sm">
+          <div class="col-xs-12" style="text-align:center" >
+            <%= select_tag :small_screen, options_for_select(['Waiting staff', 'Bar staff', 'Barista', 'Chef', 'Shop Staff', 'Kitchen Staff', 'Kitchen Porter', 'Manager', 'Assistant Manager', 'Supervisor'], params[:small_screen]), class:"form-control" %>
           </div>
-          <% end %>
         </div>
 
         <hr style="margin:10px;margin-top:5px">
