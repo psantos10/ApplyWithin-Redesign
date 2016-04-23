@@ -15,7 +15,7 @@ class Position < ActiveRecord::Base
   validates :openings, :start_date, :wage, :weekly_hours, :age_restricted, :customer_facing, :dress_code, :tips, :presence => true, :if => lambda { |b| b.form == "detail"}
   validates :roles_and_responsibilities, :desired_sqa, length: { minimum: 20, maximum: 1000}, :presence => true, :if => lambda { |b| b.form == "about" }
 
-  after_create :set_postcode, :set_area, :set_bracket_name, :set_category_name, :set_business_type
+  after_create :set_postcode, :set_area, :set_bracket_name, :set_category_name, :set_business_type, :set_region
   after_create :create_advertisement
   has_many :advertisements, dependent: :destroy,
            class_name: 'PositionAdvertisement'
@@ -29,7 +29,6 @@ class Position < ActiveRecord::Base
   reverse_geocoded_by :latitude, :longitude
 
   scope :status, -> (status) { where status: "available" }
-
   scope :waiting, -> (waiting) { where bracket: 1 }
   scope :bar, -> (bar) { where bracket: 2 }
   scope :barista, -> (barista) { where bracket: 3 }
@@ -93,6 +92,10 @@ class Position < ActiveRecord::Base
 
   def name
     business.name
+  end
+
+  def set_region
+    self.update_attribute(:rank, "#{LondonArea.find_by(postcode: self.postcode).region}")
   end
 
   private 
