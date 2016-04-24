@@ -17,7 +17,7 @@ class PositionsController < ApplicationController
 
     @positions = @positions.bracket_name("#{params["bracket"]}") if params[:bracket].present?
     @positions = @positions.near(params[:location], params[:miles]) if params[:location].present? && params[:miles].present?
-    @positions = @positions.status("available").order('updated_at DESC').paginate( :per_page => 36, :page => params[:page])
+    @positions = @positions.status("available").order('updated_at DESC').paginate(:page => params[:page], :per_page => 36)
 
     gmaps(@positions)
 

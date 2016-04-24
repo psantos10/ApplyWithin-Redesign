@@ -22,30 +22,6 @@ module PositionsHelper
       position.current_applications.select {|app| app.update_attributes(:deleted_at => DateTime.now) }
   end
 
-  # def sheperdsbush_positions
-  #   Position.all.joins(:business).where('businesses.postcode ILIKE ?', "%W12%").count
-  # end
-  #
-  # def hammersmith_positions
-  #   Position.all.joins(:business).where('businesses.postcode ILIKE ?', "%W6%").count
-  # end
-  #
-  # def chiswick_positions
-  #   Position.all.joins(:business).where('businesses.postcode ILIKE ?', "%W4%").count
-  # end
-  #
-  # def notting_hill_positions
-  #   Position.all.joins(:business).where('businesses.postcode ILIKE ?', "%W11%").count
-  # end
-  #
-  # def ladbroke_grove_positions
-  #   Position.all.joins(:business).where('businesses.postcode ILIKE ?', "%W10%").count
-  # end
-  #
-  # def kensington_positions
-  #   Position.all.joins(:business).where('businesses.postcode ILIKE ?', "%W8%", "%W14%").count
-  # end
-
   def job_hours
     [
       ['10+'],
@@ -115,6 +91,17 @@ module PositionsHelper
       ['no'],
       ['n/a'],
     ]
+  end
+
+
+  def search_result_info(collection)
+    if collection.empty?
+      "no jobs found"
+    elsif collection.count == 1
+      "1 job found"
+    else collection.count >= 1
+      "#{collection.count} jobs found"
+    end
   end
 
 end
