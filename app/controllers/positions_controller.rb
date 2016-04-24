@@ -1,26 +1,23 @@
 class PositionsController < ApplicationController
   include PositionsHelper
   include AutoApplicationsHelper
-  
+
   skip_before_action :authenticate_user!, only: %i[index show]
 
   before_action :business, only: %i[new create]
   before_action :position, only: %i[update edit destroy]
 
   def index
-    @positions = Position.all.where(status: "available")
+    @positions = Position.all
 
-    if PgSearch.multisearch(params["q"]).present?
-      @positions = PgSearch.multisearch(params["q"])
+    if PgSearch.multisearch(params["text"]).present?
+      @positions = PgSearch.multisearch(params["text"])
       @positions = Position.where(id: @positions.map(&:searchable).map(&:id))
     end
 
-    @positions = @positions.where(bracket: JobBracket.find_by(name: params["bracket"])) if params[:bracket].present?
-    @positions = @positions.near(params[:location], params[:miles]) if params[:location].present?
-    @positions = @positions.where(bracket: JobBracket.find_by(name: params["small_screen"])) if params["small_screen"].present?
-
-    @per_page = params[:per_page] || 24 
-    @positions = @positions.order('updated_at DESC').paginate( :per_page => @per_page, :page => params[:page])
+    @positions = @positions.bracket_name("#{params["bracket"]}") if params[:bracket].present?
+    @positions = @positions.near(params[:location], params[:miles]) if params[:location].present? && params[:miles].present?
+    @positions = @positions.status("available").order('updated_at DESC').paginate( :per_page => 36, :page => params[:page])
 
     gmaps(@positions)
 
@@ -29,7 +26,6 @@ class PositionsController < ApplicationController
         format.json { render json: @positions, status: :ok }
         format.js
     end
-    
 
     prepare_meta_tags title: "Jobs", description: "Search for jobs in your local area"
   end

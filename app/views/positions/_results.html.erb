@@ -1,7 +1,6 @@
 <div class="row">
   <div class="col-lg-12">
-    <%= select_tag :per_page, options_for_select([24, 48, 96], params[:per_page].to_i), class: "form-control", style:"width:50px;margin:10px;display:inline", :onchange => "if(this.value){window.location='?per_page='+this.value;}" %>
-    <%= will_paginate @positions, renderer: BootstrapPagination::Rails, class:'pull-right' %>
+    <%= will_paginate @positions, renderer: BootstrapPagination::Rails %>
     <hr style="margin-top:0px;margin-bottom:10px">
   </div>
 </div>
@@ -16,5 +15,4 @@
 </div>
 <div class="row">
   <hr>
-  <%= will_paginate @positions, renderer: BootstrapPagination::Rails, class:"pull-right"  %>
 </div>

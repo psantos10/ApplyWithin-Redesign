@@ -1,4 +1,5 @@
 class GuestUser
+
   def admin_for?(resource)
     false
   end

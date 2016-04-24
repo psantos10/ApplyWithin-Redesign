@@ -28,7 +28,8 @@ class Position < ActiveRecord::Base
   delegate :name, to: :business
   reverse_geocoded_by :latitude, :longitude
 
-  scope :status, -> (status) { where status: "available" }
+  scope :status, -> (status) { where status: status }
+  scope :bracket_name, -> (bracket_name) { where bracket_name: bracket_name }
 
   def current_advertisement
     advertisements.order("created_at").last
