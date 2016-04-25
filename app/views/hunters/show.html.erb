@@ -49,10 +49,12 @@
           <div class="row">
             <div class="col-lg-8 col-md-7">
 
-              <h5 style="text-align:center;margin:30px">Work Experience&nbsp;&nbsp;&nbsp;<span class="has-tooltip" data-toggle="tooltip" data-placement="bottom" title="Add Your Job History"><i class="fa fa-plus-circle" aria-hidden="true"></i></span>
-                <!-- <%= link_to new_hunter_experience_path(current_user.group), class:"btn btn-default btn-sm pull-right", style: 'font-weight:600;color:#AAAAAA' do %>
-                  <span class="has-tooltip" data-toggle="tooltip" data-placement="bottom" title="Add Your Job History">Add Previous Experience</span>
-                <% end %> -->
+              <h5 style="text-align:center;margin:30px">Work Experience&nbsp;&nbsp;&nbsp;
+                <span class="has-tooltip" data-toggle="tooltip" data-placement="bottom" title="Add Your Job History">
+                  <%= link_to new_hunter_experience_path(current_user.group), class:"btn btn-default btn-sm", style: 'color:#AAAAAA' do %>
+                    <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                  <% end %>
+                </span>
               </h5>
               <% if @hunter.experiences.present? %>
                 <%= render partial: '/experiences/experiences_table', object: @hunter.experiences %>
@@ -62,10 +64,13 @@
 
               <hr>
 
-              <h5 style="text-align:center;margin:30px">Education&nbsp;&nbsp;&nbsp;<span class="has-tooltip" data-toggle="tooltip" data-placement="bottom" title="Add Your Education History"><i class="fa fa-plus-circle" aria-hidden="true"></i></span>
-                <!-- <%= link_to new_hunter_education_path(current_user.group), class:"btn btn-default btn-sm pull-right", style: 'font-weight:600;color:#AAAAAA' do %>
-                  <span class="has-tooltip" data-toggle="tooltip" data-placement="bottom" title="Add Your Education History">Add Previous Education</span>
-                <% end %> -->
+              <h5 style="text-align:center;margin:30px">Education&nbsp;&nbsp;&nbsp;
+                <span class="has-tooltip" data-toggle="tooltip" data-placement="bottom" title="Add Your Education History">
+                  <%= link_to new_hunter_education_path(current_user.group), class:"btn btn-default btn-sm", style: 'color:#AAAAAA' do %>
+                    <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                  <% end %>
+                </span>
+
               </h5>
               <% if @hunter.educations.present? %>
                 <%= render partial: '/educations/educations_table', object: @hunter.educations %>
@@ -77,10 +82,12 @@
 
             <div class="col-lg-4 col-md-4">
 
-              <h5 style="text-align:center;margin:30px">Languages&nbsp;&nbsp;&nbsp;<span class="has-tooltip" data-toggle="tooltip" data-placement="bottom" title="Add Language"><i class="fa fa-plus-circle" aria-hidden="true"></i></span>
-                <!-- <%= link_to new_hunter_language_path(current_user.group), class:"btn btn-default btn-sm pull-right", style: 'font-weight:600;color:#AAAAAA' do %>
-                  <span class="has-tooltip" data-toggle="tooltip" data-placement="bottom" title="Add Language">Add Language</span>
-                <% end %> -->
+              <h5 style="text-align:center;margin:30px">Languages&nbsp;&nbsp;&nbsp;
+                <span class="has-tooltip" data-toggle="tooltip" data-placement="bottom" title="Add Language">
+                  <%= link_to new_hunter_language_path(current_user.group), class:"btn btn-default btn-sm", style: 'color:#AAAAAA' do %>
+                    <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                  <% end %>
+                </span>
               </h5>
               <% if @hunter.languages.present? %>
                 <%= render partial: '/languages/languages_table', object: @hunter.languages %>
@@ -90,20 +97,26 @@
 
               <hr>
 
-              <h5 style="text-align:center;margin:30px">Availability&nbsp;&nbsp;&nbsp;<span class="has-tooltip" data-toggle="tooltip" data-placement="bottom" title="Edit Availability"><i class="fa fa-plus-circle" aria-hidden="true"></i></span>
-                <!-- <%= link_to edit_times_hunter_path(current_user.group), class:'btn btn-default btn-sm pull-right', style: 'font-weight:600;color:#AAAAAA' do %>
-                  <span class="has-tooltip" data-toggle="tooltip" data-placement="bottom" title="Edit Availability">Edit Available Times</span>
-                <% end %> -->
+              <h5 style="text-align:center;margin:30px">Availability&nbsp;&nbsp;&nbsp;
+                <span class="has-tooltip" data-toggle="tooltip" data-placement="bottom" title="Edit Availability">
+                  <%= link_to edit_times_hunter_path(current_user.group), class:"btn btn-default btn-sm", style: 'color:#AAAAAA' do %>
+                    <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                  <% end %>
+                </span>
+
               </h5>
               <%= render partial: '/available_times/available_time_table', object: @hunter %>
 
             </div>
 
             <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12">
-              <h5 style="text-align:center;margin:30px">About Me&nbsp;&nbsp;&nbsp;<span class="has-tooltip" data-toggle="tooltip" data-placement="bottom" title="Edit About Me"><i class="fa fa-plus-circle" aria-hidden="true"></i></span>
-              <!-- <%= link_to edit_about_hunter_path(current_user.group), class:"btn btn-default btn-sm pull-right", style: 'font-weight:600;color:#AAAAAA' do %>
-                <span class="has-tooltip" data-toggle="tooltip" data-placement="bottom" title="Edit About Me Section">Edit About Me</span>
-              <% end %> -->
+              <h5 style="text-align:center;margin:30px">About Me&nbsp;&nbsp;&nbsp;
+                <span class="has-tooltip" data-toggle="tooltip" data-placement="bottom" title="Edit About Me">
+                  <%= link_to edit_about_hunter_path(current_user.group), class:"btn btn-default btn-sm", style: 'color:#AAAAAA' do %>
+                    <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                  <% end %>
+                </span>
+
               <%= render partial: '/hunters/about', object: @hunter %>
               <%= link_to new_hunter_auto_application_path(@hunter), class:"btn btn-default pull-right", style:"background-color:#FF534B;color:white;font-size:14px" do %><i class="fa fa-magnet" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Auto Apply<% end %>
             </div>
