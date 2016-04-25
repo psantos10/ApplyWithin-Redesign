@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   
   has_one :hunter
   has_one :business
+  has_many :feedback
 
   include Groups
 

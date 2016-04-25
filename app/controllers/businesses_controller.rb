@@ -141,7 +141,7 @@ private
     params.require(:business).permit(:name, :business_type, :address,
                                      :postcode, :city, :phone, :website,
                                      :about, :longitude, :latitude, :facebook, :google_plus,
-                                     :instagram, :twitter, :tagline, :cover_image, :form, hours_attributes: [
+                                     :instagram, :twitter, :tagline, :cover_image, :form, :source, hours_attributes: [
                                        :id, :opens_at, :closes_at
                                      ])
   end

@@ -19,14 +19,6 @@
       <%= f.input :location, required: true, placeholder: "Postcode", label: "Postcode" %>
     </div>
 
-    <!-- <div class="col-lg-6 col-md-6 col-sm-6">
-      <%= f.input :dob, as: :date, start_year: Date.today.year - 10, end_year: Date.today.year - 65,  order: [:day, :month, :year], required: true %>
-    </div>
-
-    <div class="col-lg-6 col-md-6 col-sm-6">
-      <%= f.input :nationality, collection: Nationality.all, required: true, placeholder: "Nationality", label: "Nationality", prompt: "Nationality" %>
-    </div> -->
-
     <div class="col-lg-4 col-md-4 col-sm-6">
       <%= f.input :seeking, collection: JobCategory.all, required: true, placeholder: "Seeking", label: "Seeking", prompt: "Seeking" %>
     </div>
@@ -61,5 +53,3 @@ $(document).ready(function() {
   });
 });
 </script>
-
-

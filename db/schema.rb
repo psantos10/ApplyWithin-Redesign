@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160423151442) do
+ActiveRecord::Schema.define(version: 20160425000639) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -118,6 +118,7 @@ ActiveRecord::Schema.define(version: 20160423151442) do
     t.integer  "cover_image_file_size"
     t.datetime "cover_image_updated_at"
     t.string   "form"
+    t.string   "source"
   end
 
   create_table "educations", force: :cascade do |t|
@@ -156,6 +157,21 @@ ActiveRecord::Schema.define(version: 20160423151442) do
 
   add_index "experiences", ["hunter_id"], name: "index_experiences_on_hunter_id", using: :btree
 
+  create_table "feedbacks", force: :cascade do |t|
+    t.integer  "users_id"
+    t.string   "name"
+    t.string   "question_1"
+    t.string   "answer_1"
+    t.string   "question_2"
+    t.string   "answer_2"
+    t.string   "question_3"
+    t.string   "questions_2"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "feedbacks", ["users_id"], name: "index_feedbacks_on_users_id", using: :btree
+
   create_table "galleries", force: :cascade do |t|
     t.integer  "business_id"
     t.datetime "created_at",  null: false
@@ -193,6 +209,7 @@ ActiveRecord::Schema.define(version: 20160423151442) do
     t.datetime "cover_photo_updated_at"
     t.string   "form"
     t.string   "start_date"
+    t.string   "source"
   end
 
   create_table "impressions", force: :cascade do |t|
@@ -375,6 +392,7 @@ ActiveRecord::Schema.define(version: 20160423151442) do
     t.datetime "locked_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "source"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

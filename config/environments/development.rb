@@ -36,7 +36,7 @@ Rails.application.configure do
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
 
-  config.assets.compile = true
+  config.assets.compile = false
   config.serve_static_files = false
   
   config.after_initialize do

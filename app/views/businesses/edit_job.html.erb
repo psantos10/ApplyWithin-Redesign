@@ -12,3 +12,7 @@
     </div>
   </div>
 </div>
+
+<% if !@business.source.present? %>
+  <%= render partial: 'sign_up_b_feedback_modal' %>
+<% end %>

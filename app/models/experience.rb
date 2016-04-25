@@ -7,8 +7,6 @@ class Experience < ActiveRecord::Base
   validates :location, presence: true
   validates :tagline, presence: true, length: { minimum: 20, maximum: 200}
   validates :job_description, presence: true, length: { minimum: 150, maximum: 700}
-  # validates :roles_and_responsibilities, presence: true
-  # validates :personal_comment, presence: true
 
   def formatted_start_date
     start_date.strftime("%b %Y") if start_date

@@ -102,6 +102,7 @@ Rails.application.routes.draw do
   resources :galleries
   resources :searches
   resources :photos
+  resources :feedbacks
   resources :impressions, only: %i[create]
   resources :auto_applications
 
